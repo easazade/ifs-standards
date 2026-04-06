@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getProtocolById } from '../data/protocols';
 import { ROUTES } from '../routes.js';
 
-const codeClass = 'rounded bg-slate-200/80 px-1.5 py-0.5 font-mono text-sm text-slate-900';
+const codeClass = 'rounded bg-highlight-med px-1.5 py-0.5 font-mono text-sm text-text';
 
 export function ProtocolPage() {
   const { protocolId } = useParams();
@@ -13,11 +13,11 @@ export function ProtocolPage() {
 
   if (!protocol) {
     return (
-      <article className="max-w-2xl space-y-3 text-slate-800">
-        <h1 className="mt-0 text-2xl font-semibold tracking-tight text-slate-900">Protocol not found</h1>
+      <article className="max-w-2xl space-y-3 text-text">
+        <h1 className="mt-0 text-2xl font-semibold tracking-tight text-text">Protocol not found</h1>
         <p className="leading-relaxed">No protocol matches “{protocolId}”.</p>
         <p>
-          <Link to={ROUTES.HOME} className="font-medium text-blue-700 underline-offset-4 hover:underline">
+          <Link to={ROUTES.HOME} className="font-medium text-iris underline-offset-4 hover:underline">
             Back home
           </Link>
         </p>
@@ -26,8 +26,8 @@ export function ProtocolPage() {
   }
 
   return (
-    <article className="max-w-2xl space-y-4 text-slate-800">
-      <h1 className="mt-0 text-2xl font-semibold tracking-tight text-slate-900">{protocol.title}</h1>
+    <article className="max-w-2xl space-y-4 text-text">
+      <h1 className="mt-0 text-2xl font-semibold tracking-tight text-text">{protocol.title}</h1>
       <p className="leading-relaxed">
         This page is rendered for the dynamic route{' '}
         <code className={codeClass}>{`${ROUTES.PROTOCOL}/:protocolId`}</code>. The current{' '}
