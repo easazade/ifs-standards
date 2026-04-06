@@ -1,0 +1,5 @@
+/**
+ * Tailwind v4: single import wires Preflight (CSS reset), theme, and utilities.
+ * Vite processes this via the @tailwindcss/vite plugin (see vite.config.js).
+ */
+@import 'tailwindcss';
