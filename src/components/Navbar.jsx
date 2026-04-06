@@ -1,16 +1,14 @@
 /**
  * Top app bar. NavLink `className` receives { isActive } — idiomatic with Tailwind variants.
  */
-import { NavLink } from 'react-router-dom'
-import { ROUTES } from '../routes.js'
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '../routes.js';
 
 const navLinkClass = ({ isActive }) =>
   [
     'rounded-md px-2 py-1 text-slate-800 transition-colors',
-    isActive
-      ? 'font-semibold underline decoration-slate-800 underline-offset-4'
-      : 'hover:bg-slate-100',
-  ].join(' ')
+    isActive ? 'font-semibold underline decoration-slate-800 underline-offset-4' : 'hover:bg-slate-100',
+  ].join(' ');
 
 export function Navbar() {
   return (
@@ -25,5 +23,5 @@ export function Navbar() {
         </NavLink>
       </nav>
     </header>
-  )
+  );
 }

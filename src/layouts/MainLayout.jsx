@@ -1,9 +1,9 @@
 /**
  * Layout route: shared chrome with <Outlet /> for nested routes. Spacing/layout via Tailwind utilities.
  */
-import { Outlet } from 'react-router-dom'
-import { Navbar } from '../components/Navbar'
-import { Sidebar } from '../components/Sidebar'
+import { Outlet } from 'react-router-dom';
+import { Navbar } from '../components/Navbar';
+import { Sidebar } from '../components/Sidebar';
 
 export function MainLayout({ showSideBar = true }) {
   return (
@@ -16,5 +16,5 @@ export function MainLayout({ showSideBar = true }) {
         </main>
       </div>
     </div>
-  )
+  );
 }
