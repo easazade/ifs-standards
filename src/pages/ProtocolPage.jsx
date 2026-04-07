@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getProtocolById } from '../data/protocols';
 import { ROUTES } from '../routes.js';
 
-const codeClass = 'rounded bg-highlight-med px-1.5 py-0.5 font-mono text-sm text-text';
+const codeClass = 'rounded bg-surface-muted px-1.5 py-0.5 font-mono text-sm text-text';
 
 export function ProtocolPage() {
   const { protocolId } = useParams();
@@ -17,7 +17,10 @@ export function ProtocolPage() {
         <h1 className="mt-0 text-2xl font-semibold tracking-tight text-text">Protocol not found</h1>
         <p className="leading-relaxed">No protocol matches “{protocolId}”.</p>
         <p>
-          <Link to={ROUTES.HOME} className="font-medium text-iris underline-offset-4 hover:underline">
+          <Link
+            to={ROUTES.HOME}
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
             Back home
           </Link>
         </p>

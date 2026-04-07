@@ -7,7 +7,7 @@ import { Sidebar } from '../components/Sidebar';
 
 export function MainLayout({ showSideBar = true }) {
   return (
-    <div className="flex min-h-screen flex-col bg-base">
+    <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
       <div className="flex min-h-0 flex-1">
         {showSideBar ? <Sidebar /> : null}

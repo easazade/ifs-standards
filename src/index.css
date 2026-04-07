@@ -4,7 +4,7 @@
  * Tailwind v4: single import wires Preflight (CSS reset), theme, and utilities.
  * Vite processes this via the @tailwindcss/vite plugin (see vite.config.js).
  *
- * Theme tokens live in `@theme { }` so Tailwind generates utilities (`bg-base`, `text-iris`, …).
+ * Theme tokens live in `@theme { }` so Tailwind generates utilities (`bg-background`, `text-primary`, …).
  * This matches the common “CSS variables + Tailwind” pattern used across the React ecosystem
  * (same idea as Flutter’s ThemeData / ColorScheme: one source of truth, utilities read from it).
  */
@@ -15,64 +15,77 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Poppins', sans-serif;
 
-  /*
-   * ─── Rosé Pine — Dawn (light) ─────────────────────────────────────────────
-   * Hex values: https://rosepinetheme.com/palette/ingredients/ (Rosé Pine Dawn column)
-   * Role descriptions below: https://rosepinetheme.com/palette/
-   */
+  /* App foundation */
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
 
-  --color-primary: var(--color-rose);
+  --color-surface: #ffffff;
+  --color-on-surface: #111827;
 
-  /* Base — Primary background. Main and accessory panels: application frames, sidebars, tabs, and extensions to the focal context. */
-  --color-base: #faf4ed;
+  --color-surface-muted: #f1f5f9;
+  --color-on-surface-muted: #334155;
 
-  /* Surface — Secondary background atop base. Panels that are not directly related to the focal context: cards, inputs, and status lines. */
-  --color-surface: #fffaf3;
+  --color-surface-elevated: #fcfdff;
+  --color-on-surface-elevated: #0f172a;
 
-  /* Overlay — Tertiary background atop surface. Panels that are more temporary in nature: popovers, notifications, and dialogs. */
-  --color-overlay: #f2e9e1;
+  /* Main semantic actions */
+  --color-primary: rgba(14, 135, 255);
+  --color-primary-80: rgba(14, 135, 255, 0.8);
+  --color-primary-60: rgba(14, 135, 255, 0.6);
+  --color-primary-40: rgba(14, 135, 255, 0.4);
+  --color-primary-20: rgba(14, 135, 255, 0.2);
+  --color-primary-10: rgba(14, 135, 255, 0.1);
+  --color-primary-5: rgba(14, 135, 255, 0.05);
+  --color-on-primary: #282828;
 
-  /* Muted — Low contrast foreground. Ignored content: disabled elements and unfocused text (e.g. comments). */
-  --color-muted: #9893a5;
+  --color-secondary: rgb(255, 14, 78);
+  --color-secondary-80: rgba(255, 14, 78, 0.8);
+  --color-secondary-60: rgba(255, 14, 78, 0.6);
+  --color-secondary-40: rgba(255, 14, 78, 0.4);
+  --color-secondary-20: rgba(255, 14, 78, 0.2);
+  --color-secondary-10: rgba(255, 14, 78, 0.1);
+  --color-secondary-5: rgba(255, 14, 78, 0.05);
+  --color-on-secondary: #343633;
 
-  /* Subtle — Medium contrast foreground. Secondary content: comments, punctuation, and tab names; operators; punctuation. */
-  --color-subtle: #797593;
+  --color-success: #16a34a;
+  --color-on-success: #031b0c;
 
-  /* Text — High contrast foreground. Primary content: normal text, variables, and active content. */
-  --color-text: #575279;
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
 
-  /* Love — Accents. Diagnostic errors; deleted Git files; terminal red / bright red; builtins. */
-  --color-love: #b4637a;
+  /* Optional state helpers */
+  --color-primary-soft: #eef2ff;
+  --color-secondary-soft: #ccfbf1;
+  --color-brand-soft: #fce7f3;
+  --color-success-soft: #dcfce7;
+  --color-error-soft: #fee2e2;
 
-  /* Gold — Accents. Diagnostic warnings; terminal yellow / bright yellow; strings. */
-  --color-gold: #ea9d34;
+  /* Text hierarchy */
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+  --color-text-disabled: #94a3b8;
+  --color-text-inverse: #f8fafc;
 
-  /* Rose — Accents. Matching search background paired with base foreground; modified Git files; terminal cyan; booleans; functions. */
-  --color-rose: #d7827e;
+  /* Dividers / separators */
+  --color-divider-high: #cbd5e1;
+  --color-divider-medium: #e2e8f0;
+  --color-divider-low: #f1f5f9;
 
-  /* Pine — Accents. Renamed Git files; terminal green; conditionals; keywords. */
-  --color-pine: #286983;
+  /* Focus / ring */
+  --color-focus-ring: #818cf8;
 
-  /* Foam — Accents. Diagnostic information; Git additions; terminal blue; keys; tags; types. */
-  --color-foam: #56949f;
-
-  /* Iris — Accents. Diagnostic hints; inline links; merged/staged Git changes; terminal magenta; methods; parameters. */
-  --color-iris: #907aa9;
-
-  /* Highlight Low — Low contrast highlight. Cursorline background. */
-  --color-highlight-low: #f4ede8;
-
-  /* Highlight Med — Medium contrast highlight. Selection background paired with text foreground. */
-  --color-highlight-med: #dfdad9;
-
-  /* Highlight High — High contrast highlight. Borders / visual dividers; cursor background paired with text foreground. */
-  --color-highlight-high: #cecacd;
+  /* Shadows */
+  --color-shadow: 15 23 42;
+  --shadow-sm: 0 1px 2px rgb(var(--color-shadow) / 0.05);
+  --shadow-md: 0 8px 24px rgb(var(--color-shadow) / 0.08);
+  --shadow-lg: 0 16px 40px rgb(var(--color-shadow) / 0.12);
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-base);
+    background-color: var(--color-background);
     color: var(--color-text);
   }
 }
