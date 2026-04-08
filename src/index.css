@@ -96,3 +96,9 @@
     overflow: hidden;
   }
 }
+
+@layer components {
+  .dot{
+    background-color: black;
+  }
+}
