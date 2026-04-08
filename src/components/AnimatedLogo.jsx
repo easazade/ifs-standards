@@ -9,40 +9,49 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
-function AnimatedLogo() {
-  const container = useRef(null);
-
+function useAnimation(target, container, to, back) {
   useGSAP(
     () => {
       const timeline = gsap.timeline({ repeat: -1 });
 
       timeline
-        .to('.dot', {
-          scale: 1.75,
+        .to(target, {
+          scale: 1.1,
           opacity: 0.9,
           duration: 0.5,
-          x: 100,
+          ...to,
           stagger: { each: 0.12, from: 'start' },
           ease: 'sine.out',
         })
-        .to('.dot', {
+        .to(target, {
           scale: 1,
           opacity: 1,
-          x: 0,
           duration: 0.5,
+          ...back,
           stagger: { each: 0.12, from: 'start' },
           ease: 'sine.in',
+        })
+        .to(target, {
+          duration: 1,
         });
     },
     { scope: container }
   );
+}
+
+function AnimatedLogo() {
+  const container = useRef(null);
+  useAnimation('.dot1', container, { left: 20 }, { left: 0 });
+  useAnimation('.dot2', container, { top: 20 }, { top: 0 });
+  useAnimation('.dot3', container, { right: 20 }, { right: 0 });
+  useAnimation('.dot4', container, { bottom: 20 }, { bottom: 0 });
 
   return (
     <div ref={container} className="relative h-10 w-10">
-      <span className="dot absolute left-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot absolute right-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot absolute bottom-0 left-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot absolute bottom-0 right-0 h-1.5 w-1.5 rounded-full bg-text" />
+      <span className="dot1 absolute left-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
+      <span className="dot2 absolute right-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
+      <span className="dot3 absolute bottom-0 right-0 h-1.5 w-1.5 rounded-full bg-text" />
+      <span className="dot4 absolute bottom-0 left-0 h-1.5 w-1.5 rounded-full bg-text" />
     </div>
   );
 }
