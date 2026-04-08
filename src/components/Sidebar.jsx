@@ -1,5 +1,6 @@
 /**
  * Section nav: NavLink + Tailwind for active vs idle states (no inline style objects).
+ * min-h-0 + overflow-y-auto: scrolls independently of <main> (flex default min-height:auto would grow the page).
  */
 import { NavLink } from 'react-router-dom';
 import { PROTOCOLS } from '../data/protocols';
@@ -13,7 +14,10 @@ const protocolLinkClass = ({ isActive }) =>
 
 export function Sidebar() {
   return (
-    <aside className="w-60 shrink-0 border-r border-divider-medium bg-surface p-4" aria-label="Section navigation">
+    <aside
+      className="w-60 shrink-0 min-h-0 overflow-y-auto border-r border-divider-medium bg-surface p-4"
+      aria-label="Section navigation"
+    >
       <p className="mb-3 text-xs font-medium uppercase tracking-wide text-text-muted">Protocols</p>
       <ul className="m-0 list-none space-y-1 p-0">
         {PROTOCOLS.map((p) => (

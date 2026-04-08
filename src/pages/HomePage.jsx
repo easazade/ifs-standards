@@ -5,7 +5,7 @@ import AnimatedLogo from '../components/AnimatedLogo.jsx';
  */
 export function HomePage() {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex min-h-full items-center justify-center">
       <AnimatedLogo />
     </div>
     // <article className="max-w-2xl space-y-3 text-text">

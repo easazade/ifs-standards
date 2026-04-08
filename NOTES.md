@@ -9,6 +9,7 @@
 - [Dynamic routes and `useParams`](#dynamic-routes-and-useparams)
 - [Navigation components: `Link` vs `NavLink`](#navigation-components-link-vs-navlink)
 - [Flutter → React mental model](#flutter--react-mental-model)
+- [App shell scrolling: `h-screen` vs regions](#app-shell-scrolling-h-screen-vs-regions)
 
 ---
 
@@ -69,3 +70,13 @@
 | Base page / shell  | Layout route + `<Outlet />`                                             |
 | Named route + args | Path params (`:id`) + `useParams`, or query (`?q=`) + `useSearchParams` |
 | Navigator.push     | `<Link>` / `useNavigate()`                                              |
+
+---
+
+## App shell scrolling: `h-screen` vs regions
+
+- **Problem**: Using **`h-screen`** (`100vh`) **inside** a layout that already has a **navbar** makes that block as tall as the **full viewport**, not the space **below** the bar. The flex column then **overflows** → the **whole page** scrolls and the bar can leave the viewport. Same idea as Flutter: **`SizedBox(height: MediaQuery.sizeOf(context).height)`** inside a **`Column`** that already has a **`AppBar`** — you double-count height.
+- **Fix**: Establish a **height chain**: `html, body, #root { height: 100% }`, shell **`h-full overflow-hidden`**, row **`flex-1 min-h-0`**, **`main`** and **sidebar** each **`min-h-0`** with their own **`overflow-y-auto`** so they scroll **independently** when only one side is long.
+- **Flex gotcha**: Flex items default to **`min-height: auto`**, so they won’t shrink below content. **`min-h-0`** (or `min-h-0` on the scrollable child) lets **`overflow`** work — similar to capping a **`Flexible`** / **`Expanded`** child in Flutter.
+
+---

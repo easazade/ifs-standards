@@ -1,5 +1,8 @@
 /**
  * Layout route: shared chrome with <Outlet /> for nested routes. Spacing/layout via Tailwind utilities.
+ *
+ * Shell uses h-full + overflow-hidden on the root flex column so only <main> and the sidebar scroll,
+ * not the document (navbar stays visible). Child flex rows need min-h-0 so overflow can shrink.
  */
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
@@ -7,11 +10,11 @@ import { Sidebar } from '../components/Sidebar';
 
 export function MainLayout({ showSideBar = true }) {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden bg-background">
       <Navbar />
       <div className="flex min-h-0 flex-1">
         {showSideBar ? <Sidebar /> : null}
-        <main className="min-h-0 flex-1 overflow-auto p-5 md:p-6">
+        <main className="min-h-0 flex-1 overflow-y-auto p-5 md:p-6">
           <Outlet />
         </main>
       </div>

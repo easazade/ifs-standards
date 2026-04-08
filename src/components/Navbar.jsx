@@ -12,7 +12,7 @@ const navLinkClass = ({ isActive }) =>
 
 export function Navbar() {
   return (
-    <header className="flex h-[52px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
+    <header className="sticky top-0 z-10 flex h-[52px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
       <span className="font-bold text-primary">IFS Standards</span>
       <nav className="flex gap-4" aria-label="Primary">
         <NavLink to={ROUTES.HOME} end className={navLinkClass}>
