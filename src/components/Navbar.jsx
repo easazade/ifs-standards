@@ -3,6 +3,7 @@
  */
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../routes.js';
+import AnimatedLogo from './AnimatedLogo.jsx';
 
 const navLinkClass = ({ isActive }) =>
   [
@@ -13,7 +14,10 @@ const navLinkClass = ({ isActive }) =>
 export function Navbar() {
   return (
     <header className="sticky top-0 z-10 flex h-[52px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
-      <span className="font-bold text-primary">IFS Standards</span>
+      <div className="flex items-center gap-2">
+        <AnimatedLogo />
+        <span className="font-bold text-primary">IFS Standards</span>
+      </div>
       <nav className="flex gap-4" aria-label="Primary">
         <NavLink to={ROUTES.HOME} end className={navLinkClass}>
           Home

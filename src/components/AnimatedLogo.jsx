@@ -9,49 +9,96 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
-function useAnimation(target, container, to, back) {
+function AnimatedLogo() {
+  const container = useRef(null);
+
   useGSAP(
     () => {
-      const timeline = gsap.timeline({ repeat: -1 });
+      const tl = gsap.timeline({ repeat: -1 });
 
-      timeline
-        .to(target, {
-          scale: 1.1,
-          opacity: 0.9,
-          duration: 0.5,
-          ...to,
-          stagger: { each: 0.12, from: 'start' },
-          ease: 'sine.out',
-        })
-        .to(target, {
-          scale: 1,
+      tl.to('.dot1', {
+        x: 8,
+        opacity: 0.9,
+        duration: 0.8,
+        ease: 'sine.out',
+      })
+        .to(
+          '.dot2',
+          {
+            y: 8,
+            opacity: 0.9,
+            duration: 0.8,
+            ease: 'sine.out',
+          },
+          0
+        )
+        .to(
+          '.dot3',
+          {
+            x: -8,
+            opacity: 0.9,
+            duration: 0.8,
+            ease: 'sine.out',
+          },
+          0
+        )
+        .to(
+          '.dot4',
+          {
+            y: -8,
+            opacity: 0.9,
+            duration: 0.8,
+            ease: 'sine.out',
+          },
+          0
+        )
+        .to('.dot1', {
+          x: 0,
           opacity: 1,
-          duration: 0.5,
-          ...back,
-          stagger: { each: 0.12, from: 'start' },
-          ease: 'sine.in',
+          duration: 0.8,
+          ease: 'sine.inOut',
         })
-        .to(target, {
-          duration: 1,
-        });
+        .to(
+          '.dot2',
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'sine.inOut',
+          },
+          '<'
+        )
+        .to(
+          '.dot3',
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'sine.inOut',
+          },
+          '<'
+        )
+        .to(
+          '.dot4',
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'sine.inOut',
+          },
+          '<'
+        )
+        .to({}, { duration: 30 }); // pause
     },
     { scope: container }
   );
-}
-
-function AnimatedLogo() {
-  const container = useRef(null);
-  useAnimation('.dot1', container, { left: 20 }, { left: 0 });
-  useAnimation('.dot2', container, { top: 20 }, { top: 0 });
-  useAnimation('.dot3', container, { right: 20 }, { right: 0 });
-  useAnimation('.dot4', container, { bottom: 20 }, { bottom: 0 });
 
   return (
-    <div ref={container} className="relative h-10 w-10">
-      <span className="dot1 absolute left-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot2 absolute right-0 top-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot3 absolute bottom-0 right-0 h-1.5 w-1.5 rounded-full bg-text" />
-      <span className="dot4 absolute bottom-0 left-0 h-1.5 w-1.5 rounded-full bg-text" />
+    <div ref={container} className="relative h-3 w-3">
+      <span className="dot1 absolute left-0 top-0 h-1 w-1 rounded-full bg-primary" />
+      <span className="dot2 absolute right-0 top-0 h-1 w-1 rounded-full bg-primary" />
+      <span className="dot3 absolute bottom-0 right-0 h-1 w-1 rounded-full bg-primary" />
+      <span className="dot4 absolute bottom-0 left-0 h-1 w-1 rounded-full bg-primary" />
     </div>
   );
 }
