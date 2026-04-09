@@ -9,7 +9,7 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP);
 
-function AnimatedLogo() {
+function AnimatedLogo({ dotColor = 'bg-primary' }) {
   const container = useRef(null);
 
   useGSAP(
@@ -95,10 +95,10 @@ function AnimatedLogo() {
 
   return (
     <div ref={container} className="relative h-3 w-3">
-      <span className="dot1 absolute left-0 top-0 h-1 w-1 rounded-full bg-primary" />
-      <span className="dot2 absolute right-0 top-0 h-1 w-1 rounded-full bg-primary" />
-      <span className="dot3 absolute bottom-0 right-0 h-1 w-1 rounded-full bg-primary" />
-      <span className="dot4 absolute bottom-0 left-0 h-1 w-1 rounded-full bg-primary" />
+      <span className={'dot1 absolute left-0 top-0 h-1 w-1 rounded-full ' + dotColor} />
+      <span className={'dot2 absolute right-0 top-0 h-1 w-1 rounded-full ' + dotColor} />
+      <span className={'dot3 absolute bottom-0 right-0 h-1 w-1 rounded-full ' + dotColor} />
+      <span className={'dot4 absolute bottom-0 left-0 h-1 w-1 rounded-full ' + dotColor} />
     </div>
   );
 }
