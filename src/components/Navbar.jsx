@@ -22,6 +22,9 @@ export function Navbar() {
         <NavLink to={ROUTES.HOME} end className={navLinkClass}>
           Home
         </NavLink>
+        <NavLink to={ROUTES.PROTOCOL} className={navLinkClass}>
+          Protocols
+        </NavLink>
         <NavLink to={ROUTES.ABOUT} className={navLinkClass}>
           About
         </NavLink>

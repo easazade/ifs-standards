@@ -11,10 +11,13 @@ import { SEGMENTS as s } from './routes.js';
 const App = () => {
   return (
     <Routes>
-      <Route element={<MainLayout />}>
+      <Route element={<MainLayout showSideBar={false} />}>
         <Route index element={<HomePage />} />
-        <Route path={`/${s.PROTOCOL}/:${s.PROTOCOL}Id`} element={<ProtocolPage />} />
+
         <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+      <Route path={`/${s.PROTOCOL}`} element={<MainLayout />}>
+        <Route path={`:${s.PROTOCOL}Id`} element={<ProtocolPage />} />
       </Route>
       <Route path={s.ABOUT} element={<MainLayout showSideBar={false} />}>
         <Route index element={<AboutPage />} />
