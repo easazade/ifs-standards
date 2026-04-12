@@ -377,7 +377,8 @@
                           "fill": "$color.text.subtle",
                           "content": "Terms of Service",
                           "fontFamily": "Inter",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -385,7 +386,8 @@
                           "fill": "$color.text.subtle",
                           "content": "Privacy Policy",
                           "fontFamily": "Inter",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -457,7 +459,8 @@
                                   "fill": "$color.text.muted",
                                   "content": "Alex Smith's workspace",
                                   "fontFamily": "Inter",
-                                  "fontSize": 11
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             }
@@ -516,7 +519,8 @@
                       "fill": "$color.text.muted",
                       "content": "Get started with IFS Standards",
                       "fontFamily": "Inter",
-                      "fontSize": 15
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -569,7 +573,8 @@
                               "content": "Use models, instructions, and demonstrations to create a custom agent to deploy on le Chat.",
                               "lineHeight": 1.45,
                               "fontFamily": "Inter",
-                              "fontSize": 14
+                              "fontSize": 14,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -632,7 +637,8 @@
                               "content": "Create and deploy a fine-tuned model from your own data.",
                               "lineHeight": 1.45,
                               "fontFamily": "Inter",
-                              "fontSize": 14
+                              "fontSize": 14,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -723,7 +729,8 @@
                               "content": "Make your first Chat completion API requests.",
                               "lineHeight": 1.4,
                               "fontFamily": "Inter",
-                              "fontSize": 14
+                              "fontSize": 14,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
@@ -785,7 +792,8 @@
                               "fill": "$color.text.muted",
                               "content": "Explore our market-leading open models.",
                               "fontFamily": "Inter",
-                              "fontSize": 14
+                              "fontSize": 14,
+                              "fontWeight": "normal"
                             }
                           ]
                         },
