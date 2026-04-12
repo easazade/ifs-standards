@@ -19,7 +19,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
       tl.to('.dot1', {
         x: 8,
         opacity: 0.9,
-        duration: 0.8,
+        duration: 0.3,
         ease: 'sine.out',
       })
         .to(
@@ -27,7 +27,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             y: 8,
             opacity: 0.9,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.out',
           },
           0
@@ -37,7 +37,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             x: -8,
             opacity: 0.9,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.out',
           },
           0
@@ -47,7 +47,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             y: -8,
             opacity: 0.9,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.out',
           },
           0
@@ -55,7 +55,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
         .to('.dot1', {
           x: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.3,
           ease: 'sine.inOut',
         })
         .to(
@@ -63,7 +63,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.inOut',
           },
           '<'
@@ -73,7 +73,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             x: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.inOut',
           },
           '<'
@@ -83,7 +83,7 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.3,
             ease: 'sine.inOut',
           },
           '<'
