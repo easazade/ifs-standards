@@ -13,11 +13,11 @@
 * Background: `#f2f1ed`
 * Surface: `#ebeae5` (primary), `#e6e5e0` (secondary)
 * Text: `#26251e`
-* Secondary text: `rgba(38,37,30,0.55)`
+* Secondary text: `#26251e8c`
 * Accent: `#f54e00`
 * Hover / Error: `#cf2d56`
 * Success: `#1f8a65`
-* Border: `rgba(38,37,30,0.1)`
+* Border: `#26251e1a`
 
 ---
 
@@ -70,23 +70,23 @@ Rules:
 ### Button (Secondary / Pill)
 
 * Background: `#e6e5e0`
-* Text: `rgba(38,37,30,0.6)`
+* Text: `#26251e99`
 * Radius: `9999px`
 * Padding: `4px 10px`
 
 ### Card
 
 * Background: `#e6e5e0`
-* Border: `1px solid rgba(38,37,30,0.1)`
+* Border: `1px solid #26251e1a`
 * Radius: `8px`
 * Padding: `16px`
 
 ### Input
 
 * Background: transparent or surface
-* Border: `1px solid rgba(38,37,30,0.1)`
+* Border: `1px solid #26251e1a`
 * Padding: `8px`
-* Focus: border → `rgba(38,37,30,0.2)`
+* Focus: border → `#26251e33`
 
 ---
 
