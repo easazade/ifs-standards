@@ -307,3 +307,11 @@ Borders: `oklab()` for edge colors, warm brown @ alpha 0.1 / 0.2 / 0.55 → orga
 6. Hover text `#cf2d56` = signature
 7. Shadows: big blur (28px, 70px) for soft depth
 8. Sub-8px scale (1.5–6px) matters for micro alignment
+
+
+### Pencil.dev AI Agent Guide 
+- Pencil is a design as code solution **use pencil mcp**
+- Keep in mind design will be converted to code later 
+- Define reused ui elements as pencil components so they can be exported to individual components in code so they can be reused in code as well
+- Define reusable values as pencil variables (design tokens) so they can be exported to code
+- Use pencil slots, variables, components where needed

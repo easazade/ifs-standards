@@ -1,5 +1,19 @@
 # AGENTS.md
 
+## About IFS (Individual Freedom System)
+
+**System Philosophy:** The IFS is a "Servant-Architecture" for governance. It operates on the principle that sovereignty is non-transferable. Power resides permanently with the individual and is only temporarily delegated to roles or entities.
+
+**Dynamic Role Delegation:** Unlike static elected terms, IFS enables Real-time Authority Revocation. Users do not "elect" leaders; they assign specific responsibilities to "Stewards" whose permissions can be modified or terminated instantly by the affected collective.
+
+**Proportional Governance (The Scope Rule):** Decision-making power is strictly limited to the affected radius. If a decision impacts a town, only that town's participants possess the voting keys. If it impacts a nation, the keys scale accordingly.
+
+**Radical Transparency & Fiscal Agency:** Every resource flow is indexed and public. "Taxation" is replaced by Direct Resource Allocation—users do not pay into a black box; they programmatically direct their contributions to specific services and can audit every transaction in real-time.
+
+## About This Project:
+
+**IFS Standards:** This repository defines schemas, protocols, rules for Dynamic Consent, Asset Traceability, and Modular Rule-Setting, providing the protocols to instantiate a friction-less, transparent society. These Standards can be used and followed to implement a software system.
+
 ## Commands
 
 - `npm run dev` - Start Vite dev server
