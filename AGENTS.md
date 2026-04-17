@@ -14,6 +14,12 @@
 
 **IFS Standards:** This repository defines schemas, protocols, rules for Dynamic Consent, Asset Traceability, and Modular Rule-Setting, providing the protocols to instantiate a friction-less, transparent society. These Standards can be used and followed to implement a software system.
 
+## Source of truth
+
+- Product feature requirements live in `specs/<feature>/<requirement-type>.md`. 
+  - requirement can be types are usually `ui`, `data`, `logic` or etc
+- UI rules live in `DESIGN.md`
+- Design files live in `design/` as .pen files created by pencil.dev which is a design as code tool. design files can be modified via pencil mcp by agents they must follow `DESIGN.md` guidelines
 
 
 ## Commands
@@ -55,14 +61,8 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
 - Colors: Use HEX only. No RGBA.
+- Design Tokens: Are defined as pencil variables
 - alwaysApply: false
-
-## Source of truth
-
-- Product feature requirements live in `specs/<feature>/<requirement-type>.md`. 
-  - requirement can be types are usually `ui`, `data`, `logic` or etc
-- UI rules live in `DESIGN.md`
-- Design files live in `design/` as .pen files created by pencil.dev which is a design as code tool. design files can be modified via pencil mcp by agents they must follow `DESIGN.md` guidelines
 
 ## Key Files
 
