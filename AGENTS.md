@@ -16,11 +16,10 @@
 
 ## Source of truth
 
-- Product feature requirements live in `specs/<feature>/<requirement-type>.md`. 
+- Product feature requirements live in `specs/<feature>/<requirement-type>.md`.
   - requirement can be types are usually `ui`, `data`, `logic` or etc
 - UI rules live in `DESIGN.md`
 - Design files live in `design/` as .pen files created by pencil.dev which is a design as code tool. design files can be modified via pencil mcp by agents they must follow `DESIGN.md` guidelines
-
 
 ## Commands
 
@@ -32,19 +31,28 @@
 
 Here is the compressed, low-entropy version of your rules. I have stripped the conversational "fluff," combined related instructions, and used concise "caveman-style" directives to minimize token usage while maintaining intent.
 
-
 ## Rules
 
+### Read Rules First
+
+- At start of each conversation, read AGENTS.md.
+- Identify rules with `alwaysApply: true` — these MUST be followed.
+- Identify rules with `alwaysApply: false` — follow unless user specifies otherwise.
+- alwaysApply: true
+
 ### React/JS Learning (Intelligent)
+
 - Teach React & Advanced JS.
-- Update `NOTES.md`: Include TOC with links, sections for new concepts. 
+- Update `NOTES.md`: Include TOC with links, sections for new concepts.
 - Coding: Add short comments above new concepts/types.
 - Reference: Use Flutter/Dart analogies.
 - Discretion: Decide if `NOTES.md` entry, code comment, or both is required.
 - alwaysApply: false
 
 ### Trace & Report
+
 - End every response with:
+
 ```
 ## Trace
 - Rules used:
@@ -53,15 +61,18 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - (Use "unknown" if unsure; keep concise)
 - alwaysApply: true
 ```
+
 ### Optimization
+
 - Use caveman logic: Shorten prompts, minimize context/cost unless forbidden.
 - alwaysApply: true
 
 ### Design & Pencil MCP
+
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
 - Colors: Use HEX only. No RGBA.
-- Design Tokens: Are defined as pencil variables
+- Design Tokens: Source of truth is `design/tokens.json`. Every .pen file must define all tokens from tokens.json identically.
 - alwaysApply: false
 
 ## Key Files
