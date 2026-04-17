@@ -1319,6 +1319,146 @@
     }
   ],
   "variables": {
+    "color-background": {
+      "type": "color",
+      "value": "#f2f1ed"
+    },
+    "color-surface-primary": {
+      "type": "color",
+      "value": "#ebeae5"
+    },
+    "color-surface-secondary": {
+      "type": "color",
+      "value": "#e6e5e0"
+    },
+    "color-text": {
+      "type": "color",
+      "value": "#26251e"
+    },
+    "color-text-secondary": {
+      "type": "color",
+      "value": "#26251e8c"
+    },
+    "color-text-muted": {
+      "type": "color",
+      "value": "#26251e99"
+    },
+    "color-accent": {
+      "type": "color",
+      "value": "#f54e00"
+    },
+    "color-link-hover": {
+      "type": "color",
+      "value": "#f54e00"
+    },
+    "color-error": {
+      "type": "color",
+      "value": "#cf2d56"
+    },
+    "color-success": {
+      "type": "color",
+      "value": "#1f8a65"
+    },
+    "color-border": {
+      "type": "color",
+      "value": "#26251e1a"
+    },
+    "color-border-focus": {
+      "type": "color",
+      "value": "#26251e33"
+    },
+    "font-family-heading": {
+      "type": "string",
+      "value": "Poppins"
+    },
+    "font-family-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "new-color": {
+      "type": "color",
+      "value": "#65431f"
+    },
+    "font-family-code": {
+      "type": "string",
+      "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    },
+    "font-size-h1": {
+      "type": "number",
+      "value": 40
+    },
+    "font-size-h2": {
+      "type": "number",
+      "value": 28
+    },
+    "font-size-h3": {
+      "type": "number",
+      "value": 22
+    },
+    "font-size-body": {
+      "type": "number",
+      "value": 16
+    },
+    "font-size-small": {
+      "type": "number",
+      "value": 14
+    },
+    "font-weight-heading-min": {
+      "type": "number",
+      "value": 500
+    },
+    "font-weight-heading-max": {
+      "type": "number",
+      "value": 600
+    },
+    "font-weight-body": {
+      "type": "number",
+      "value": 400
+    },
+    "line-height-min": {
+      "type": "number",
+      "value": 1.4
+    },
+    "line-height-max": {
+      "type": "number",
+      "value": 1.6
+    },
+    "spacing-base": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-8": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-12": {
+      "type": "number",
+      "value": 12
+    },
+    "spacing-16": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-24": {
+      "type": "number",
+      "value": 24
+    },
+    "spacing-32": {
+      "type": "number",
+      "value": 32
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 4
+    },
+    "radius-default": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-pill": {
+      "type": "number",
+      "value": 9999
+    },
     "border-width-default": {
       "type": "number",
       "value": 1
@@ -1343,106 +1483,6 @@
       "type": "number",
       "value": 16
     },
-    "color-accent": {
-      "type": "color",
-      "value": "#f54e00"
-    },
-    "color-background": {
-      "type": "color",
-      "value": "#f2f1ed"
-    },
-    "color-border": {
-      "type": "color",
-      "value": "#26251e1a"
-    },
-    "color-border-focus": {
-      "type": "color",
-      "value": "#26251e33"
-    },
-    "color-error": {
-      "type": "color",
-      "value": "#cf2d56"
-    },
-    "color-link-hover": {
-      "type": "color",
-      "value": "#f54e00"
-    },
-    "color-success": {
-      "type": "color",
-      "value": "#1f8a65"
-    },
-    "color-surface-primary": {
-      "type": "color",
-      "value": "#ebeae5"
-    },
-    "color-surface-secondary": {
-      "type": "color",
-      "value": "#e6e5e0"
-    },
-    "color-text": {
-      "type": "color",
-      "value": "#26251e"
-    },
-    "color-text-muted": {
-      "type": "color",
-      "value": "#26251e99"
-    },
-    "color-text-secondary": {
-      "type": "color",
-      "value": "#26251e8c"
-    },
-    "duration-transition-max": {
-      "type": "number",
-      "value": 200
-    },
-    "duration-transition-min": {
-      "type": "number",
-      "value": 150
-    },
-    "font-family-body": {
-      "type": "string",
-      "value": "system-ui"
-    },
-    "font-family-code": {
-      "type": "string",
-      "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-    },
-    "font-family-heading": {
-      "type": "string",
-      "value": "system-ui"
-    },
-    "font-size-body": {
-      "type": "number",
-      "value": 16
-    },
-    "font-size-h1": {
-      "type": "number",
-      "value": 40
-    },
-    "font-size-h2": {
-      "type": "number",
-      "value": 28
-    },
-    "font-size-h3": {
-      "type": "number",
-      "value": 22
-    },
-    "font-size-small": {
-      "type": "number",
-      "value": 14
-    },
-    "font-weight-body": {
-      "type": "number",
-      "value": 400
-    },
-    "font-weight-heading-max": {
-      "type": "number",
-      "value": 600
-    },
-    "font-weight-heading-min": {
-      "type": "number",
-      "value": 500
-    },
     "input-padding": {
       "type": "number",
       "value": 8
@@ -1451,49 +1491,13 @@
       "type": "number",
       "value": 1200
     },
-    "line-height-max": {
+    "duration-transition-min": {
       "type": "number",
-      "value": 1.6
+      "value": 150
     },
-    "line-height-min": {
+    "duration-transition-max": {
       "type": "number",
-      "value": 1.4
-    },
-    "radius-default": {
-      "type": "number",
-      "value": 8
-    },
-    "radius-pill": {
-      "type": "number",
-      "value": 9999
-    },
-    "radius-sm": {
-      "type": "number",
-      "value": 4
-    },
-    "spacing-12": {
-      "type": "number",
-      "value": 12
-    },
-    "spacing-16": {
-      "type": "number",
-      "value": 16
-    },
-    "spacing-24": {
-      "type": "number",
-      "value": 24
-    },
-    "spacing-32": {
-      "type": "number",
-      "value": 32
-    },
-    "spacing-8": {
-      "type": "number",
-      "value": 8
-    },
-    "spacing-base": {
-      "type": "number",
-      "value": 8
+      "value": 200
     }
   }
 }

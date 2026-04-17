@@ -72,8 +72,8 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
 - Colors: Use HEX only. No RGBA.
-- Design Tokens: Source of truth is `design/tokens.json`. Every .pen file must define all tokens from tokens.json identically.
-- alwaysApply: false
+- Design Tokens: Source of truth is `design/tokens.json`. Before any .pen work, run `bash scripts/sync-tokens.sh` to sync tokens to tokens.pen.
+- alwaysApply: true
 
 ## Key Files
 
