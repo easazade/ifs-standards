@@ -39,14 +39,14 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 
 ### Trace & Report
 - End every response with:
-
-### Trace
+```
+## Trace
 - Rules used:
 - Skills/Tools:
 - Assumptions:
 - (Use "unknown" if unsure; keep concise)
 - alwaysApply: true
-
+```
 ### Optimization
 - Use caveman logic: Shorten prompts, minimize context/cost unless forbidden.
 - alwaysApply: true
