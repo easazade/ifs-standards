@@ -31,7 +31,21 @@
 
 Here is the compressed, low-entropy version of your rules. I have stripped the conversational "fluff," combined related instructions, and used concise "caveman-style" directives to minimize token usage while maintaining intent.
 
-## Rules
+## Key Files
+
+- **Entry**: `src/main.jsx` - React app with BrowserRouter
+- **Routes**: `src/routes.js` - Route definitions
+- **Data**: `src/data/protocols.js` - Protocol data source
+- **Layout**: `src/layouts/MainLayout.jsx` - Navbar + Sidebar wrapper
+
+## Notes
+
+- Tailwind v4 uses `@tailwindcss/vite` plugin (not the old postcss approach)
+- GSAP animations via `@gsap/react` hook
+- No tests configured
+
+
+## Rules (IMPORTANT)
 
 ### Read Rules First
 
@@ -67,6 +81,14 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - Use caveman logic: Shorten prompts, minimize context/cost unless forbidden.
 - alwaysApply: true
 
+### Script Recommendations
+
+- At each run start, briefly review `scripts/script-recommendations.md`
+- When encountering tasks that are context-heavy, tedious, or token-costly, document the pattern there with: task description, why costly, potential solution
+- Do NOT auto-implement - flag for discussion
+- Only suggest scripts that meet criteria: likely 5%+ token savings, no negative effect on task quality
+- alwaysApply: true
+
 ### Design & Pencil MCP
 
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
@@ -75,15 +97,3 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - Design Tokens: Source of truth is `design/tokens.json`. Before any .pen work, run `bash scripts/sync-tokens.sh` to sync tokens to tokens.pen.
 - alwaysApply: true
 
-## Key Files
-
-- **Entry**: `src/main.jsx` - React app with BrowserRouter
-- **Routes**: `src/routes.js` - Route definitions
-- **Data**: `src/data/protocols.js` - Protocol data source
-- **Layout**: `src/layouts/MainLayout.jsx` - Navbar + Sidebar wrapper
-
-## Notes
-
-- Tailwind v4 uses `@tailwindcss/vite` plugin (not the old postcss approach)
-- GSAP animations via `@gsap/react` hook
-- No tests configured
