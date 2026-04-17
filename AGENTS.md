@@ -14,6 +14,8 @@
 
 **IFS Standards:** This repository defines schemas, protocols, rules for Dynamic Consent, Asset Traceability, and Modular Rule-Setting, providing the protocols to instantiate a friction-less, transparent society. These Standards can be used and followed to implement a software system.
 
+
+
 ## Commands
 
 - `npm run dev` - Start Vite dev server
@@ -22,7 +24,41 @@
 - `npm run lint` - Run ESLint
 - `npm run format` - Format with Prettier
 
+Here is the compressed, low-entropy version of your rules. I have stripped the conversational "fluff," combined related instructions, and used concise "caveman-style" directives to minimize token usage while maintaining intent.
+
+
+## Rules
+
+### React/JS Learning (Intelligent)
+- Teach React & Advanced JS.
+- Update `NOTES.md`: Include TOC with links, sections for new concepts. 
+- Coding: Add short comments above new concepts/types.
+- Reference: Use Flutter/Dart analogies.
+- Discretion: Decide if `NOTES.md` entry, code comment, or both is required.
+- alwaysApply: false
+
+### Trace & Report
+- End every response with:
+
+### Trace
+- Rules used:
+- Skills/Tools:
+- Assumptions:
+- (Use "unknown" if unsure; keep concise)
+- alwaysApply: true
+
+### Optimization
+- Use caveman logic: Shorten prompts, minimize context/cost unless forbidden.
+- alwaysApply: true
+
+### Design & Pencil MCP
+- Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
+- .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
+- Colors: Use HEX only. No RGBA.
+- alwaysApply: false
+
 ## Source of truth
+
 - Product feature requirements live in `specs/<feature>/<requirement-type>.md`. 
   - requirement can be types are usually `ui`, `data`, `logic` or etc
 - UI rules live in `DESIGN.md`

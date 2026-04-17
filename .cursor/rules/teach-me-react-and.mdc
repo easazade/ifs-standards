@@ -4,3 +4,4 @@ alwaysApply: false
 ---
 
 # Teach Me React and Javascript
+Teach me React and advanced Jsavascript. Everytime a new react concept is being coded, a document section or subsection should be added to it int NOTES.md document. Also a short code comments should be added on top of the code for that new concept/class/type/function etc. The Document should contain a table of content at the top with a lint to all the sections & sub-sections. the decision whether is something is really important to be included int NOTES.md document or whether just 1 or 2 line of comments on top of code will sufice or both is needed falls than to the you to decide. Also note that I come from Flutter & Dart world so it's ok to make Flutter and Dart references like saying this is the equivilant of That in Flutter.
