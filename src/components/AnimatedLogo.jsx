@@ -95,10 +95,10 @@ function AnimatedLogo({ dotColor = 'bg-primary' }) {
 
   return (
     <div ref={container} className="relative h-3 w-3">
-      <span className={'dot1 absolute left-0 top-0 h-1 w-1 rounded-full ' + dotColor} />
-      <span className={'dot2 absolute right-0 top-0 h-1 w-1 rounded-full ' + dotColor} />
-      <span className={'dot3 absolute bottom-0 right-0 h-1 w-1 rounded-full ' + dotColor} />
-      <span className={'dot4 absolute bottom-0 left-0 h-1 w-1 rounded-full ' + dotColor} />
+      <span className={'dot dot1 left-0 top-0 h-1 w-1 ' + dotColor} />
+      <span className={'dot dot2 right-0 top-0 h-1 w-1 ' + dotColor} />
+      <span className={'dot dot3 bottom-0 right-0 h-1 w-1 ' + dotColor} />
+      <span className={'dot dot4 bottom-0 left-0 h-1 w-1 ' + dotColor} />
     </div>
   );
 }
