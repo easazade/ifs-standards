@@ -21,9 +21,9 @@
   --color-text-secondary: #26251e8c;
   --duration-transition-max: 200ms;
   --duration-transition-min: 150ms;
-  --font-family-body: system-ui;
+  --font-family-body: Inter;
   --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-family-heading: system-ui;
+  --font-family-heading: Poppins;
   --font-size-body: 16px;
   --font-size-h1: 40px;
   --font-size-h2: 28px;

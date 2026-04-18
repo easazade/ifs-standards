@@ -1380,6 +1380,193 @@
       "fontFamily": "Inter",
       "fontSize": 16,
       "fontWeight": "normal"
+    },
+    {
+      "type": "frame",
+      "id": "hB3A1",
+      "x": 8,
+      "y": 1220,
+      "name": "Navbar",
+      "reusable": true,
+      "width": 1200,
+      "height": 64,
+      "fill": "$color-background",
+      "stroke": {
+        "align": "inside",
+        "thickness": "$border-width-default",
+        "fill": "$color-border"
+      },
+      "padding": [
+        "$spacing-12",
+        "$spacing-16"
+      ],
+      "justifyContent": "space_between",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "C8W2W",
+          "name": "left-wrap",
+          "gap": 48,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "KCf6o",
+              "name": "logo",
+              "fill": "$color-text",
+              "content": "IFS Standards",
+              "fontFamily": "$font-family-heading",
+              "fontSize": "$font-size-body",
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "0mD5f",
+              "name": "nav-links",
+              "gap": "$spacing-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B6Y8i",
+                  "name": "welcome",
+                  "fill": "$color-text-secondary",
+                  "content": "Welcome",
+                  "fontFamily": "$font-family-body",
+                  "fontSize": "$font-size-small",
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "E4lYl",
+                  "name": "docs",
+                  "fill": "$color-primary",
+                  "content": "Docs",
+                  "fontFamily": "$font-family-body",
+                  "fontSize": "$font-size-small",
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "S4DDc",
+                  "name": "api",
+                  "fill": "$color-text-secondary",
+                  "content": "API",
+                  "fontFamily": "$font-family-body",
+                  "fontSize": "$font-size-small",
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "gD3S2",
+                  "name": "learn",
+                  "fill": "$color-text-secondary",
+                  "content": "Learn",
+                  "fontFamily": "$font-family-body",
+                  "fontSize": "$font-size-small",
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "Gz2qe",
+                  "name": "help",
+                  "fill": "$color-text-secondary",
+                  "content": "Help",
+                  "fontFamily": "$font-family-body",
+                  "fontSize": "$font-size-small",
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0mIRH",
+          "name": "right-wrap",
+          "gap": "$spacing-12",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "NI9wz",
+              "name": "search",
+              "width": 248,
+              "fill": "$color-surface-primary",
+              "cornerRadius": "$radius-default",
+              "stroke": {
+                "align": "inside",
+                "thickness": "$border-width-default",
+                "fill": "$color-border"
+              },
+              "gap": "$spacing-8",
+              "padding": [
+                "$spacing-8",
+                "$spacing-12"
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "group",
+                  "id": "L337m",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "b7MVY",
+                      "x": 22,
+                      "y": 0,
+                      "name": "searchText",
+                      "fill": "$color-text-secondary",
+                      "content": "Search docs...",
+                      "fontFamily": "$font-family-body",
+                      "fontSize": "$font-size-small",
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Bgpjk",
+                      "x": 0,
+                      "y": 2.5,
+                      "name": "searchIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "search",
+                      "iconFontFamily": "lucide",
+                      "fill": "$color-text-secondary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "8Bym7",
+                  "name": "searchKbd",
+                  "fill": "$color-surface-secondary",
+                  "cornerRadius": "$radius-pill",
+                  "padding": [
+                    2,
+                    6
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "msV68",
+                      "name": "searchKbdText",
+                      "fill": "$color-text-secondary",
+                      "content": "⌘K",
+                      "fontFamily": "$font-family-body",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {
@@ -1461,7 +1648,7 @@
     },
     "font-family-body": {
       "type": "string",
-      "value": "system-ui"
+      "value": "Inter"
     },
     "font-family-code": {
       "type": "string",
@@ -1469,7 +1656,7 @@
     },
     "font-family-heading": {
       "type": "string",
-      "value": "system-ui"
+      "value": "Poppins"
     },
     "font-size-body": {
       "type": "number",

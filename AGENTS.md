@@ -96,8 +96,7 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
 - .lib.pen files are shared pencil libraries that must be imported into all .pen files in the design/ dir
 - Colors: Use HEX only. No RGBA.
-- Design Tokens: Source of truth is `tokens.lib.pen`
-- Design Components: Source of truth is `components.lib.pen`
+- Design Tokens & Components: Source of truth is `design-system.lib.pen`
 - After each design run if needed run `node scripts/tokens-to-code.mjs` to regenerate index.css
 - alwaysApply: false
 

@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
-const tokensPenPath = path.join(rootDir, 'design', 'tokens.lib.pen');
+const tokensPenPath = path.join(rootDir, 'design', 'design-system.lib.pen');
 const indexCssPath = path.join(rootDir, 'src', 'index.css');
 
 const cssHeader = `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
@@ -46,7 +46,7 @@ async function main() {
   const { variables } = JSON.parse(tokensPenContent);
 
   if (!variables || typeof variables !== 'object') {
-    throw new Error('No variables found in design/tokens.lib.pen');
+    throw new Error('No variables found in design/design-system.lib.pen');
   }
 
   const cssOutput = `${cssHeader}${buildThemeBlock(variables)}${cssFooter}`;
