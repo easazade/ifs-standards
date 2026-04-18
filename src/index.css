@@ -8,7 +8,6 @@
   --button-secondary-padding-x: 10px;
   --button-secondary-padding-y: 4px;
   --card-padding: 16px;
-  --color-accent: #f54e00;
   --color-background: #f2f1ed;
   --color-border: #26251e1a;
   --color-border-focus: #26251e33;
@@ -46,5 +45,6 @@
   --spacing-32: 32px;
   --spacing-8: 8px;
   --spacing-base: 8px;
+  --color-primary: #f54e00;
 }
 @import './custom.css';

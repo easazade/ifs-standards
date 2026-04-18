@@ -15,7 +15,7 @@
 | **Surface (S)** | `#e6e5e0`   |
 | **Text (P)**    | `#26251e`   |
 | **Text (S)**    | `#26251e8c` |
-| **Accent**      | `#f54e00`   |
+| **Primary**      | `#f54e00`   |
 | **Hover/Err**   | `#cf2d56`   |
 | **Success**     | `#1f8a65`   |
 | **Border**      | `#26251e1a` |

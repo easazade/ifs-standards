@@ -230,7 +230,7 @@
               "cornerRadius": 8,
               "id": "YwrM9",
               "name": "s7",
-              "fill": "$color-accent",
+              "fill": "$color-primary",
               "width": 48,
               "height": 48,
               "stroke": {
@@ -1407,10 +1407,6 @@
       "type": "number",
       "value": 16
     },
-    "color-accent": {
-      "type": "color",
-      "value": "#f54e00"
-    },
     "color-background": {
       "type": "color",
       "value": "#f2f1ed"
@@ -1558,6 +1554,10 @@
     "spacing-base": {
       "type": "number",
       "value": 8
+    },
+    "color-primary": {
+      "type": "color",
+      "value": "#f54e00"
     }
   }
 }
