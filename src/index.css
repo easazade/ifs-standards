@@ -1,91 +1,50 @@
-
-
-/**
- * Tailwind v4: single import wires Preflight (CSS reset), theme, and utilities.
- * Vite processes this via the @tailwindcss/vite plugin (see vite.config.js).
- *
- * Theme tokens live in `@theme { }` so Tailwind generates utilities (`bg-background`, `text-primary`, …).
- * This matches the common “CSS variables + Tailwind” pattern used across the React ecosystem
- * (same idea as Flutter’s ThemeData / ColorScheme: one source of truth, utilities read from it).
- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Poppins', sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Foundation - Warm Minimal Palette */
+  --border-width-default: 1px;
+  --button-primary-padding-x: 14px;
+  --button-primary-padding-y: 10px;
+  --button-secondary-padding-x: 10px;
+  --button-secondary-padding-y: 4px;
+  --card-padding: 16px;
+  --color-accent: #f54e00;
   --color-background: #f2f1ed;
-  --color-on-background: #26251e;
-
-  --color-surface: #ebeae5;
-  --color-on-surface: #26251e;
-
-  --color-surface-muted: #e6e5e0;
-  --color-on-surface-muted: #26251e99;
-
-  --color-surface-elevated: #ebeae5;
-  --color-on-surface-elevated: #26251e;
-
-  /* Semantic Actions */
-  --color-primary: #f54e00;
-  --color-on-primary: #f2f1ed;
-
-  --color-secondary: #26251e;
-  --color-on-secondary: #ebeae5;
-
-  --color-success: #1f8a65;
-  --color-on-success: #f2f1ed;
-
-  --color-error: #cf2d56;
-  --color-on-error: #ffffff;
-
-  /* Text Hierarchy */
-  --color-text: #26251e;
-  --color-text-secondary: #26251e8c;
-  --color-text-muted: #26251e99;
-  --color-text-inverse: #f2f1ed;
-
-  /* Borders & Dividers */
   --color-border: #26251e1a;
   --color-border-focus: #26251e33;
-  --color-divider: #26251e1a;
-
-  /* Interactive States */
-  --color-accent: #f54e00;
+  --color-error: #cf2d56;
   --color-link-hover: #f54e00;
-  --color-button-hover: #cf2d56;
-
-  /* Spacing (8px grid) */
-  --spacing-base: 8px;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-
-  /* Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --color-success: #1f8a65;
+  --color-surface-primary: #ebeae5;
+  --color-surface-secondary: #e6e5e0;
+  --color-text: #26251e;
+  --color-text-muted: #26251e99;
+  --color-text-secondary: #26251e8c;
+  --duration-transition-max: 200ms;
+  --duration-transition-min: 150ms;
+  --font-family-body: system-ui;
+  --font-family-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-family-heading: system-ui;
+  --font-size-body: 16px;
+  --font-size-h1: 40px;
+  --font-size-h2: 28px;
+  --font-size-h3: 22px;
+  --font-size-small: 14px;
+  --font-weight-body: 400;
+  --font-weight-heading-max: 600;
+  --font-weight-heading-min: 500;
+  --input-padding: 8px;
+  --layout-max-width: 1200px;
+  --line-height-max: 1.6;
+  --line-height-min: 1.4;
+  --radius-default: 8px;
   --radius-pill: 9999px;
-
-  /* Typography Sizes */
-  --text-h1: 40px;
-  --text-h2: 28px;
-  --text-h3: 22px;
-  --text-body: 16px;
-  --text-small: 14px;
-
-  /* Button Dimensions */
-  --button-px-primary: 14px;
-  --button-py-primary: 10px;
-  --button-px-pill: 10px;
-  --button-py-pill: 4px;
-
-  /* Transition */
-  --animate-transition: 150ms ease-in-out;
+  --radius-sm: 4px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-8: 8px;
+  --spacing-base: 8px;
 }
-
-@import './custom.css'
+@import './custom.css';

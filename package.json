@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "clean": "rm -rf node_modules && rm package-lock.json"
+    "clean": "rm -rf node_modules && rm package-lock.json",
+    "tokens:code": "node scripts/tokens-to-code.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

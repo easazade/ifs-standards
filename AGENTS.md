@@ -51,7 +51,7 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 
 - At start of each conversation, read AGENTS.md.
 - Identify rules with `alwaysApply: true` — these MUST be followed.
-- Identify rules with `alwaysApply: false` — follow unless user specifies otherwise.
+- Identify rules with `alwaysApply: false` — follow intelligently if rule applies to task.
 - alwaysApply: true
 
 ### React/JS Learning (Intelligent)
@@ -78,7 +78,7 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 
 ### Optimization
 
-- Use caveman logic: Shorten prompts, minimize context/cost unless forbidden.
+- Use caveman skill: Shorten prompts, minimize context/cost unless forbidden.
 - alwaysApply: true
 
 ### Script Recommendations
@@ -92,8 +92,12 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 ### Design & Pencil MCP
 
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
+- pencil mcp: main design tool
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
+- .lib.pen files are shared pencil libraries that must be imported into all .pen files in the design/ dir
 - Colors: Use HEX only. No RGBA.
-- Design Tokens: Source of truth is `design/tokens.json`. Before any .pen work, run `bash scripts/sync-tokens.sh` to sync tokens to tokens.pen.
-- alwaysApply: true
+- Design Tokens: Source of truth is `tokens.lib.pen`
+- Design Components: Source of truth is `components.lib.pen`
+- After each design run if needed run `node scripts/tokens-to-code.mjs` to regenerate index.css
+- alwaysApply: false
 
