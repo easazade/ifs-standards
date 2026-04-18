@@ -13,10 +13,10 @@ const navLinkClass = ({ isActive }) =>
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-10 flex h-[52px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
+    <header className="sticky top-0 z-10 flex h-[64px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
       <div className="flex items-center gap-2">
         <AnimatedLogo />
-        <span className="font-bold text-primary">IFS Standards</span>
+        <h1 className="font-bold text-primary">IFS Standards</h1>
       </div>
       <nav className="flex gap-4" aria-label="Primary">
         <NavLink to={ROUTES.HOME} end className={navLinkClass}>
