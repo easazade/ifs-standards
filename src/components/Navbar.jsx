@@ -1,36 +1,65 @@
 /**
- * Top app bar. NavLink `className` receives { isActive } — idiomatic with Tailwind variants.
+ * Design-system based navbar with logo, nav links, and search.
  */
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../routes.js';
 import AnimatedLogo from './AnimatedLogo.jsx';
 
-const navLinkClass = ({ isActive }) =>
+const navLinkClass = (isActive) =>
   [
-    'rounded-md px-2 py-1 text-text transition-colors',
-    isActive ? 'font-semibold underline decoration-text underline-offset-4' : 'hover:bg-surface-muted',
+    'text-sm font-medium transition-colors',
+    isActive ? 'text-primary font-semibold' : 'text-text-secondary hover:text-text',
   ].join(' ');
+
+const navLinks = [
+  { label: 'Welcome', href: ROUTES.HOME },
+  { label: 'Protocols', href: ROUTES.PROTOCOL },
+  { label: 'About', href: ROUTES.ABOUT },
+];
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-10 flex h-[64px] shrink-0 items-center justify-between border-b border-divider-medium bg-surface px-5">
-      <NavLink to={ROUTES.HOME} end >
-      <div className="flex items-center gap-2">
-        <AnimatedLogo />
-        <h1 className="font-bold text-primary">IFS Standards</h1>
+    <header className="flex h-16 shrink-0 items-center justify-between border border-border bg-surface px-4 py-3">
+      <div className="flex items-center gap-12">
+        <NavLink to={ROUTES.HOME} end className="flex items-center gap-2">
+          <AnimatedLogo dotColor={'bg-text'} />
+          <span className="font-heading text-base font-semibold text-text">IFS Standards</span>
+        </NavLink>
+        <nav className="flex items-center gap-6" aria-label="Primary">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.label}
+              to={link.href}
+              className={({ isActive }) => navLinkClass(isActive)}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
       </div>
-      </NavLink>
-      <nav className="flex gap-4" aria-label="Primary">
-        <NavLink to={ROUTES.HOME} end className={navLinkClass}>
-          Home
-        </NavLink>
-        <NavLink to={ROUTES.PROTOCOL} className={navLinkClass}>
-          Protocols
-        </NavLink>
-        <NavLink to={ROUTES.ABOUT} className={navLinkClass}>
-          About
-        </NavLink>
-      </nav>
+      <div className="flex items-center gap-3">
+        <div className="flex w-[248px] items-center justify-between rounded-lg border border-border bg-surface-primary px-3 py-2">
+          <div className="flex items-center gap-2">
+            <svg
+              className="h-3.5 w-3.5 text-text-secondary"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <span className="text-sm text-text-secondary">Search docs...</span>
+          </div>
+          <span className="rounded-full bg-surface-secondary px-1.5 py-0.5 text-xs font-medium text-text-secondary">
+            ⌘K
+          </span>
+        </div>
+      </div>
     </header>
   );
 }

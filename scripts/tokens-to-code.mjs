@@ -13,6 +13,7 @@ const cssHeader = `@import url('https://fonts.googleapis.com/css2?family=Inter:w
 `;
 
 const cssFooter = `
+
 @import './custom.css';
 `;
 
@@ -36,7 +37,9 @@ function formatTokenValue(name, token) {
 }
 
 function buildThemeBlock(variables) {
-  const lines = Object.entries(variables).map(([name, token]) => `  --${name}: ${formatTokenValue(name, token)};`);
+  const lines = Object.entries(variables)
+    .sort(([nameA], [nameB]) => nameA.localeCompare(nameB))
+    .map(([name, token]) => `  --${name}: ${formatTokenValue(name, token)};`);
 
   return `@theme {\n${lines.join('\n')}\n}`;
 }
