@@ -97,6 +97,6 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - .lib.pen files are shared pencil libraries that must be imported into all .pen files in the design/ dir
 - Colors: Use HEX only. No RGBA.
 - Design Tokens & Components: Source of truth is `design-system.lib.pen`
-- After each design run if needed run `node scripts/tokens-to-code.mjs` to regenerate index.css
+- run `node scripts/tokens-to-code.mjs` to regenerate index.css base on design tokens
+- Design to Code: only tailwind inline css classes, Use defined variables, no hardcoding
 - alwaysApply: false
-

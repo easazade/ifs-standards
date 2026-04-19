@@ -8,6 +8,7 @@ import { HomePage } from './pages/HomePage';
 import { ProtocolPage } from './pages/ProtocolPage';
 import { SEGMENTS as s } from './routes.js';
 import PageNotFound from './pages/PageNotFound.jsx';
+import { TestPage } from './pages/TestPage.jsx';
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
       </Route>
       <Route path={s.ABOUT} element={<MainLayout showSideBar={false} />}>
         <Route index element={<AboutPage />} />
+      </Route>
+      <Route path={"/test"} element={<MainLayout showSideBar={false} />}>
+        <Route index element={<TestPage />} />
       </Route>
       <Route path="*" element={<MainLayout showSideBar={false} />}>
         <Route path="*" element={<PageNotFound />} />
