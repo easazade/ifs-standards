@@ -44,7 +44,6 @@ Here is the compressed, low-entropy version of your rules. I have stripped the c
 - GSAP animations via `@gsap/react` hook
 - No tests configured
 
-
 ## Rules (IMPORTANT)
 
 ### Read Rules First

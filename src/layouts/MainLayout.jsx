@@ -7,6 +7,7 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Sidebar } from '../components/Sidebar';
+import PropTypes from 'prop-types';
 
 export function MainLayout({ showSideBar = true }) {
   return (
@@ -21,3 +22,7 @@ export function MainLayout({ showSideBar = true }) {
     </div>
   );
 }
+
+MainLayout.propTypes = {
+  showSideBar: PropTypes.bool,
+};

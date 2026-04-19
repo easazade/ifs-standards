@@ -1,4 +1,3 @@
-
 @layer base {
   /* Full-height chain so the layout can use h-full instead of min-h-screen (avoids document scroll). */
   html,
@@ -6,24 +5,24 @@
   #root {
     height: 100%;
   }
-  
+
   body {
     font-family: var(--font-family-body);
     background-color: var(--color-background);
     color: var(--color-text);
     overflow: hidden;
   }
-  
+
   h1 {
     font-size: var(--font-size-h1);
     font-family: var(--font-family-heading);
   }
-  
+
   h2 {
     font-size: var(--font-size-h2);
     font-family: var(--font-family-heading);
   }
-  
+
   h3 {
     font-size: var(--font-size-h3);
     font-family: var(--font-family-heading);
@@ -31,7 +30,7 @@
 }
 
 @layer components {
-  .dot{
+  .dot {
     @apply absolute rounded-full;
   }
 }

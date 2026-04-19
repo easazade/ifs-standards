@@ -8,20 +8,20 @@
 
 ## 2. Tokens
 
-| Token           | Value       |
-| :-------------- | :---------- |
-| **Background**  | `#f2f1ed`   |
-| **Surface (P)** | `#ebeae5`   |
-| **Surface (S)** | `#e6e5e0`   |
-| **Text (P)**    | `#26251e`   |
-| **Text (Muted)**| `#26251e99` |
-| **Text (S)**    | `#26251e8c` |
-| **Primary**     | `#f54e00`   |
-| **Link Hover**  | `#f54e00`   |
-| **Hover/Err**   | `#cf2d56`   |
-| **Success**     | `#1f8a65`   |
-| **Border**      | `#26251e1a` |
-| **Border Focus**| `#26251e33` |
+| Token            | Value       |
+| :--------------- | :---------- |
+| **Background**   | `#f2f1ed`   |
+| **Surface (P)**  | `#ebeae5`   |
+| **Surface (S)**  | `#e6e5e0`   |
+| **Text (P)**     | `#26251e`   |
+| **Text (Muted)** | `#26251e99` |
+| **Text (S)**     | `#26251e8c` |
+| **Primary**      | `#f54e00`   |
+| **Link Hover**   | `#f54e00`   |
+| **Hover/Err**    | `#cf2d56`   |
+| **Success**      | `#1f8a65`   |
+| **Border**       | `#26251e1a` |
+| **Border Focus** | `#26251e33` |
 
 ## 3. Typography
 

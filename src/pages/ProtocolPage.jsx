@@ -17,10 +17,7 @@ export function ProtocolPage() {
         <h1 className="mt-0 text-2xl font-semibold tracking-tight text-text">Protocol not found</h1>
         <p className="leading-relaxed">No protocol matches “{protocolId}”.</p>
         <p>
-          <Link
-            to={ROUTES.HOME}
-            className="font-medium text-primary underline-offset-4 hover:underline"
-          >
+          <Link to={ROUTES.HOME} className="font-medium text-primary underline-offset-4 hover:underline">
             Back home
           </Link>
         </p>

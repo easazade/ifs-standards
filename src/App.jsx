@@ -22,7 +22,7 @@ const App = () => {
       <Route path={s.ABOUT} element={<MainLayout showSideBar={false} />}>
         <Route index element={<AboutPage />} />
       </Route>
-      <Route path={"/test"} element={<MainLayout showSideBar={false} />}>
+      <Route path={'/test'} element={<MainLayout showSideBar={false} />}>
         <Route index element={<TestPage />} />
       </Route>
       <Route path="*" element={<MainLayout showSideBar={false} />}>

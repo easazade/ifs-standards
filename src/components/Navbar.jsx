@@ -27,11 +27,7 @@ export function Navbar() {
         </NavLink>
         <nav className="flex items-center gap-6" aria-label="Primary">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.label}
-              to={link.href}
-              className={({ isActive }) => navLinkClass(isActive)}
-            >
+            <NavLink key={link.label} to={link.href} className={({ isActive }) => navLinkClass(isActive)}>
               {link.label}
             </NavLink>
           ))}
