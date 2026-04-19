@@ -23,7 +23,7 @@ export function Navbar() {
       <div className="flex items-center gap-12">
         <NavLink to={ROUTES.HOME} end className="flex items-center gap-2">
           <AnimatedLogo dotColor={'bg-text'} />
-          <span className="font-heading text-base font-semibold text-text">IFS Standards</span>
+          <span className="font-heading text-base font-family-heading font-semibold text-text">IFS Standards</span>
         </NavLink>
         <nav className="flex items-center gap-6" aria-label="Primary">
           {navLinks.map((link) => (
