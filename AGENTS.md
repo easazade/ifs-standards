@@ -93,6 +93,6 @@
 - .lib.pen files are shared pencil libraries that must be imported into all .pen files in the design/ dir
 - Colors: Use HEX only. No RGBA.
 - Design Tokens & Components: Source of truth is `design-system.lib.pen`
-- run `node scripts/tokens-to-code.mjs` to regenerate index.css base on design tokens
+- run `npm run tokens:code` to regenerate index.css base on design tokens
 - Design to Code: only tailwind inline css classes (existing classes), Use defined variables, no hardcoding
 - alwaysApply: false
