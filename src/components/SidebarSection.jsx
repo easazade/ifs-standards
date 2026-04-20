@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { useId, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 function validateSidebarSectionItems(items, componentName, propFullName) {
   if (!Array.isArray(items)) {
@@ -45,20 +45,42 @@ const sidebarSectionItemPropType = PropTypes.exact({
   },
 });
 
+function SidebarChevron({ expanded }) {
+  return (
+    <svg
+      className="h-4 w-4"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points={expanded ? '6 9 12 15 18 9' : '9 6 15 12 9 18'} />
+    </svg>
+  );
+}
+
+SidebarChevron.propTypes = {
+  expanded: PropTypes.bool.isRequired,
+};
+
 function SidebarSectionItems({ items, nested = false }) {
+  const { pathname } = useLocation();
+
   return (
     <ul
       className={[
-        'm-0 list-none space-y-1 p-0',
-        nested ? 'ml-2 border-l border-border pl-4' : '',
+        'm-0 flex list-none flex-col p-0',
+        nested ? 'ml-4 gap-1 pl-2' : 'gap-2',
       ].join(' ')}
     >
       {items.map((item) => {
-        const hasChildren = item.children?.length > 0;
-
         return (
-          <li key={`${item.href}-${item.label}`} className="bg-transparent">
-            <SidebarSectionItem item={item} hasChildren={hasChildren} nested={nested} />
+          <li key={`${pathname}-${item.href}-${item.label}`} className="bg-transparent">
+            <SidebarSectionItem item={item} nested={nested} />
           </li>
         );
       })}
@@ -73,62 +95,47 @@ SidebarSectionItems.propTypes = {
   nested: PropTypes.bool,
 };
 
-function SidebarSectionItem({ item, hasChildren, nested }) {
-  const [isExpanded, setIsExpanded] = useState(true);
+function SidebarSectionItem({ item, nested }) {
+  const { pathname } = useLocation();
+  const hasChildren = item.children?.length > 0;
+  const isCurrentRoute = pathname === item.href;
+  const [isExpanded, setIsExpanded] = useState(isCurrentRoute);
+
+  const linkClassName = ({ isActive }) =>
+    [
+      'block rounded-md px-2 py-1 text-base leading-6 transition-colors',
+      nested ? 'text-text-secondary hover:bg-surface-primary hover:text-text' : 'text-text hover:text-primary',
+      isActive ? 'font-medium text-primary' : '',
+    ].join(' ');
 
   return (
-    <div className="group flex flex-col bg-transparent">
-      <div className="flex items-center justify-between py-1">
+    <div className="flex flex-col gap-1 bg-transparent">
+      <div className="flex items-center justify-between gap-3">
         <NavLink
           to={item.href}
-          className={({ isActive }) =>
-            [
-              'text-sm transition-colors',
-              isActive ? 'font-medium text-primary' : 'text-text hover:text-primary',
-              nested ? '' : 'text-[15px]',
-            ].join(' ')
-          }
+          className={linkClassName}
         >
           {item.label}
         </NavLink>
         {hasChildren && (
           <button
             type="button"
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-text-secondary transition-colors hover:bg-surface-primary hover:text-text"
+            className="flex h-5 w-5 shrink-0 items-center justify-center text-text-secondary"
             aria-expanded={isExpanded}
             aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${item.label}`}
             onClick={() => setIsExpanded((expanded) => !expanded)}
           >
-            <svg
-              className={[
-                'h-4 w-4 transition-transform duration-200',
-                isExpanded ? 'rotate-180' : 'rotate-0',
-              ].join(' ')}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+            <SidebarChevron expanded={isExpanded} />
           </button>
         )}
       </div>
-      {hasChildren && isExpanded && (
-        <div className="mt-1">
-          <SidebarSectionItems items={item.children} nested />
-        </div>
-      )}
+      {hasChildren && isExpanded && <SidebarSectionItems items={item.children} nested />}
     </div>
   );
 }
 
 SidebarSectionItem.propTypes = {
   item: sidebarSectionItemPropType.isRequired,
-  hasChildren: PropTypes.bool.isRequired,
   nested: PropTypes.bool.isRequired,
 };
 
@@ -138,12 +145,9 @@ export function SidebarSection({ title, items, className = '' }) {
   return (
     <section
       aria-labelledby={headingId}
-      className={['flex w-full flex-col gap-3 bg-transparent', className].filter(Boolean).join(' ')}
+      className={['flex w-full flex-col gap-6 bg-transparent', className].filter(Boolean).join(' ')}
     >
-      <h2
-        id={headingId}
-        className="text-xs font-medium tracking-tight text-text-secondary uppercase px-1"
-      >
+      <h2 id={headingId} className="px-2 text-sm font-medium text-text-secondary">
         {title}
       </h2>
       <SidebarSectionItems items={items} />
