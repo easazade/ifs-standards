@@ -16,8 +16,6 @@
 
 ## Source of truth
 
-- Product feature requirements live in `specs/<feature>/<requirement-type>.md`.
-  - requirement can be types are usually `ui`, `data`, `logic` or etc
 - UI rules live in `DESIGN.md`
 - Design files live in `design/` as .pen files created by pencil.dev which is a design as code tool. design files can be modified via pencil mcp by agents they must follow `DESIGN.md` guidelines
 
@@ -28,8 +26,7 @@
 - `npm run preview` - Serve production build locally
 - `npm run lint` - Run ESLint
 - `npm run format` - Format with Prettier
-
-Here is the compressed, low-entropy version of your rules. I have stripped the conversational "fluff," combined related instructions, and used concise "caveman-style" directives to minimize token usage while maintaining intent.
+- `npm run tokens:code` - Generates `src/index.css` from converts design tokens defined in design-system.lib.pen
 
 ## Key Files
 
