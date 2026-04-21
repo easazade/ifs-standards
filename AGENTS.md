@@ -88,7 +88,8 @@
 ### Design & Pencil MCP
 
 - Use `DESIGN.md` for all tasks in `design/` (e.g., .pen files).
-- pencil mcp: main design tool
+- pencil mcp: main design tool to read/write/change .pen design files.
+- For all .pen related tasks first check if pencil mcp is responsive. if pencil mcp cannot be reached MUST cancel agent run and tell user.
 - .pen rules: No helper files/scripts/temp artifacts. No retries via scripts.
 - .lib.pen files are shared pencil libraries that must be imported into all .pen files in the design/ dir
 - Colors: Use HEX only. No RGBA.

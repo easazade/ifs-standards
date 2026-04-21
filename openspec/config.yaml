@@ -16,6 +16,7 @@ rules:
     - Identify affected areas explicitly, such as routing, shared layout, static protocol content, design tokens, or specs/design assets.
     - Call out non-goals, migration or rollback concerns, and any risk to shared UI or future standards content.
   specs:
+    - Name specs after **domain-level concerns** (e.g., `ui-layout`, `auth`, `protocols`), not after features or components (e.g., `sidebar-alignment`, `navbar-theme`). Multiple changes contribute requirements to the same spec over time. Ask what area of the system does this affect? not what am I building?
     - Write concrete, testable requirements using normative language such as MUST or SHOULD where appropriate.
     - Use scenario-oriented behavior descriptions; Given/When/Then is preferred for user-visible or workflow behavior.
     - Distinguish content requirements, UI requirements, and implementation constraints instead of mixing them into a single vague section.
