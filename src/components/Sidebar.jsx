@@ -35,7 +35,7 @@ const sidebarSections = [
 export function Sidebar() {
   return (
     <aside
-      className="min-h-0 w-full shrink-0 overflow-y-auto border-e border-border bg-surface-secondary p-6 lg:w-56"
+      className="min-h-0 w-full shrink-0 overflow-y-auto border-e border-border bg-surface-secondary p-6 lg:w-64"
       aria-label="Sidebar navigation"
     >
       <div className="flex min-h-full flex-col gap-6">

@@ -1501,8 +1501,8 @@
       "name": "MainLayout",
       "reusable": true,
       "clip": true,
-      "width": 1200,
-      "height": 720,
+      "width": 1440,
+      "height": 900,
       "fill": "#FFFFFF",
       "layout": "none",
       "children": [
@@ -1520,19 +1520,24 @@
               "ref": "dplRy",
               "x": 0,
               "y": 0,
-              "width": 222.13738056471522,
-              "height": 702,
+              "width": 222.73483884070208,
+              "height": 836,
               "flipX": false,
-              "flipY": false
+              "flipY": false,
+              "justifyContent": "start",
+              "descendants": {
+                "bPO1I": {
+                  "justifyContent": "start"
+                }
+              }
             },
             {
               "type": "frame",
               "id": "9CpCv",
               "name": "Content",
               "slot": [],
-              "clip": true,
-              "width": 1391.5584985821697,
-              "height": 656,
+              "width": "fill_container",
+              "height": 836,
               "fill": "#FFFFFF",
               "layout": "none"
             }
@@ -1542,8 +1547,55 @@
           "id": "Cd7vD",
           "type": "ref",
           "ref": "hB3A1",
+          "textGrowth": "auto",
+          "width": "fill_container(1440)",
+          "height": "fill_container(64)",
+          "flipX": false,
+          "flipY": false,
           "x": 0,
-          "y": 0
+          "y": 0,
+          "descendants": {
+            "vSMk1": {
+              "width": 11,
+              "height": "fit_content(10)",
+              "flipX": false,
+              "flipY": false,
+              "x": 0,
+              "y": 5
+            },
+            "oE678": {
+              "width": 3.9422221166977542,
+              "height": 4,
+              "flipX": false,
+              "flipY": false,
+              "x": 6.066684754337389,
+              "y": 7.999999999996362
+            },
+            "nQ80w": {
+              "width": 3.942222116697754,
+              "height": 4,
+              "flipX": false,
+              "flipY": false,
+              "x": 0,
+              "y": 2
+            },
+            "e9Haz": {
+              "width": 3.9422221166977542,
+              "height": 4,
+              "flipX": false,
+              "flipY": false,
+              "x": 6.066684754337389,
+              "y": 2
+            },
+            "OxUxM": {
+              "width": 3.942222116697754,
+              "height": 4,
+              "flipX": false,
+              "flipY": false,
+              "x": 0,
+              "y": 8
+            }
+          }
         }
       ]
     },
