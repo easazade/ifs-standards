@@ -1,33 +1,48 @@
 /**
- * Section nav: NavLink + Tailwind for active vs idle states (no inline style objects).
- * min-h-0 + overflow-y-auto: scrolls independently of <main> (flex default min-height:auto would grow the page).
+ * Grouped sidebar data mirrors the design-system hierarchy while reusing route helpers.
  */
-import { NavLink } from 'react-router-dom';
 import { PROTOCOLS } from '../data/protocols';
 import { ROUTES } from '../routes.js';
+import { SidebarSection } from './SidebarSection.jsx';
 
-const protocolLinkClass = ({ isActive }) =>
-  [
-    'block rounded-md px-2 py-1.5 text-sm text-text transition-colors',
-    isActive ? 'bg-primary-10 font-semibold text-text' : 'hover:bg-surface-muted',
-  ].join(' ');
+const protocolItems = PROTOCOLS.map((protocol) => ({
+  label: protocol.title,
+  href: ROUTES.PROTOCOL_DETAIL(protocol.id),
+}));
+
+const sidebarSections = [
+  {
+    title: 'Navigate',
+    items: [
+      { label: 'Welcome', href: ROUTES.HOME },
+      { label: 'About', href: ROUTES.ABOUT },
+    ],
+  },
+  {
+    title: 'Protocols',
+    items: protocolItems.length
+      ? [
+          {
+            label: 'Protocol Library',
+            href: protocolItems[0].href,
+            children: protocolItems,
+          },
+        ]
+      : [],
+  },
+].filter((section) => section.items.length > 0);
 
 export function Sidebar() {
   return (
     <aside
-      className="w-60 shrink-0 min-h-0 overflow-y-auto border-r border-divider-medium bg-surface p-4"
-      aria-label="Section navigation"
+      className="min-h-0 w-full shrink-0 overflow-y-auto border-e border-border bg-surface-secondary p-6 lg:w-56"
+      aria-label="Sidebar navigation"
     >
-      <p className="mb-3 text-xs font-medium uppercase tracking-wide text-text-muted">Protocols</p>
-      <ul className="m-0 list-none space-y-1 p-0">
-        {PROTOCOLS.map((p) => (
-          <li key={p.id}>
-            <NavLink to={`${ROUTES.PROTOCOL_DETAIL(p.id)}`} className={protocolLinkClass}>
-              {p.title}
-            </NavLink>
-          </li>
+      <div className="flex min-h-full flex-col gap-6">
+        {sidebarSections.map((section) => (
+          <SidebarSection key={section.title} title={section.title} items={section.items} />
         ))}
-      </ul>
+      </div>
     </aside>
   );
 }

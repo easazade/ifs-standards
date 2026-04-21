@@ -13,7 +13,7 @@ import { TestPage } from './pages/TestPage.jsx';
 const App = () => {
   return (
     <Routes>
-      <Route element={<MainLayout showSideBar={false} />}>
+      <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
       </Route>
       <Route path={`/${s.PROTOCOL}`} element={<MainLayout />}>
