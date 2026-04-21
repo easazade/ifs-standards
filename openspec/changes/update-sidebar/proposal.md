@@ -1,25 +1,27 @@
 ## Why
 
-The current `Sidebar.jsx` is a flat list of protocol links that doesn't match the `Sidebar` component defined in `design-system.lib.pen`. The design system defines a multi-section sidebar with grouped navigation items, expandable rows, and specific sizing (215px width, 24px padding, `surface-secondary` background). The current implementation also doesn't use the existing `SidebarSection` React component. `MainLayout.jsx` needs updating to match its design counterpart as well (proper body structure with sidebar + content slot).
+The current `Sidebar.jsx` is a simple protocol list that does not match the shared `Sidebar` and `MainLayout` components defined in `design/design-system.lib.pen`, so the app shell diverges from the project's design source of truth. This change aligns the React shell with the design system now that `SidebarSection` already exists and can be used to implement the intended grouped navigation pattern.
 
 ## What Changes
 
-- **BREAKING**: Rewrite `Sidebar.jsx` to match the `Sidebar` design component in `design-system.lib.pen` (width 215px, `surface-secondary` bg, 24px padding/gap, border-right)
-- Replace the flat protocol list with multiple `SidebarSection` components, each with a title and navigable items
-- Add expandable items (with chevron-right icon) for sidebar entries that have children
-- Update `MainLayout.jsx` to match the `MainLayout` design component structure (Body group with horizontal layout containing Sidebar + Content slot)
+- Replace the current React sidebar implementation with a design-matched sidebar structure based on the reusable `Sidebar` component in `design/design-system.lib.pen`.
+- Update the shared `MainLayout.jsx` shell so the navbar, sidebar column, and content panel sizing match the `MainLayout` design component more closely.
+- Use the existing `SidebarSection` React component to render sidebar groups instead of the current single flat protocol list.
+- Define the navigation data and layout expectations needed to keep the sidebar design-consistent while preserving current route behavior.
+- Exclude unrelated route additions, protocol-content changes, or design-token changes unless implementation reveals a missing dependency.
 
 ## Capabilities
 
-### Modified Capabilities
+### New Capabilities
+- `app-shell-layout`: Define the required structure, sizing, and content-panel behavior for the shared app shell so React layout matches the design-system `MainLayout` component.
 
-- `ui-layout`: Update sidebar and main layout to match design-system.lib.pen — structural sizing, multi-section composition, expandable rows with chevron icons, and layout hierarchy
+### Modified Capabilities
+- `sidebar-navigation`: Update sidebar requirements so the shared React sidebar matches the design-system `Sidebar` component, including grouped sections, spacing, and shell sizing expectations.
 
 ## Impact
 
-- `src/components/Sidebar.jsx` — full rewrite
-- `src/layouts/MainLayout.jsx` — layout structure update
-- `src/components/SidebarSection.jsx` — already matches design, used as building block
-- `src/data/protocols.js` — may need sidebar section data structure
-- `src/routes.js` — potentially new routes for sidebar items
-- No API or external dependency changes
+- Affected code: `src/components/Sidebar.jsx`, `src/components/SidebarSection.jsx`, `src/layouts/MainLayout.jsx`, and any colocated navigation data helpers introduced for the new grouped sidebar structure.
+- Affected design references: `design/design-system.lib.pen` `Sidebar`, `Sidebar-Section`, and `MainLayout` reusable components.
+- No API, routing contract, or persisted data migrations are expected; route paths should remain unchanged.
+- Main risk is regressions in the shared application shell, especially sidebar width, content overflow, and visual mismatch across routes where `showSideBar` is toggled.
+- Rollback is straightforward because the change is limited to shared layout and navigation presentation.
