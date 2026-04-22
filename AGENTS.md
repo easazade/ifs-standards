@@ -95,5 +95,6 @@
 - Colors: Use HEX only. No RGBA.
 - Design Tokens & Components: Source of truth is `design-system.lib.pen`
 - run `npm run tokens:code` to regenerate index.css base on design tokens
+- If content's height requires increasing the height of parent item or frame, do it.
 - Design to Code: only tailwind inline css classes (existing classes), Use defined variables, no hardcoding
 - alwaysApply: false

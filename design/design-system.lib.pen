@@ -1261,7 +1261,7 @@
                       "id": "QIRQw",
                       "name": "modelsText",
                       "fill": "$color-text",
-                      "content": "Models & Pricing",
+                      "content": "How to",
                       "fontFamily": "$font-family-body",
                       "fontSize": "$font-size-body",
                       "fontWeight": "normal"
@@ -1277,16 +1277,6 @@
                       "fill": "$color-text-secondary"
                     }
                   ]
-                },
-                {
-                  "type": "text",
-                  "id": "UUxeN",
-                  "name": "changelog",
-                  "fill": "$color-text",
-                  "content": "Changelog",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
                 }
               ]
             },
@@ -1303,27 +1293,17 @@
                   "id": "zzCRE",
                   "name": "agentTitle",
                   "fill": "$color-text-secondary",
-                  "content": "Agent",
+                  "content": "Concepts",
                   "fontFamily": "$font-family-body",
                   "fontSize": "$font-size-small",
                   "fontWeight": "500"
                 },
                 {
                   "type": "text",
-                  "id": "4pO8D",
-                  "name": "overview",
-                  "fill": "$color-text",
-                  "content": "Overview",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
                   "id": "jQwdI",
                   "name": "agentsWindow",
                   "fill": "$color-text",
-                  "content": "Agents Window",
+                  "content": "Protocols",
                   "fontFamily": "$font-family-body",
                   "fontSize": "$font-size-body",
                   "fontWeight": "normal"
@@ -1333,37 +1313,7 @@
                   "id": "w83QZ",
                   "name": "agentReview",
                   "fill": "$color-text",
-                  "content": "Agent Review",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "CVavH",
-                  "name": "planning",
-                  "fill": "$color-text",
-                  "content": "Planning",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "3P8NR",
-                  "name": "prompting",
-                  "fill": "$color-text",
-                  "content": "Prompting",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "text",
-                  "id": "KiI4C",
-                  "name": "debugging",
-                  "fill": "$color-text",
-                  "content": "Debugging",
+                  "content": "Rules",
                   "fontFamily": "$font-family-body",
                   "fontSize": "$font-size-body",
                   "fontWeight": "normal"
@@ -1381,7 +1331,7 @@
                       "id": "F52M3",
                       "name": "toolsText",
                       "fill": "$color-text",
-                      "content": "Tools",
+                      "content": "Entities",
                       "fontFamily": "$font-family-body",
                       "fontSize": "$font-size-body",
                       "fontWeight": "normal"
@@ -1397,36 +1347,10 @@
                       "fill": "$color-text-secondary"
                     }
                   ]
-                },
-                {
-                  "type": "text",
-                  "id": "Ig1IC",
-                  "name": "security",
-                  "fill": "$color-text",
-                  "content": "Security",
-                  "fontFamily": "$font-family-body",
-                  "fontSize": "$font-size-body",
-                  "fontWeight": "normal"
                 }
               ]
             }
           ]
-        },
-        {
-          "id": "7W9NS",
-          "type": "ref",
-          "ref": "C4sDk",
-          "x": 24,
-          "y": 430,
-          "flipX": false,
-          "flipY": false,
-          "width": "fill_container",
-          "height": "fit_content",
-          "descendants": {
-            "fKRCY": {
-              "content": "Customizing"
-            }
-          }
         }
       ]
     },
