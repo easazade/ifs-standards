@@ -1,6 +1,7 @@
 import { LinkBox } from '../components/LinkBox';
 import { SidebarSection } from '../components/SidebarSection.jsx';
 import { ROUTES } from '../routes.js';
+import Welcome from '../mdx/welcome.mdx';
 
 const testSidebarItems = [
   {
@@ -92,10 +93,8 @@ export function TestPage() {
         href={ROUTES.ABOUT}
       />
 
-      <SidebarSection
-        title={'Get Started'}
-        items={testSidebarItems}
-      />
+      <SidebarSection title={'Get Started'} items={testSidebarItems} />
+      <Welcome />
     </div>
   );
 }
