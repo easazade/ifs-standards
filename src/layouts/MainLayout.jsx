@@ -14,13 +14,9 @@ export function MainLayout({ showSideBar = true }) {
     <div className="flex h-full min-h-0 flex-col overflow-hidden bg-background">
       <Navbar />
       <div className="min-h-0 flex-1">
-        <div
-          className={['flex h-full min-h-0 gap-4 md:gap-6', showSideBar ? 'flex-col lg:flex-row' : 'flex-col'].join(
-            ' '
-          )}
-        >
+        <div className={['flex h-full min-h-0', showSideBar ? 'flex-col lg:flex-row' : 'flex-col'].join(' ')}>
           {showSideBar ? <Sidebar /> : null}
-          <main className="min-h-0 min-w-0 flex-1 overflow-y-auto bg-background p-5 md:p-6">
+          <main className="min-h-0 min-w-0 flex-1 overflow-y-auto bg-background p-4 md:px-12 md:py-20">
             <Outlet />
           </main>
         </div>

@@ -1,7 +1,7 @@
 import { LinkBox } from '../components/LinkBox';
 import { SidebarSection } from '../components/SidebarSection.jsx';
 import { ROUTES } from '../routes.js';
-import Welcome from '../mdx/welcome.mdx';
+import Welcome from '../mdx/pages/welcome.mdx';
 
 const testSidebarItems = [
   {
