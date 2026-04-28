@@ -34,8 +34,17 @@
     @apply absolute rounded-full;
   }
 
+  .docs-content p:has(em){
+    @apply m-0 p-0;
+    line-height: 1rem;
+  }
+
+  .docs-content em{
+    @apply m-0 text-text-secondary text-xs;
+  }
+
   .docs-content h1 {
-    @apply mb-6 text-4xl font-bold tracking-tight;
+    @apply  text-4xl font-bold tracking-tight;
   }
 
   .docs-content h2 {
