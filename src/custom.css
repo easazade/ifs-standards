@@ -33,4 +33,52 @@
   .dot {
     @apply absolute rounded-full;
   }
+
+  .docs-content h1 {
+    @apply mb-6 text-4xl font-bold tracking-tight;
+  }
+
+  .docs-content h2 {
+    @apply mt-10 mb-4 text-2xl font-semibold tracking-tight;
+  }
+
+  .docs-content h3 {
+    @apply mt-8 mb-3 text-xl font-semibold;
+  }
+
+  .docs-content p {
+    @apply my-4 leading-7 text-neutral-700;
+  }
+
+  .docs-content a {
+    @apply font-medium text-emerald-700 underline underline-offset-4;
+  }
+
+  .docs-content ul {
+    @apply my-4 list-disc space-y-2 pl-6;
+  }
+
+  .docs-content ol {
+    @apply my-4 list-decimal space-y-2 pl-6;
+  }
+
+  .docs-content li {
+    @apply leading-7 text-neutral-700;
+  }
+
+  .docs-content code {
+    @apply rounded bg-neutral-100 px-1.5 py-0.5 text-sm;
+  }
+
+  .docs-content pre {
+    @apply my-6 overflow-x-auto rounded-xl bg-neutral-950 p-4 text-sm;
+  }
+
+  .docs-content pre code {
+    @apply bg-transparent p-0 text-neutral-100;
+  }
+
+  .docs-content blockquote {
+    @apply my-6 border-l-4 border-emerald-600 pl-4 italic text-neutral-600;
+  }
 }
