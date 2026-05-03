@@ -15,6 +15,7 @@ const navLinks = [
   { label: 'Welcome', href: ROUTES.HOME },
   { label: 'Protocols', href: ROUTES.PROTOCOL },
   { label: 'About', href: ROUTES.ABOUT },
+  { label: 'FAQ', href: ROUTES.FAQ },
 ];
 
 export function Navbar() {
