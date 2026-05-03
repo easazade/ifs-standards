@@ -35,7 +35,7 @@
   }
 
   .docs-content{
-    @apply mx-auto md:ml-0 md:mr-20;
+    @apply mx-auto md:ml-0 md:mr-28;
   }
 
   .docs-content p:has(em){
