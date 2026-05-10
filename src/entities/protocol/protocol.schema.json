@@ -1,7 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ifs-standards.org/schemas/v1/entities/user.schema.json",
-  "ifsId": "ifs.entity.user",
   "title": "Protocol",
   "type": "object",
   "required": ["id", "createdAt"],
@@ -9,11 +8,15 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "Stable identifier for a participant."
+      "description": "identifier protocol."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "name id of the IFS resource"
     },
     "createdAt": {
       "type": "string",
       "format": "date-time"
     }
-  },
+  }
 }
