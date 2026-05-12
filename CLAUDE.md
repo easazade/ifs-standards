@@ -77,13 +77,14 @@
 - Use caveman skill: Shorten prompts, minimize context/cost unless forbidden.
 - alwaysApply: true
 
-### Script Recommendations
+### AI Agent Memory
 
-- At each run start, briefly review `scripts/script-recommendations.md`
-- When encountering tasks that are context-heavy, tedious, or token-costly, document the pattern there with: task description, why costly, potential solution
-- Do NOT auto-implement - flag for discussion
-- Only suggest scripts that meet criteria: likely 5%+ token savings, no negative effect on task quality
-- alwaysApply: true
+- There is a directory called `ai-agent-memory/`. this directory can be used by ai agents to put any memory or context
+  they need to remember between runs and can be accessed during runs and sessions.
+- AI agents have complete autonomy to read/write/edit/delete the files in that directory.
+- The purpose of the files in these directory is to give AI a solution to help itself to be more efficient
+  alwaysApply: true
+
 
 ### Design & Pencil MCP
 
