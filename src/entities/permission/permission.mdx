@@ -14,34 +14,25 @@ The permission scope applies the IFS Scope Rule: authority only reaches the syst
 
 ## Properties
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | Yes | Globally unique identifier for this permission. |
-| `ifsId` | `string` | Yes | Stable IFS entity identifier. Value must be `com.ifs.entity.permission`. |
-| `name` | `string` | Yes | Human-readable or machine-readable permission name, such as `ACCESS_SYSTEM_DOCUMENTS` or `ADMIN`. |
-| `action` | `string` | Yes | Specific action allowed by this permission. `ADMIN` represents all actions within the given scope. |
-| `grantedBy` | `string` | Yes | Identifier of the user, organization, group, community, or other authority source granting this permission. |
-| `grantedTo` | `string` | Yes | Identifier of the actor receiving this permission. |
-| `scopeId` | `string` | Yes | Identifier of the scope object where this permission applies. |
-| `scope` | `object` | Yes | Scope object describing the system, project, process, area, or other bounded context where this permission applies. |
-| `state` | `string` | Yes | Lifecycle state. Example values may include `drafted`, `under-review`, `active`, `suspended`, or `revoked`. |
-| `createdAt` | `string(date-time)` | Yes | Timestamp when this permission record was created. |
-| `updatedAt` | `string(date-time)` | No | Timestamp when this permission record was last updated. |
-| `expiresAt` | `string(date-time)` | No | Optional timestamp after which this permission no longer applies. |
-| `revokedAt` | `string(date-time)` | No | Optional timestamp when this permission was revoked. |
-| `revocationReason` | `string` | No | Optional explanation for why this permission was revoked. |
-| `constraints` | `object` | No | Optional contextual limits such as time windows, resource limits, approval requirements, or conditional checks. |
-| `delegationEvidenceIds` | `array<string>` | No | Optional identifiers for consent records, votes, delegations, signatures, or audit evidence proving the permission grant. |
-| `protocolIds` | `array<string>` | No | Optional related Protocol entity identifiers that define or constrain this permission. |
+| Property    | Type                | Required | Description                                                                                                         |
+| ----------- | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| `id`        | `string`            | Yes      | Globally unique identifier for this permission.                                                                     |
+| `ifsId`     | `string`            | Yes      | Stable IFS entity identifier. Value must be `com.ifs.entity.permission`.                                            |
+| `name`      | `string`            | Yes      | Human-readable or machine-readable permission name, such as `ACCESS_SYSTEM_DOCUMENTS` or `ADMIN`.                   |
+| `actorId`   | `string`            | Yes      | Identifier of the actor receiving this permission.                                                                  |
+| `scopeId`   | `string`            | Yes      | Identifier of the scope object where this permission applies.                                                       |
+| `scope`     | `object`            | Yes      | Scope object describing the system, project, process, area, or other bounded context where this permission applies. |
+| `state`     | `string`            | Yes      | Lifecycle state. Values include `drafted`, `under-review`, `granted`, or `revoked`.                                 |
+| `createdAt` | `string(date-time)` | Yes      | Timestamp when this permission record was created.                                                                  |
+| `updatedAt` | `string(date-time)` | No       | Timestamp when this permission record was last updated.                                                             |
+| `expiresAt` | `string(date-time)` | No       | Optional timestamp after which this permission no longer applies.                                                   |
 
 ## Required fields
 
 - `id`
 - `ifsId`
 - `name`
-- `action`
-- `grantedBy`
-- `grantedTo`
+- `actorId`
 - `scopeId`
 - `scope`
 - `state`
@@ -49,8 +40,7 @@ The permission scope applies the IFS Scope Rule: authority only reaches the syst
 
 ## Relationships
 
-- `grantedBy` can reference the user, organization, group, community, or authority source that granted the permission.
-- `grantedTo` can reference the actor receiving the permission.
+- `actorId` can reference the actor receiving the permission.
 - `scopeId` references the scope object where the permission is valid.
 - `protocolIds` can reference Protocol entities that define permission rules, review rules, or revocation rules.
 - `delegationEvidenceIds` can reference consent, vote, signature, or audit evidence records proving that the grant was legitimate.
@@ -62,20 +52,15 @@ The permission scope applies the IFS Scope Rule: authority only reaches the syst
   "id": "permission_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
   "ifsId": "com.ifs.entity.permission",
   "name": "ACCESS_SYSTEM_DOCUMENTS",
-  "action": "ACCESS_FILE",
-  "grantedBy": "community_01HX9YTX7A2F5B8C4D9E0F1G2H",
-  "grantedTo": "actor_01HX9Z1A3B5C7D9E2F4G6H8J0K",
+  "actorId": "actor_01HX9Z1A3B5C7D9E2F4G6H8J0K",
   "scopeId": "scope_project_alpha_documents",
   "scope": {
     "type": "project",
     "projectId": "project_alpha",
     "area": "documents"
   },
-  "state": "active",
+  "state": "granted",
   "createdAt": "2026-05-12T10:00:00Z",
-  "constraints": {
-    "readOnly": true
-  },
   "protocolIds": ["protocol_permission_review_v1"]
 }
 ```

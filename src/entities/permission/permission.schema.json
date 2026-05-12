@@ -18,15 +18,7 @@
       "type": "string",
       "description": "Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN."
     },
-    "grantedBy": {
-      "type": "string",
-      "description": "Identifier of the user, organization, group, community, or other authority source granting this permission."
-    },
-    "draftedBy": {
-      "type": "string",
-      "description": "Identifier of the user, organization, group, community, or other authority source drafting this permission."
-    },
-    "grantedTo": {
+    "actorId": {
       "type": "string",
       "description": "Identifier of the actor receiving this permission."
     },
@@ -58,28 +50,7 @@
       "type": "string",
       "format": "date-time",
       "description": "Optional timestamp after which this permission no longer applies."
-    },
-    "revokedAt": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Optional timestamp when this permission was revoked."
-    },
-    "revocationReason": {
-      "type": "string",
-      "description": "Optional explanation for why this permission was revoked."
-    },
-    "constraints": {
-      "type": "object",
-      "additionalProperties": true,
-      "description": "Optional contextual limits such as time windows, resource limits, approval requirements, or conditional checks."
-    },
-    "delegationEvidenceIds": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Optional identifiers for consent records, votes, delegations, signatures, or audit evidence proving the permission grant."
     }
   },
-  "required": ["id", "ifsId", "name", "action", "grantedTo", "scopeId", "scope", "state", "createdAt"]
+  "required": ["id", "ifsId", "name", "actorId", "scopeId", "scope", "state", "createdAt"]
 }
