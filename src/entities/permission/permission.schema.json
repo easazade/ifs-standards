@@ -52,5 +52,5 @@
       "description": "Optional timestamp after which this permission no longer applies."
     }
   },
-  "required": ["id", "ifsId", "name", "actorId", "scopeId", "scope", "state", "createdAt"]
+  "required": ["id", "ifsId", "name", "actorId", "scopeId", "scope", "state", "createdAt", "expiresAt"]
 }
