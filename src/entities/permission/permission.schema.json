@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json",
+  "title": "Permission",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this permission."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.permission",
+      "description": "Stable IFS entity identifier for Permission."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN."
+    },
+    "grantedBy": {
+      "type": "string",
+      "description": "Identifier of the user, organization, group, community, or other authority source granting this permission."
+    },
+    "draftedBy": {
+      "type": "string",
+      "description": "Identifier of the user, organization, group, community, or other authority source drafting this permission."
+    },
+    "grantedTo": {
+      "type": "string",
+      "description": "Identifier of the actor receiving this permission."
+    },
+    "scopeId": {
+      "type": "string",
+      "description": "Identifier of the scope object where this permission applies."
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Scope object describing the system, project, process, area, or other bounded context where this permission applies."
+    },
+    "state": {
+      "type": "string",
+      "enum": ["granted", "under-review", "revoked", "drafted"],
+      "description": "Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this permission record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this permission record was last updated."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp after which this permission no longer applies."
+    },
+    "revokedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this permission was revoked."
+    },
+    "revocationReason": {
+      "type": "string",
+      "description": "Optional explanation for why this permission was revoked."
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional contextual limits such as time windows, resource limits, approval requirements, or conditional checks."
+    },
+    "delegationEvidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional identifiers for consent records, votes, delegations, signatures, or audit evidence proving the permission grant."
+    }
+  },
+  "required": ["id", "ifsId", "name", "action", "grantedTo", "scopeId", "scope", "state", "createdAt"]
+}
