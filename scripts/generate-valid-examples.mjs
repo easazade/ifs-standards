@@ -10,9 +10,11 @@ for (const schemaDir of schemaDirs) {
   const schemaFilePath = join(ENTITIES_DIR, schemaName, `${schemaName}.schema.json`);
   const exampleObjectPath = join(ENTITIES_DIR, schemaName, `examples/${schemaName}.json`);
   console.log(`Generating example for schema: ${schemaFilePath}`);
-  const schemaFileContent = await readFile(schemaFilePath);
+  const schemaFileContent = await readFile(schemaFilePath, 'utf8');
 
-  const fakeObject = generate(schemaFileContent);
+  // json-schema-faker needs a parsed schema object, and generate() returns a Promise.
+  const schema = JSON.parse(schemaFileContent);
+  const fakeObject = await generate(schema);
 
   // Node's writeFile creates the file, but not missing parent folders (like Dart's File.writeAsString without recursive directory creation).
   await mkdir(dirname(exampleObjectPath), { recursive: true });
