@@ -35,7 +35,7 @@ const entityExamples = await Promise.all(
     entityName,
     validExamples: await listExampleFiles(entityName, 'valid'),
     invalidExamples: await listExampleFiles(entityName, 'invalid'),
-  })),
+  }))
 );
 
 // Top-level await builds Vitest cases from filesystem, similar to awaiting config before Flutter tests run.
