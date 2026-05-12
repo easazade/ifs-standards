@@ -83,6 +83,7 @@
   they need to remember between runs and can be accessed during runs and sessions.
 - AI agents have complete autonomy to read/write/edit/delete the files in that directory.
 - The purpose of the files in these directory is to give AI a solution to help itself to be more efficient
+- AI Agent should remember that source of truth is always the code. So beware of outdated memory file in `ai-agent-memory/`
   alwaysApply: true
 
 
