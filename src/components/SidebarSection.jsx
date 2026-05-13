@@ -73,7 +73,7 @@ SidebarChevron.propTypes = {
 
 function SidebarSectionItems({ items, nested = false }) {
   return (
-    <ul className={['m-0 flex list-none flex-col p-0', nested ? 'gap-2 pl-4' : 'gap-2'].join(' ')}>
+    <ul className={['m-0 flex list-none flex-col p-0', nested ? 'pl-4' : ''].join(' ')}>
       {items.map((item) => {
         return (
           <li key={`${item.href}-${item.label}`} className="bg-transparent">

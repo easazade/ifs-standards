@@ -12,18 +12,18 @@ const protocolItems = PROTOCOLS.map((protocol) => ({
 
 const sidebarSections = [
   {
-    title: 'Navigate',
+    title: 'Overview',
     items: [
       { label: 'Welcome', href: ROUTES.HOME },
       { label: 'About', href: ROUTES.ABOUT },
     ],
   },
   {
-    title: 'Protocols',
+    title: 'System',
     items: protocolItems.length
       ? [
           {
-            label: 'Protocol Library',
+            label: 'Protocols',
             href: protocolItems[0].href,
             children: protocolItems,
           },
