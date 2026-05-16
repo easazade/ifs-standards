@@ -4,18 +4,22 @@
 import { Route, Routes } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import { AboutPage } from './pages/AboutPage';
-import { HomePage } from './pages/HomePage';
-import { ProtocolPage } from './pages/ProtocolPage';
-import { SEGMENTS as s } from './routes.js';
-import PageNotFound from './pages/PageNotFound.jsx';
-import { TestPage } from './pages/TestPage.jsx';
 import { FAQPage } from './pages/FAQPage.jsx';
+import { HomePage } from './pages/HomePage';
+import HowItWorksPage from './pages/HowItWorksPage.jsx';
+import PageNotFound from './pages/PageNotFound.jsx';
+import { ProtocolPage } from './pages/ProtocolPage';
+import { TestPage } from './pages/TestPage.jsx';
+import { SEGMENTS as s } from './routes.js';
 
 const App = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
+      </Route>
+      <Route path={s.HOW_IT_WORKS} element={<MainLayout />}>
+        <Route index element={<HowItWorksPage />} />
       </Route>
       <Route path={`/${s.PROTOCOL}`} element={<MainLayout />}>
         <Route path={`:${s.PROTOCOL}Id`} element={<ProtocolPage />} />
