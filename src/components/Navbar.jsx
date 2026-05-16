@@ -13,7 +13,6 @@ const navLinkClass = (isActive) =>
 
 const navLinks = [
   { label: 'Welcome', href: ROUTES.WELCOME },
-  { label: 'Protocols', href: ROUTES.PROTOCOL },
   { label: 'About', href: ROUTES.ABOUT },
   { label: 'FAQ', href: ROUTES.FAQ },
 ];

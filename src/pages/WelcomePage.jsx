@@ -1,6 +1,6 @@
 import Welcome from '../mdx/pages/welcome.mdx';
 
-export function HomePage() {
+export function WelcomePage() {
   return (
     <div className="docs-content min-h-full">
       <Welcome />

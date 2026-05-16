@@ -1,25 +1,26 @@
 /**
  * Declares URL → component mapping. Child routes under MainLayout share the same shell (navbar + sidebar).
  */
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import { AboutPage } from './pages/AboutPage';
 import { FAQPage } from './pages/FAQPage.jsx';
-import { HomePage } from './pages/HomePage';
+import { WelcomePage } from './pages/WelcomePage.jsx';
 import HowItWorksPage from './pages/HowItWorksPage.jsx';
 import PageNotFound from './pages/PageNotFound.jsx';
 import { ProtocolPage } from './pages/ProtocolPage';
 import { TestPage } from './pages/TestPage.jsx';
-import { SEGMENTS as s } from './routes.js';
+import { ROUTES as r, SEGMENTS as s } from './routes.js';
 
 const App = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        {/* Navigate redirects / to /welcome, similar to returning a redirect route in Flutter. */}
+        <Route index element={<Navigate to={r.WELCOME} replace />} />
       </Route>
       <Route path={s.WELCOME} element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<WelcomePage />} />
       </Route>
       <Route path={s.HOW_IT_WORKS} element={<MainLayout />}>
         <Route index element={<HowItWorksPage />} />
