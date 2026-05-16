@@ -6,7 +6,7 @@ import Welcome from '../mdx/pages/welcome.mdx';
 const testSidebarItems = [
   {
     label: 'Introduction',
-    href: ROUTES.HOME,
+    href: ROUTES.WELCOME,
   },
   {
     label: 'Goals',
@@ -18,7 +18,7 @@ const testSidebarItems = [
   },
   {
     label: 'Architecture',
-    href: ROUTES.HOME,
+    href: ROUTES.WELCOME,
   },
   {
     label: 'Dynamic Consent',
@@ -34,7 +34,7 @@ const testSidebarItems = [
       },
       {
         label: 'Dispute Flows',
-        href: ROUTES.HOME,
+        href: ROUTES.WELCOME,
       },
     ],
   },
@@ -60,7 +60,7 @@ const testSidebarItems = [
         children: [
           {
             label: 'Temporary Delegation',
-            href: ROUTES.HOME,
+            href: ROUTES.WELCOME,
           },
           {
             label: 'Emergency Override',
@@ -70,7 +70,7 @@ const testSidebarItems = [
       },
       {
         label: 'Revocation Rules',
-        href: ROUTES.HOME,
+        href: ROUTES.WELCOME,
       },
     ],
   },

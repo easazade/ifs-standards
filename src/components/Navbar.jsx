@@ -12,7 +12,7 @@ const navLinkClass = (isActive) =>
   ].join(' ');
 
 const navLinks = [
-  { label: 'Welcome', href: ROUTES.HOME },
+  { label: 'Welcome', href: ROUTES.WELCOME },
   { label: 'Protocols', href: ROUTES.PROTOCOL },
   { label: 'About', href: ROUTES.ABOUT },
   { label: 'FAQ', href: ROUTES.FAQ },
@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <header className="flex h-16 shrink-0 items-center justify-between border border-border bg-surface px-4 py-3">
       <div className="flex items-center gap-12">
-        <NavLink to={ROUTES.HOME} end className="flex items-center gap-2">
+        <NavLink to={ROUTES.WELCOME} end className="flex items-center gap-2">
           <AnimatedLogo dotColor={'bg-text'} />
           <span className="font-heading text-base font-family-heading font-semibold text-text">IFS Standards</span>
         </NavLink>

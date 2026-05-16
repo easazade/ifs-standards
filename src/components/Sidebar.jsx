@@ -14,9 +14,8 @@ const sidebarSections = [
   {
     title: 'Overview',
     items: [
-      { label: 'Welcome', href: ROUTES.INDEX },
+      { label: 'Welcome', href: ROUTES.WELCOME },
       { label: 'How it works', href: ROUTES.HOW_IT_WORKS },
-      { label: 'About', href: ROUTES.ABOUT },
     ],
   },
   {
