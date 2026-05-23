@@ -12,6 +12,7 @@
     "clean": "rm -rf node_modules && rm package-lock.json",
     "tokens:code": "node scripts/tokens-to-code.mjs",
     "type:gen": "node scripts/schema-to-class.mjs",
+    "entities:overview": "node scripts/generate-entities-overview.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },
