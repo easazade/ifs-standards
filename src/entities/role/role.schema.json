@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/role.schema.json",
+  "title": "Role",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Globally unique identifier for this role."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.role",
+      "description": "Stable IFS entity identifier for Role."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the role."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional human-readable explanation of what this role is for."
+    },
+    "memberId": {
+      "type": "string",
+      "description": "Identifier of the member acting through this role."
+    },
+    "scopeId": {
+      "type": "string",
+      "description": "Identifier of the scope where this role has authority."
+    },
+    "scope": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/scope.schema.json",
+      "description": "Scope entity describing where this role applies."
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"
+      },
+      "description": "Permission entities bundled into this role."
+    },
+    "state": {
+      "type": "string",
+      "enum": ["drafted", "under-review", "active", "suspended", "revoked", "expired"],
+      "description": "Lifecycle state of the role."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this role record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this role record was last updated."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp after which this role no longer applies."
+    }
+  },
+  "required": [
+    "id",
+    "ifsId",
+    "name",
+    "memberId",
+    "scopeId",
+    "scope",
+    "permissions",
+    "state",
+    "createdAt",
+    "updatedAt"
+  ]
+}
