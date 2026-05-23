@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/scope.schema.json",
+  "title": "Scope",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Globally unique identifier for this scope."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.scope",
+      "description": "Stable IFS entity identifier for Scope."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the scope."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional human-readable explanation of what this scope includes and excludes."
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Location identifiers or names included in this scope. Kept as strings for now."
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Group identifiers or names included in this scope. Kept as strings for now."
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Object identifiers or names included in this scope. Kept as strings for now."
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Entity identifiers or names included in this scope. Kept as strings for now."
+    },
+    "parentScopeId": {
+      "type": "string",
+      "description": "Identifier of a broader parent scope, when this scope is nested inside another scope."
+    },
+    "childScopeIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Identifiers of narrower child scopes contained by this scope."
+    },
+    "boundaryRules": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Embedded scope-local rules for inclusion, exclusion, inheritance, or conflict resolution. This is not a referenced entity because boundary logic may be implementation-specific."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this scope record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this scope record was last updated."
+    }
+  },
+  "required": ["id", "ifsId", "name", "type", "state", "createdAt", "updatedAt"],
+  "anyOf": [
+    {
+      "required": ["locations"]
+    },
+    {
+      "required": ["groups"]
+    },
+    {
+      "required": ["objects"]
+    },
+    {
+      "required": ["entities"]
+    }
+  ]
+}

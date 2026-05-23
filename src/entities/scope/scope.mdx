@@ -1,0 +1,84 @@
+# Scope
+
+## Purpose
+
+A `Scope` defines where authority, permissions, roles, rules, or responsibility start and end.
+
+A scope can be based on locations, groups of members, objects, entities, or a mix of those boundaries.
+
+## IFS context and role
+
+In IFS, authority is always bounded. A member may hold a permission or role, but that authority only applies inside its defined scope.
+
+The `Scope` entity supports the IFS Scope Rule: decision-making and delegated power must stay limited to the affected radius. If authority affects a town, only that town-scale scope applies. If authority affects a group, object set, or entity set, the boundary must be explicit and auditable.
+
+## Properties
+
+| Property        | Type                 | Required | Description                                                                                                      |
+| --------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| `id`            | `string(uuid)`       | Yes      | Globally unique identifier for this scope.                                                                       |
+| `ifsId`         | `string`             | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.scope`.                                            |
+| `name`          | `string`             | Yes      | Human-readable name of the scope.                                                                                |
+| `description`   | `string`             | No       | Optional human-readable explanation of what this scope includes and excludes.                                    |
+| `type`          | `string`             | Yes      | Primary boundary type. Values: `location`, `group`, `object`, `entity`, or `mixed`.                              |
+| `locations`     | `array<string>`      | No       | Location identifiers or names included in this scope. Kept as strings for now.                                  |
+| `groups`        | `array<string>`      | No       | Group identifiers or names included in this scope. Kept as strings for now.                                     |
+| `objects`       | `array<string>`      | No       | Object identifiers or names included in this scope. Kept as strings for now.                                    |
+| `entities`      | `array<string>`      | No       | Entity identifiers or names included in this scope. Kept as strings for now.                                    |
+| `parentScopeId` | `string`             | No       | Identifier of a broader parent scope, when this scope is nested inside another scope.                           |
+| `childScopeIds` | `array<string>`      | No       | Identifiers of narrower child scopes contained by this scope.                                                   |
+| `stewardIds`    | `array<string>`      | No       | Member or steward identifiers responsible for maintaining this scope definition.                                |
+| `roles`         | `array<Role>`        | No       | Role entities whose authority applies inside this scope.                                                        |
+| `permissions`   | `array<Permission>`  | No       | Permission entities whose authority applies inside this scope.                                                  |
+| `boundaryRules` | `object`             | No       | Embedded scope-local rules for inclusion, exclusion, inheritance, or conflict resolution.                       |
+| `state`         | `string`             | Yes      | Lifecycle state. Values include `drafted`, `under-review`, `active`, `suspended`, `revoked`, or `expired`.      |
+| `createdAt`     | `string(date-time)`  | Yes      | Timestamp when this scope record was created.                                                                   |
+| `updatedAt`     | `string(date-time)`  | Yes      | Timestamp when this scope record was last updated.                                                              |
+
+At least one of `locations`, `groups`, `objects`, or `entities` must be present.
+
+## Required fields
+
+- `id`
+- `ifsId`
+- `name`
+- `type`
+- `state`
+- `createdAt`
+- `updatedAt`
+
+## Relationships
+
+- `roles` references Role entities whose delegated authority is valid inside this scope.
+- `permissions` references Permission entities whose granted authority is valid inside this scope.
+- `parentScopeId` can reference a broader Scope entity.
+- `childScopeIds` can reference narrower Scope entities contained by this scope.
+- `stewardIds` can reference members or stewards responsible for maintaining this scope definition.
+- `locations`, `groups`, `objects`, and `entities` are string lists for now, not `$ref` relationships, because the user requested them as strings at this stage.
+- `boundaryRules` is embedded object data, not a `$ref`, because scope boundary logic may be implementation-specific.
+
+## Example JSON object
+
+```json
+{
+  "id": "4f4f2d2e-5b7d-4c1e-9c6b-0d8a1e3f9a12",
+  "ifsId": "com.ifs.entity.scope",
+  "name": "Project Alpha Documentation Scope",
+  "description": "Authority limited to Project Alpha documentation locations, objects, and related entities.",
+  "type": "mixed",
+  "locations": ["workspace/project-alpha/docs"],
+  "groups": ["project-alpha-contributors"],
+  "objects": ["object_project_alpha_handbook"],
+  "entities": ["entity_protocol_project_alpha_docs"],
+  "parentScopeId": "scope_project_alpha",
+  "childScopeIds": ["scope_project_alpha_api_docs"],
+  "stewardIds": ["member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M"],
+  "boundaryRules": {
+    "inheritParentRules": true,
+    "excludedObjects": ["object_project_alpha_finance_records"]
+  },
+  "state": "active",
+  "createdAt": "2026-05-23T10:00:00Z",
+  "updatedAt": "2026-05-23T10:00:00Z"
+}
+```
