@@ -51,6 +51,8 @@ Accepted property examples:
 - `id: string - globally unique entity identifier`
 - `createdAt: string(date-time) - creation timestamp`
 - `stewardIds: array<string> - stewards responsible for this entity`
+- `permissions: array<Permission> - permission entities related to this entity`
+- `owner: Member - member entity that owns this entity`
 - `status: enum(draft, active, revoked) - lifecycle state`
 
 ### Step 2: Parse the answer batch
@@ -58,17 +60,20 @@ Accepted property examples:
 After the user answers:
 
 1. Parse each property name, type, format/enum/items if present, and description.
-2. If anything is ambiguous, ask a concise follow-up before writing files.
-3. If the user answered `yes` to inference:
+2. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
+3. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the entity does not exist but the user says to assume it exists or it is clearly planned, use the canonical future `$id`: `https://ifs-standards.org/schemas/v1/entities/<kebab-case-entity-name>.schema.json`.
+4. If a property is just arbitrary embedded object data and not an entity relationship, keep it as `type: object` with appropriate `additionalProperties`.
+5. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
+6. If the user answered `yes` to inference:
    - Think through the entity in the IFS context.
    - Add likely required fields unless contradicted by the user.
    - Add useful optional fields unless contradicted by the user.
    - Add possible relations to other existing entities under `src/entities/` when useful.
    - Explain inferred fields and relations in the final report.
-4. If the user answered `no` to inference:
+7. If the user answered `no` to inference:
    - Use only user-provided properties, plus minimal schema metadata.
-5. If the user approved immediate creation, create the files.
-6. If the user did not approve immediate creation, show the final property plan and ask for approval.
+8. If the user approved immediate creation, create the files.
+9. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
 ### Step 3: Create files
 
@@ -87,6 +92,10 @@ Only after approval:
 - Set `type` to `object`.
 - Include `additionalProperties` according to the entity need; default to `true` unless the user asks for a strict schema.
 - Convert collected properties into valid JSON Schema `properties`.
+- For entity references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
+- For `array<EntityName>` or plural entity properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
+- For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
+- If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
 - Prefer clear descriptions for every property.
 

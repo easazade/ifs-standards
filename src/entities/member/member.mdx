@@ -1,0 +1,77 @@
+# Member
+
+## Purpose
+
+A `Member` represents a person or participant in an IFS system. It is similar to a typical user account, but the name emphasizes that each participant can affect system behavior through roles, permissions, consent, delegation, and revocation.
+
+## IFS context and role
+
+In IFS, sovereignty is non-transferable and remains with individuals and affected collectives. A member is therefore not only a consumer of software. A member can hold scoped permissions, receive or lose delegated authority, participate in governance, and change how the system behaves within legitimate scope boundaries.
+
+`Member` records should be auditable and permission-aware. Roles and permissions describe current authority, but they do not imply permanent power. They can be reviewed, changed, or revoked according to IFS rules.
+
+## Properties
+
+| Property      | Type                | Required | Description                                                                                                                                     |
+| ------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`          | `string`            | Yes      | Globally unique identifier for this member.                                                                                                     |
+| `ifsId`       | `string`            | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.member`.                                                                          |
+| `name`        | `string`            | Yes      | Human-readable name of the member.                                                                                                             |
+| `roles`       | `array<object>`     | Yes      | Role objects assigned to this member. Role is not yet standardized, so role objects remain flexible until the Role entity is defined.           |
+| `permissions` | `array<object>`     | Yes      | Permission objects associated with this member.                                                                                                 |
+| `isOwner`     | `boolean`           | Yes      | Whether this member is considered an owner of the system.                                                                                       |
+| `createdAt`   | `string(date-time)` | Yes      | Timestamp when this member record was created.                                                                                                  |
+| `updatedAt`   | `string(date-time)` | Yes      | Timestamp when this member record was last updated.                                                                                             |
+
+## Required fields
+
+- `id`
+- `ifsId`
+- `name`
+- `roles`
+- `permissions`
+- `isOwner`
+- `createdAt`
+- `updatedAt`
+
+## Relationships
+
+- `permissions` contains Permission objects associated with this member.
+- `roles` contains Role objects associated with this member. The Role entity is not yet defined, so these objects remain flexible.
+- Permission objects can define scoped authority for this member and should follow the Permission entity where possible.
+
+## Example JSON object
+
+```json
+{
+  "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "ifsId": "com.ifs.entity.member",
+  "name": "Ava Rahimi",
+  "roles": [
+    {
+      "id": "role_steward_documents",
+      "name": "Document Steward",
+      "scopeId": "scope_project_alpha_documents"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "permission_01HX9Z1A3B5C7D9E2F4G6H8J0K",
+      "ifsId": "com.ifs.entity.permission",
+      "name": "ACCESS_SYSTEM_DOCUMENTS",
+      "actorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "scopeId": "scope_project_alpha_documents",
+      "scope": {
+        "type": "project",
+        "projectId": "project_alpha",
+        "area": "documents"
+      },
+      "state": "granted",
+      "createdAt": "2026-05-12T10:00:00Z"
+    }
+  ],
+  "isOwner": false,
+  "createdAt": "2026-05-12T09:30:00Z",
+  "updatedAt": "2026-05-12T10:00:00Z"
+}
+```

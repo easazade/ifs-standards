@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/member.schema.json",
+  "title": "Member",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this member."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.member",
+      "description": "Stable IFS entity identifier for Member."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the member."
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/role.schema.json"
+      },
+      "readOnly": true
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"
+      }
+    },
+    "isOwner": {
+      "type": "boolean",
+      "description": "Whether this member is considered an owner of the system."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this member record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this member record was last updated."
+    }
+  },
+  "required": ["id", "ifsId", "name", "roles", "permissions", "isOwner", "createdAt", "updatedAt"]
+}
