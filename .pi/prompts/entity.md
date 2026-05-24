@@ -1,6 +1,6 @@
 ---
 description: Create an IFS entity schema and documentation
-argument-hint: "<entity-name> [entity specification]"
+argument-hint: '<entity-name> [entity specification]'
 ---
 
 Create a new IFS entity named `$1`.
@@ -49,6 +49,8 @@ Briefly restate what you understand about the entity from the name and specifica
 Accepted property examples:
 
 - `id: string - globally unique entity identifier`
+- `id - globally unique entity identifier` (no type specified)
+- `id` (no type or description specified)
 - `createdAt: string(date-time) - creation timestamp`
 - `stewardIds: array<string> - stewards responsible for this entity`
 - `permissions: array<Permission> - permission entities related to this entity`
