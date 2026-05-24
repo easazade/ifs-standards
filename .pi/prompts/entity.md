@@ -63,19 +63,21 @@ After the user answers:
 
 1. Parse each property name, type, format/enum/items if present, and description.
 2. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
-3. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the entity does not exist but the user says to assume it exists or it is clearly planned, use the canonical future `$id`: `https://ifs-standards.org/schemas/v1/entities/<kebab-case-entity-name>.schema.json`.
-4. If a property is just arbitrary embedded object data and not an entity relationship, keep it as `type: object` with appropriate `additionalProperties`.
-5. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
-6. If the user answered `yes` to inference:
+3. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
+4. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only standard metadata fields unless the user supplied more details: `id`, `ifsId`, `createdAt`, and `updatedAt`.
+5. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
+6. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
+7. If the user answered `yes` to inference:
    - Think through the entity in the IFS context.
    - Add likely required fields unless contradicted by the user.
    - Add useful optional fields unless contradicted by the user.
-   - Add possible relations to other existing entities under `src/entities/` when useful.
+   - Add possible relations to other entities under `src/entities/` when useful.
+   - If a useful relation targets a missing entity, create a basic related-entity schema for it and reference it.
    - Explain inferred fields and relations in the final report.
-7. If the user answered `no` to inference:
+8. If the user answered `no` to inference:
    - Use only user-provided properties, plus minimal schema metadata.
-8. If the user approved immediate creation, create the files.
-9. If the user did not approve immediate creation, show the final property plan and ask for approval.
+9. If the user approved immediate creation, create the files.
+10. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
 ### Step 3: Create files
 
@@ -84,6 +86,7 @@ Only after approval:
 1. Create the entity directory using kebab-case.
 2. Create the JSON Schema file.
 3. Create the MDX documentation file.
+4. Create any basic related-entity schema files needed for referenced entity types that do not already exist.
 
 ## JSON Schema rules
 
@@ -97,6 +100,7 @@ Only after approval:
 - For entity references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
 - For `array<EntityName>` or plural entity properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
 - For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
+- If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and properties/required fields for `id`, `ifsId`, `createdAt`, and `updatedAt`.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
 - Prefer clear descriptions for every property.
@@ -127,8 +131,9 @@ Important: run this only at the end of the approved creation run. Do not run it 
 
 After writing files and running `npm run entities`, report:
 
-- Created files
+- Created files, including any basic related-entity schemas
 - Final properties
 - Required fields
 - Any inferred fields or relations
+- Any missing related entities created as basic schemas
 - `npm run entities` result
