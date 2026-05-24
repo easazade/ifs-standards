@@ -41,10 +41,11 @@ Briefly restate what you understand about the entity from the name and specifica
 
 1. Is this meaning correct? If not, what should change?
 2. What user-defined properties should this entity include? Reply with one property per line using `name: type - description`, or say `none`.
-3. Which of those user-defined properties are required? List names, or say `infer` / `none`.
-4. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
-5. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
-6. Do you approve me to create the files immediately after applying your answers and any requested inference? Reply `yes` or `no`.
+3. Should this entity include all common properties, only some, or none? Common properties: `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, `updatedAt`. Reply `all`, `none`, or `some: <property names>`.
+4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
+5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
+6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
+7. Do you approve me to create the files immediately after applying your answers and any requested inference? Reply `yes` or `no`.
 
 Accepted property examples:
 
@@ -61,23 +62,24 @@ Accepted property examples:
 
 After the user answers:
 
-1. Parse each property name, type, format/enum/items if present, and description.
-2. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
-3. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
-4. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only standard metadata fields unless the user supplied more details: `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
-5. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
-6. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
-7. If the user answered `yes` to inference:
+1. Parse each user-defined property name, type, format/enum/items if present, and description.
+2. Parse the common properties answer. Add all common properties for `all`, no common properties for `none`, or only the listed common properties for `some: ...`.
+3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
+4. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
+5. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only the selected common properties unless the user supplied more details.
+6. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
+7. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
+8. If the user answered `yes` to inference:
    - Think through the entity in the IFS context.
    - Add likely required fields unless contradicted by the user.
    - Add useful optional fields unless contradicted by the user.
    - Add possible relations to other entities under `src/entities/` when useful.
    - If a useful relation targets a missing entity, create a basic related-entity schema for it and reference it.
    - Explain inferred fields and relations in the final report.
-8. If the user answered `no` to inference:
-   - Use only user-provided properties, plus minimal schema metadata.
-9. If the user approved immediate creation, create the files.
-10. If the user did not approve immediate creation, show the final property plan and ask for approval.
+9. If the user answered `no` to inference:
+   - Use only user-provided properties plus the selected common properties.
+10. If the user approved immediate creation, create the files.
+11. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
 ### Step 3: Create files
 
@@ -100,11 +102,12 @@ Only after approval:
 - For entity references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
 - For `array<EntityName>` or plural entity properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
 - For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
-- Every entity schema must include properties/required fields for `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
+- Apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
+- Common properties selected by the user should be included in both `properties` and `required`.
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
 - `entityType` must be the string entity name. Use `const` with the PascalCase entity name, e.g. `"entityType": { "type": "string", "const": "Change" }`.
 - `resourceType` must identify the resource category/type used by IFS implementations.
-- If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and properties/required fields for `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
+- If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and selected common properties/required fields.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
 - Prefer clear descriptions for every property.
@@ -129,7 +132,7 @@ After approved file creation is complete, run:
 npm run entities
 ```
 
-Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 6 with `yes` and entity files have been written.
+Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 7 with `yes` and entity files have been written.
 
 ## Output after creation
 
