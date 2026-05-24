@@ -111,11 +111,22 @@ The MDX file should document:
 - Relationships to other entities, if any
 - Example JSON object
 
+### Step 4: Regenerate derived entity artifacts
+
+After approved file creation is complete, run:
+
+```bash
+npm run entities
+```
+
+Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 6 with `yes` and entity files have been written.
+
 ## Output after creation
 
-After writing files, report:
+After writing files and running `npm run entities`, report:
 
 - Created files
 - Final properties
 - Required fields
 - Any inferred fields or relations
+- `npm run entities` result
