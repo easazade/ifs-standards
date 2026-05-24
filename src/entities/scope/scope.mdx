@@ -17,7 +17,8 @@ The `Scope` entity supports the IFS Scope Rule: decision-making and delegated po
 | Property        | Type                 | Required | Description                                                                                                      |
 | --------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | `id`            | `string(uuid)`       | Yes      | Globally unique identifier for this scope.                                                                       |
-| `ifsId`         | `string`             | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.scope`.                                            |
+| `ifsId`         | `string`             | Yes      | IFS system identifier for this scope.                                            |
+| `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `name`          | `string`             | Yes      | Human-readable name of the scope.                                                                                |
 | `description`   | `string`             | No       | Optional human-readable explanation of what this scope includes and excludes.                                    |
 | `type`          | `string`             | Yes      | Primary boundary type. Values: `location`, `group`, `object`, `entity`, or `mixed`.                              |
@@ -41,6 +42,7 @@ At least one of `locations`, `groups`, `objects`, or `entities` must be present.
 
 - `id`
 - `ifsId`
+- `entityType`
 - `name`
 - `type`
 - `state`
@@ -62,7 +64,8 @@ At least one of `locations`, `groups`, `objects`, or `entities` must be present.
 ```json
 {
   "id": "4f4f2d2e-5b7d-4c1e-9c6b-0d8a1e3f9a12",
-  "ifsId": "com.ifs.entity.scope",
+  "ifsId": "ifs_scope_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "entityType": "Scope",
   "name": "Project Alpha Documentation Scope",
   "description": "Authority limited to Project Alpha documentation locations, objects, and related entities.",
   "type": "mixed",

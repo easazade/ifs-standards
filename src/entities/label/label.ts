@@ -6,9 +6,13 @@ export interface Label {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Label.
+   * IFS system identifier for this Label.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Label" for Label entities.
+   */
+  entityType: "Label";
   /**
    * Timestamp when this label was created.
    */

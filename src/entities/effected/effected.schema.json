@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.effected",
-      "description": "Stable IFS entity identifier for Effected."
+      "description": "IFS system identifier for this Effected."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Effected",
+      "description": "Entity type discriminator. Always \"Effected\" for Effected entities."
     },
     "createdAt": {
       "type": "string",
@@ -25,5 +29,11 @@
       "description": "Timestamp when this effected object was last updated."
     }
   },
-  "required": ["id", "ifsId", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "createdAt",
+    "updatedAt"
+  ]
 }

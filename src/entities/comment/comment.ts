@@ -6,9 +6,13 @@ export interface Comment {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Comment.
+   * IFS system identifier for this Comment.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Comment" for Comment entities.
+   */
+  entityType: "Comment";
   /**
    * Timestamp when this comment was created.
    */

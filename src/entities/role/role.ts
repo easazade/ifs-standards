@@ -11,9 +11,13 @@ export type Scope = {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Scope.
+   * IFS system identifier for this Scope.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Scope" for Scope entities.
+   */
+  entityType: "Scope";
   /**
    * Human-readable name of the scope.
    */
@@ -69,9 +73,13 @@ export interface Role {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Role.
+   * IFS system identifier for this Role.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Role" for Role entities.
+   */
+  entityType: "Role";
   /**
    * Human-readable name of the role.
    */
@@ -117,9 +125,13 @@ export interface Permission {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Permission.
+   * IFS system identifier for this Permission.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Permission" for Permission entities.
+   */
+  entityType: "Permission";
   /**
    * Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN.
    */

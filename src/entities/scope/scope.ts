@@ -8,9 +8,13 @@ export type Scope = {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Scope.
+   * IFS system identifier for this Scope.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Scope" for Scope entities.
+   */
+  entityType: "Scope";
   /**
    * Human-readable name of the scope.
    */

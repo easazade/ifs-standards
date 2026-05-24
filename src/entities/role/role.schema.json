@@ -12,8 +12,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.role",
-      "description": "Stable IFS entity identifier for Role."
+      "description": "IFS system identifier for this Role."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Role",
+      "description": "Entity type discriminator. Always \"Role\" for Role entities."
     },
     "name": {
       "type": "string",
@@ -44,7 +48,14 @@
     },
     "state": {
       "type": "string",
-      "enum": ["drafted", "under-review", "active", "suspended", "revoked", "expired"],
+      "enum": [
+        "drafted",
+        "under-review",
+        "active",
+        "suspended",
+        "revoked",
+        "expired"
+      ],
       "description": "Lifecycle state of the role."
     },
     "createdAt": {
@@ -66,6 +77,7 @@
   "required": [
     "id",
     "ifsId",
+    "entityType",
     "name",
     "memberId",
     "scopeId",

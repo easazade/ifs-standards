@@ -11,9 +11,13 @@ export type Scope = {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Scope.
+   * IFS system identifier for this Scope.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Scope" for Scope entities.
+   */
+  entityType: "Scope";
   /**
    * Human-readable name of the scope.
    */
@@ -73,9 +77,13 @@ export type Scope1 = {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Scope.
+   * IFS system identifier for this Scope.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Scope" for Scope entities.
+   */
+  entityType: "Scope";
   /**
    * Human-readable name of the scope.
    */
@@ -131,9 +139,13 @@ export interface Change {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Change.
+   * IFS system identifier for this Change.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Change" for Change entities.
+   */
+  entityType: "Change";
   /**
    * Human-readable title summarizing the proposed change.
    */
@@ -148,8 +160,6 @@ export interface Change {
   changes: string[];
   /**
    * Recent Comment entities for this change, such as the first page of comments.
-   *
-   * @maxItems 50
    */
   comments?: Comment[];
   /**
@@ -186,9 +196,13 @@ export interface Change {
    */
   number: number;
   /**
-   * Label entities assigned to this change.
+   * Label assigned to this change.
    */
-  labels?: Label[];
+  labels?: string[];
+  /**
+   * Identifier of the effected object for this change.
+   */
+  effectedId?: string;
   effected: Effected;
   /**
    * Whether this change has been merged into the target system state.
@@ -231,9 +245,13 @@ export interface Comment {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Comment.
+   * IFS system identifier for this Comment.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Comment" for Comment entities.
+   */
+  entityType: "Comment";
   /**
    * Timestamp when this comment was created.
    */
@@ -250,9 +268,13 @@ export interface ReviewComment {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for ReviewComment.
+   * IFS system identifier for this ReviewComment.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "ReviewComment" for ReviewComment entities.
+   */
+  entityType: "ReviewComment";
   /**
    * Timestamp when this review comment was created.
    */
@@ -269,9 +291,13 @@ export interface Member {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Member.
+   * IFS system identifier for this Member.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Member" for Member entities.
+   */
+  entityType: "Member";
   /**
    * Human-readable name of the member.
    */
@@ -298,9 +324,13 @@ export interface Role {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Role.
+   * IFS system identifier for this Role.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Role" for Role entities.
+   */
+  entityType: "Role";
   /**
    * Human-readable name of the role.
    */
@@ -346,9 +376,13 @@ export interface Permission {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Permission.
+   * IFS system identifier for this Permission.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Permission" for Permission entities.
+   */
+  entityType: "Permission";
   /**
    * Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN.
    */
@@ -394,9 +428,13 @@ export interface Member1 {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Member.
+   * IFS system identifier for this Member.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Member" for Member entities.
+   */
+  entityType: "Member";
   /**
    * Human-readable name of the member.
    */
@@ -417,25 +455,6 @@ export interface Member1 {
   updatedAt: string;
   [k: string]: unknown;
 }
-export interface Label {
-  /**
-   * Globally unique identifier for this label.
-   */
-  id: string;
-  /**
-   * Stable IFS entity identifier for Label.
-   */
-  ifsId: string;
-  /**
-   * Timestamp when this label was created.
-   */
-  createdAt: string;
-  /**
-   * Timestamp when this label was last updated.
-   */
-  updatedAt: string;
-  [k: string]: unknown;
-}
 /**
  * Effected entity describing members, organizations, locations, entities, objects, scopes, or other participants affected by this change.
  */
@@ -445,9 +464,13 @@ export interface Effected {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Effected.
+   * IFS system identifier for this Effected.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Effected" for Effected entities.
+   */
+  entityType: "Effected";
   /**
    * Timestamp when this effected object was created.
    */

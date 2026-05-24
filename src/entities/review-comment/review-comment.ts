@@ -6,9 +6,13 @@ export interface ReviewComment {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for ReviewComment.
+   * IFS system identifier for this ReviewComment.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "ReviewComment" for ReviewComment entities.
+   */
+  entityType: "ReviewComment";
   /**
    * Timestamp when this review comment was created.
    */

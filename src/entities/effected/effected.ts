@@ -6,9 +6,13 @@ export interface Effected {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Effected.
+   * IFS system identifier for this Effected.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Effected" for Effected entities.
+   */
+  entityType: "Effected";
   /**
    * Timestamp when this effected object was created.
    */

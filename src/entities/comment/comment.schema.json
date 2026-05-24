@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.comment",
-      "description": "Stable IFS entity identifier for Comment."
+      "description": "IFS system identifier for this Comment."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Comment",
+      "description": "Entity type discriminator. Always \"Comment\" for Comment entities."
     },
     "createdAt": {
       "type": "string",
@@ -25,5 +29,11 @@
       "description": "Timestamp when this comment was last updated."
     }
   },
-  "required": ["id", "ifsId", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "createdAt",
+    "updatedAt"
+  ]
 }

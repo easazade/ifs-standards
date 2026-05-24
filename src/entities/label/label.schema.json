@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.label",
-      "description": "Stable IFS entity identifier for Label."
+      "description": "IFS system identifier for this Label."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Label",
+      "description": "Entity type discriminator. Always \"Label\" for Label entities."
     },
     "createdAt": {
       "type": "string",
@@ -25,5 +29,11 @@
       "description": "Timestamp when this label was last updated."
     }
   },
-  "required": ["id", "ifsId", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "createdAt",
+    "updatedAt"
+  ]
 }

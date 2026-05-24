@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.change",
-      "description": "Stable IFS entity identifier for Change."
+      "description": "IFS system identifier for this Change."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Change",
+      "description": "Entity type discriminator. Always \"Change\" for Change entities."
     },
     "title": {
       "type": "string",
@@ -72,7 +76,14 @@
     },
     "status": {
       "type": "string",
-      "enum": ["drafted", "closed", "open", "rejected", "approved", "merged"],
+      "enum": [
+        "drafted",
+        "closed",
+        "open",
+        "rejected",
+        "approved",
+        "merged"
+      ],
       "description": "Lifecycle status of the change."
     },
     "diffUrl": {
@@ -90,7 +101,10 @@
       "items": {
         "type": "string"
       },
-      "examples": ["main-system:fix", "ali:needs-urgent-attention"],
+      "examples": [
+        "main-system:fix",
+        "ali:needs-urgent-attention"
+      ],
       "description": "Label assigned to this change."
     },
     "effectedId": {
@@ -151,6 +165,7 @@
   "required": [
     "id",
     "ifsId",
+    "entityType",
     "title",
     "description",
     "changes",

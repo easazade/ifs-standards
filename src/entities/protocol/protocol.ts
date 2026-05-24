@@ -6,9 +6,13 @@ export interface Protocol {
    */
   id: string;
   /**
-   * name id of the IFS resource
+   * IFS system identifier for this Protocol.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Protocol" for Protocol entities.
+   */
+  entityType: "Protocol";
   createdAt: string;
   [k: string]: unknown;
 }

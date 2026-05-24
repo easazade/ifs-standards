@@ -1,12 +1,14 @@
 {
   "id": "a08ff49b-6f77-4263-8716-c43069c43a8c",
   "ifsId": "SC",
+  "entityType": "Role",
   "name": "9oUjuzpj",
   "memberId": "hqdM1o",
   "scopeId": "SysP75Q4Z5",
   "scope": {
     "id": "4e8eb2af-2f26-4165-a881-cd424e42a851",
     "ifsId": "e",
+    "entityType": "Scope",
     "name": "POh",
     "groups": [
       "97",
@@ -30,6 +32,7 @@
     {
       "id": "",
       "ifsId": "HJNheYiSrN",
+      "entityType": "Permission",
       "name": "H5e",
       "actorId": "k",
       "scopeId": "cGxWqf9",
@@ -42,6 +45,7 @@
     {
       "id": "bebyPO",
       "ifsId": "NP7b15bZ",
+      "entityType": "Permission",
       "name": "JxgfQ",
       "actorId": "aFIQ",
       "scopeId": "EVeyTm2Wf",

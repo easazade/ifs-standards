@@ -9,6 +9,7 @@ erDiagram
   CHANGE {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     title string "required"
     description string "required"
     changes array "required"
@@ -22,7 +23,8 @@ erDiagram
     status string "required"
     diffUrl string "uri"
     number int "required"
-    labels array FK "Label[]"
+    labels array "optional"
+    effectedId string FK "optional"
     effected object FK "required, Effected"
     merged boolean "required"
     hasConflict boolean "required"
@@ -37,24 +39,28 @@ erDiagram
   COMMENT {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
   EFFECTED {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
   LABEL {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
   MEMBER {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     name string "required"
     roles array FK "required, Role[]"
     permissions array FK "required, Permission[]"
@@ -65,6 +71,7 @@ erDiagram
   PERMISSION {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     name string "required"
     actorId string "required"
     scopeId string FK "required"
@@ -77,17 +84,20 @@ erDiagram
   PROTOCOL {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     createdAt string "required, date-time"
   }
   REVIEWCOMMENT {
     id string PK "required"
     ifsId string "required"
+    entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
   ROLE {
     id string PK "required, uuid"
     ifsId string "required"
+    entityType string "required"
     name string "required"
     description string "optional"
     memberId string FK "required"
@@ -102,6 +112,7 @@ erDiagram
   SCOPE {
     id string PK "required, uuid"
     ifsId string "required"
+    entityType string "required"
     name string "required"
     description string "optional"
     locations array "optional"
@@ -115,8 +126,7 @@ erDiagram
     updatedAt string "required, date-time"
   }
   CHANGE ||--o{ COMMENT : comments
-  CHANGE ||--|| EFFECTED : effected
-  CHANGE ||--o{ LABEL : labels
+  CHANGE ||--|| EFFECTED : effected_fk_effectedId
   CHANGE ||--o{ MEMBER : authors_also_mainAuthor_and_reviewers
   CHANGE ||--o{ REVIEWCOMMENT : reviewComments
   CHANGE ||--|| SCOPE : scope_fk_scopeId
@@ -132,7 +142,7 @@ erDiagram
 
 - `Change.comments` → `Comment` ($ref, many)
 - `Change.effected` → `Effected` ($ref, one)
-- `Change.labels` → `Label` ($ref, many)
+- `Change.effectedId` → `Effected` (id, one)
 - `Change.authors` → `Member` ($ref, many)
 - `Change.mainAuthor` → `Member` ($ref, one)
 - `Change.reviewers` → `Member` ($ref, many)

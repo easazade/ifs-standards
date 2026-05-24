@@ -15,7 +15,8 @@ In IFS, sovereignty is non-transferable and remains with individuals and affecte
 | Property      | Type                | Required | Description                                                                                                                                     |
 | ------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`          | `string`            | Yes      | Globally unique identifier for this member.                                                                                                     |
-| `ifsId`       | `string`            | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.member`.                                                                          |
+| `ifsId`       | `string`            | Yes      | IFS system identifier for this member.                                                                          |
+| `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `name`        | `string`            | Yes      | Human-readable name of the member.                                                                                                             |
 | `roles`       | `array<object>`     | Yes      | Role objects assigned to this member. Role is not yet standardized, so role objects remain flexible until the Role entity is defined.           |
 | `permissions` | `array<object>`     | Yes      | Permission objects associated with this member.                                                                                                 |
@@ -27,6 +28,7 @@ In IFS, sovereignty is non-transferable and remains with individuals and affecte
 
 - `id`
 - `ifsId`
+- `entityType`
 - `name`
 - `roles`
 - `permissions`
@@ -45,7 +47,8 @@ In IFS, sovereignty is non-transferable and remains with individuals and affecte
 ```json
 {
   "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
-  "ifsId": "com.ifs.entity.member",
+  "ifsId": "ifs_member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "entityType": "Member",
   "name": "Ava Rahimi",
   "roles": [
     {
@@ -57,7 +60,8 @@ In IFS, sovereignty is non-transferable and remains with individuals and affecte
   "permissions": [
     {
       "id": "permission_01HX9Z1A3B5C7D9E2F4G6H8J0K",
-      "ifsId": "com.ifs.entity.permission",
+      "ifsId": "ifs_permission_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Permission",
       "name": "ACCESS_SYSTEM_DOCUMENTS",
       "actorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
       "scopeId": "scope_project_alpha_documents",

@@ -1,6 +1,7 @@
 {
   "id": "aG88rL",
   "ifsId": "A9CEizp",
+  "entityType": "Change",
   "title": "E",
   "description": "",
   "changes": [
@@ -11,11 +12,13 @@
   "mainAuthor": {
     "id": "pjTJ",
     "ifsId": "q",
+    "entityType": "Member",
     "name": "",
     "roles": [
       {
         "id": "",
-        "ifsId": "com.ifs.entity.role",
+        "ifsId": "",
+        "entityType": "Role",
         "name": "",
         "memberId": "",
         "scopeId": "",
@@ -27,7 +30,8 @@
       },
       {
         "id": "",
-        "ifsId": "com.ifs.entity.role",
+        "ifsId": "",
+        "entityType": "Role",
         "name": "",
         "memberId": "",
         "scopeId": "",
@@ -41,7 +45,8 @@
     "permissions": [
       {
         "id": "",
-        "ifsId": "com.ifs.entity.permission",
+        "ifsId": "",
+        "entityType": "Permission",
         "name": "",
         "actorId": "",
         "scopeId": "",
@@ -52,7 +57,8 @@
       },
       {
         "id": "",
-        "ifsId": "com.ifs.entity.permission",
+        "ifsId": "",
+        "entityType": "Permission",
         "name": "",
         "actorId": "",
         "scopeId": "",
@@ -63,7 +69,8 @@
       },
       {
         "id": "",
-        "ifsId": "com.ifs.entity.permission",
+        "ifsId": "",
+        "entityType": "Permission",
         "name": "",
         "actorId": "",
         "scopeId": "",
@@ -81,11 +88,13 @@
     {
       "id": "2F6",
       "ifsId": "kP6i8ky",
+      "entityType": "Member",
       "name": "y",
       "roles": [
         {
           "id": "",
-          "ifsId": "com.ifs.entity.role",
+          "ifsId": "",
+          "entityType": "Role",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -99,7 +108,8 @@
       "permissions": [
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -110,7 +120,8 @@
         },
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -127,11 +138,13 @@
     {
       "id": "hie",
       "ifsId": "POh",
+      "entityType": "Member",
       "name": "GnXp9",
       "roles": [
         {
           "id": "",
-          "ifsId": "com.ifs.entity.role",
+          "ifsId": "",
+          "entityType": "Role",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -143,7 +156,8 @@
         },
         {
           "id": "",
-          "ifsId": "com.ifs.entity.role",
+          "ifsId": "",
+          "entityType": "Role",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -155,7 +169,8 @@
         },
         {
           "id": "",
-          "ifsId": "com.ifs.entity.role",
+          "ifsId": "",
+          "entityType": "Role",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -169,7 +184,8 @@
       "permissions": [
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -180,7 +196,8 @@
         },
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -191,7 +208,8 @@
         },
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -208,12 +226,14 @@
     {
       "id": "j",
       "ifsId": "Hr2t",
+      "entityType": "Member",
       "name": "1NPoxtmq57",
       "roles": [],
       "permissions": [
         {
           "id": "",
-          "ifsId": "com.ifs.entity.permission",
+          "ifsId": "",
+          "entityType": "Permission",
           "name": "",
           "actorId": "",
           "scopeId": "",
@@ -230,27 +250,28 @@
   ],
   "status": "closed",
   "number": 763,
+  "effectedId": "NO",
   "effected": {
     "id": "",
-    "ifsId": "NO",
-    "createdAt": "2000-04-13T20:38:21Z",
-    "updatedAt": "2010-08-01T22:32:34Z"
+    "ifsId": "A2O",
+    "entityType": "Effected",
+    "createdAt": "2011-05-19T00:55:32Z",
+    "updatedAt": "2017-08-04T01:48:08Z"
   },
   "merged": false,
   "hasConflict": true,
-  "links": [
-    "https://demo.net/items",
-    "https://test.org/api/api/v1",
-    "https://example.com/users/data"
-  ],
-  "scopeId": "f9",
+  "scopeId": "H5e",
   "scope": {
-    "id": "16986b24-f980-4293-8a90-106aacaaf0de",
-    "ifsId": "",
-    "name": "HJxgfQxaF",
-    "objects": [
-      "eyTm2Wfl"
+    "id": "086c41ff-0d16-4986-a24f-9802932a9010",
+    "ifsId": "POXN",
+    "entityType": "Scope",
+    "name": "7b15bZH",
+    "locations": [],
+    "groups": [
+      "aFIQ",
+      "EVeyTm2Wf"
     ],
+    "objects": [],
     "parentScopeId": "7u40MDLB",
     "childScopeIds": [],
     "createdAt": "2020-01-19T14:09:09Z",

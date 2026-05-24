@@ -1,12 +1,14 @@
 {
   "id": "aG88rL",
   "ifsId": "A9CEizp",
+  "entityType": "Member",
   "name": "E",
   "roles": [],
   "permissions": [
     {
       "id": "rlcAKXsm",
       "ifsId": "HVlSCV9",
+      "entityType": "Permission",
       "name": "Uj",
       "actorId": "zpj",
       "scopeId": "JhqdM1o",

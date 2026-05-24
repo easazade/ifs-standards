@@ -64,7 +64,7 @@ After the user answers:
 1. Parse each property name, type, format/enum/items if present, and description.
 2. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
 3. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
-4. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only standard metadata fields unless the user supplied more details: `id`, `ifsId`, `createdAt`, and `updatedAt`.
+4. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only standard metadata fields unless the user supplied more details: `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
 5. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
 6. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
 7. If the user answered `yes` to inference:
@@ -100,7 +100,11 @@ Only after approval:
 - For entity references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
 - For `array<EntityName>` or plural entity properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
 - For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
-- If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and properties/required fields for `id`, `ifsId`, `createdAt`, and `updatedAt`.
+- Every entity schema must include properties/required fields for `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
+- `ifsId` is an actual IFS system identifier. Do not set a default value for it.
+- `entityType` must be the string entity name. Use `const` with the PascalCase entity name, e.g. `"entityType": { "type": "string", "const": "Change" }`.
+- `resourceType` must identify the resource category/type used by IFS implementations.
+- If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and properties/required fields for `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, and `updatedAt`.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
 - Prefer clear descriptions for every property.

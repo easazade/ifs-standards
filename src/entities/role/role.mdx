@@ -15,7 +15,8 @@ The role scope applies the IFS Scope Rule: role authority only reaches the bound
 | Property               | Type                | Required | Description                                                                                                                         |
 | ---------------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                   | `string(uuid)`      | Yes      | Globally unique identifier for this role.                                                                                           |
-| `ifsId`                | `string`            | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.role`.                                                                |
+| `ifsId`                | `string`            | Yes      | IFS system identifier for this role.                                                                |
+| `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `name`                 | `string`            | Yes      | Human-readable name of the role.                                                                                                    |
 | `description`          | `string`            | No       | Optional human-readable explanation of what this role is for.                                                                       |
 | `memberId`             | `string`            | Yes      | Identifier of the member acting through this role.                                                                                  |
@@ -40,6 +41,7 @@ The role scope applies the IFS Scope Rule: role authority only reaches the bound
 
 - `id`
 - `ifsId`
+- `entityType`
 - `name`
 - `memberId`
 - `scopeId`
@@ -65,19 +67,22 @@ The role scope applies the IFS Scope Rule: role authority only reaches the bound
 ```json
 {
   "id": "6f5f4f5c-7a4e-4d4a-b3b4-3e8f8d4b3c21",
-  "ifsId": "com.ifs.entity.role",
+  "ifsId": "ifs_role_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "entityType": "Role",
   "name": "Document Steward",
   "description": "Scoped authority to maintain project documentation.",
   "memberId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
   "member": {
     "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
-    "ifsId": "com.ifs.entity.member",
+    "ifsId": "ifs_member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Member",
     "name": "Ava Rahimi"
   },
   "scopeId": "scope_project_alpha_documents",
   "scope": {
     "id": "scope_project_alpha_documents",
-    "ifsId": "com.ifs.entity.scope",
+    "ifsId": "ifs_scope_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Scope",
     "type": "project",
     "projectId": "project_alpha",
     "area": "documents"
@@ -85,7 +90,8 @@ The role scope applies the IFS Scope Rule: role authority only reaches the bound
   "permissions": [
     {
       "id": "permission_01HX9Z1A3B5C7D9E2F4G6H8J0K",
-      "ifsId": "com.ifs.entity.permission",
+      "ifsId": "ifs_permission_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Permission",
       "name": "ACCESS_SYSTEM_DOCUMENTS",
       "actorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
       "scopeId": "scope_project_alpha_documents",

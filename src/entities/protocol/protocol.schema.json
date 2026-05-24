@@ -11,13 +11,22 @@
     },
     "ifsId": {
       "type": "string",
-      "description": "name id of the IFS resource"
+      "description": "IFS system identifier for this Protocol."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Protocol",
+      "description": "Entity type discriminator. Always \"Protocol\" for Protocol entities."
     },
     "createdAt": {
       "type": "string",
       "format": "date-time"
     }
   },
-
-  "required": ["id", "createdAt", "ifsId"]
+  "required": [
+    "id",
+    "createdAt",
+    "ifsId",
+    "entityType"
+  ]
 }

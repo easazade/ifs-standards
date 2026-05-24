@@ -12,8 +12,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.scope",
-      "description": "Stable IFS entity identifier for Scope."
+      "description": "IFS system identifier for this Scope."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Scope",
+      "description": "Entity type discriminator. Always \"Scope\" for Scope entities."
     },
     "name": {
       "type": "string",
@@ -78,19 +82,36 @@
       "description": "Timestamp when this scope record was last updated."
     }
   },
-  "required": ["id", "ifsId", "name", "type", "state", "createdAt", "updatedAt"],
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "name",
+    "type",
+    "state",
+    "createdAt",
+    "updatedAt"
+  ],
   "anyOf": [
     {
-      "required": ["locations"]
+      "required": [
+        "locations"
+      ]
     },
     {
-      "required": ["groups"]
+      "required": [
+        "groups"
+      ]
     },
     {
-      "required": ["objects"]
+      "required": [
+        "objects"
+      ]
     },
     {
-      "required": ["entities"]
+      "required": [
+        "entities"
+      ]
     }
   ]
 }

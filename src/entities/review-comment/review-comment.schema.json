@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.review-comment",
-      "description": "Stable IFS entity identifier for ReviewComment."
+      "description": "IFS system identifier for this ReviewComment."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "ReviewComment",
+      "description": "Entity type discriminator. Always \"ReviewComment\" for ReviewComment entities."
     },
     "createdAt": {
       "type": "string",
@@ -25,5 +29,11 @@
       "description": "Timestamp when this review comment was last updated."
     }
   },
-  "required": ["id", "ifsId", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "createdAt",
+    "updatedAt"
+  ]
 }

@@ -17,7 +17,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 | Property         | Type                 | Required | Description                                                                                                           |
 | ---------------- | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `id`             | `string`             | Yes      | Globally unique identifier for this change.                                                                           |
-| `ifsId`          | `string`             | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.change`.                                                |
+| `ifsId`          | `string`             | Yes      | IFS system identifier for this change.                                                |
+| `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `title`          | `string`             | Yes      | Human-readable title summarizing the proposed change.                                                                 |
 | `description`    | `string`             | Yes      | Detailed explanation of what this change proposes and why it is needed.                                               |
 | `changes`        | `array<string>`      | Yes      | String references to the objects, entities, records, rules, or resources that this change intends to modify.          |
@@ -47,6 +48,7 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 
 - `id`
 - `ifsId`
+- `entityType`
 - `title`
 - `description`
 - `changes`
@@ -78,7 +80,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 ```json
 {
   "id": "change_01J9Z7P7F3E6Q9X2Y4W8N1K2M",
-  "ifsId": "com.ifs.entity.change",
+  "ifsId": "ifs_change_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "entityType": "Change",
   "title": "Update Project Alpha review rule",
   "description": "Proposes requiring two scoped reviewers before Project Alpha protocol changes can be merged.",
   "changes": [
@@ -88,7 +91,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "comments": [
     {
       "id": "comment_01J9Z9D0F4K2V8Y3M6P1A5B7C8",
-      "ifsId": "com.ifs.entity.comment",
+      "ifsId": "ifs_comment_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Comment",
       "authorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
       "body": "This should include documentation-only changes too.",
       "createdAt": "2026-05-24T10:05:00Z",
@@ -99,7 +103,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "reviewComments": [
     {
       "id": "review_comment_01J9ZA2M8Q0S6D4K9H3V1C7X5N",
-      "ifsId": "com.ifs.entity.review-comment",
+      "ifsId": "ifs_review-comment_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "ReviewComment",
       "authorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
       "objectRef": "protocol_project_alpha_review_rules",
       "changeRef": "rule.review.requiredReviewerCount",
@@ -112,7 +117,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "authors": [
     {
       "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
-      "ifsId": "com.ifs.entity.member",
+      "ifsId": "ifs_member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Member",
       "name": "Ava Rahimi",
       "roles": [],
       "permissions": [],
@@ -124,7 +130,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "mainAuthorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
   "mainAuthor": {
     "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
-    "ifsId": "com.ifs.entity.member",
+    "ifsId": "ifs_member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Member",
     "name": "Ava Rahimi",
     "roles": [],
     "permissions": [],
@@ -139,7 +146,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "labels": [
     {
       "id": "label_governance",
-      "ifsId": "com.ifs.entity.label",
+      "ifsId": "ifs_label_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Label",
       "name": "governance",
       "color": "#3366FF",
       "createdAt": "2026-05-24T10:00:00Z",
@@ -148,7 +156,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   ],
   "effected": {
     "id": "effected_change_42",
-    "ifsId": "com.ifs.entity.effected",
+    "ifsId": "ifs_effected_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Effected",
     "memberIds": ["member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M"],
     "orgs": ["org_project_alpha"],
     "locations": ["workspace/project-alpha"],
@@ -164,7 +173,8 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "scopeId": "scope_project_alpha_documents",
   "scope": {
     "id": "scope_project_alpha_documents",
-    "ifsId": "com.ifs.entity.scope",
+    "ifsId": "ifs_scope_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "Scope",
     "name": "Project Alpha Documentation Scope",
     "description": "Authority limited to Project Alpha documentation and protocol changes.",
     "type": "mixed",

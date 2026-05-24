@@ -6,9 +6,13 @@ export interface Permission {
    */
   id: string;
   /**
-   * Stable IFS entity identifier for Permission.
+   * IFS system identifier for this Permission.
    */
   ifsId: string;
+  /**
+   * Entity type discriminator. Always "Permission" for Permission entities.
+   */
+  entityType: "Permission";
   /**
    * Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN.
    */

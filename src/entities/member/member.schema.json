@@ -11,8 +11,12 @@
     },
     "ifsId": {
       "type": "string",
-      "default": "com.ifs.entity.member",
-      "description": "Stable IFS entity identifier for Member."
+      "description": "IFS system identifier for this Member."
+    },
+    "entityType": {
+      "type": "string",
+      "const": "Member",
+      "description": "Entity type discriminator. Always \"Member\" for Member entities."
     },
     "name": {
       "type": "string",
@@ -46,5 +50,15 @@
       "description": "Timestamp when this member record was last updated."
     }
   },
-  "required": ["id", "ifsId", "name", "roles", "permissions", "isOwner", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "name",
+    "roles",
+    "permissions",
+    "isOwner",
+    "createdAt",
+    "updatedAt"
+  ]
 }
