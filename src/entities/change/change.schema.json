@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/change.schema.json",
+  "title": "Change",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this change."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.change",
+      "description": "Stable IFS entity identifier for Change."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title summarizing the proposed change."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed explanation of what this change proposes and why it is needed."
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "String references to the objects, entities, records, rules, or resources that this change intends to modify."
+    },
+    "comments": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/comment.schema.json"
+      },
+      "description": "Recent Comment entities for this change, such as the first page of comments."
+    },
+    "commentsUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL where the full comment thread for this change can be fetched or viewed."
+    },
+    "reviewComments": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/review-comment.schema.json"
+      },
+      "description": "ReviewComment entities tied to changed objects, fields, records, or diff entries."
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json"
+      },
+      "description": "Member entities that authored or co-authored this change."
+    },
+    "mainAuthorId": {
+      "type": "string",
+      "description": "Identifier of the primary member responsible for this change."
+    },
+    "mainAuthor": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json",
+      "description": "Primary member responsible for this change."
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json"
+      },
+      "description": "Member entities requested or assigned to review this change."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["drafted", "closed", "open", "rejected", "approved", "merged"],
+      "description": "Lifecycle status of the change."
+    },
+    "diffUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL showing a diff for all changed objects, similar to a GitHub pull request diff."
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Human-friendly sequence number for this change inside the relevant system or scope."
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "examples": ["main-system:fix", "ali:needs-urgent-attention"],
+      "description": "Label assigned to this change."
+    },
+    "effectedId": {
+      "type": "string",
+      "description": "Identifier of the effected object for this change."
+    },
+    "effected": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/effected.schema.json",
+      "description": "Effected entity describing members, organizations, locations, entities, objects, scopes, or other participants affected by this change."
+    },
+    "merged": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this change has been merged into the target system state."
+    },
+    "hasConflict": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this change currently conflicts with another change or with the target system state."
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Any links related to this change."
+    },
+    "scopeId": {
+      "type": "string",
+      "description": "Identifier of the primary IFS scope where this change is proposed or reviewed."
+    },
+    "scope": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/scope.schema.json",
+      "description": "Primary Scope entity that bounds who is legitimately affected by and authorized to review this change."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this change was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this change was last updated."
+    },
+    "mergedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this change was merged."
+    },
+    "closedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this change was closed without being merged."
+    }
+  },
+  "required": [
+    "id",
+    "ifsId",
+    "title",
+    "description",
+    "changes",
+    "authors",
+    "mainAuthorId",
+    "mainAuthor",
+    "status",
+    "number",
+    "effected",
+    "merged",
+    "hasConflict",
+    "scopeId",
+    "scope",
+    "createdAt",
+    "updatedAt"
+  ]
+}

@@ -1,0 +1,182 @@
+# Change
+
+## Purpose
+
+A `Change` represents a proposal to modify one or more objects, entities, rules, records, or resources in an IFS system.
+
+It is similar to a GitHub Pull Request: it identifies what will change, who authored it, who reviews it, whether it has conflicts, discussion around the proposal, and whether the proposed change was approved, rejected, closed, or merged.
+
+## IFS context and role
+
+In IFS, changes to shared systems must stay transparent, scoped, and reviewable by the affected collective. A `Change` makes proposed modifications explicit before they become system state.
+
+The entity supports the IFS Scope Rule by documenting both the objects under change and the affected radius through `effected`, `scopeId`, and `scope`. Reviewers and authors are Member entities, so responsibility and authority remain auditable. A change can be drafted, opened, approved, rejected, closed, or merged without treating author or reviewer power as permanent authority.
+
+## Properties
+
+| Property         | Type                 | Required | Description                                                                                                           |
+| ---------------- | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `id`             | `string`             | Yes      | Globally unique identifier for this change.                                                                           |
+| `ifsId`          | `string`             | Yes      | Stable IFS entity identifier. Value should be `com.ifs.entity.change`.                                                |
+| `title`          | `string`             | Yes      | Human-readable title summarizing the proposed change.                                                                 |
+| `description`    | `string`             | Yes      | Detailed explanation of what this change proposes and why it is needed.                                               |
+| `changes`        | `array<string>`      | Yes      | String references to the objects, entities, records, rules, or resources that this change intends to modify.          |
+| `comments`       | `array<Comment>`     | No       | Recent Comment entities for this change, such as the first page of comments.                                          |
+| `commentsUrl`    | `string(uri)`        | No       | URL where the full comment thread for this change can be fetched or viewed.                                           |
+| `reviewComments` | `array<ReviewComment>` | No    | ReviewComment entities tied to changed objects, fields, records, or diff entries.                                     |
+| `authors`        | `array<Member>`      | Yes      | Member entities that authored or co-authored this change.                                                             |
+| `mainAuthorId`   | `string`             | Yes      | Identifier of the primary member responsible for this change.                                                         |
+| `mainAuthor`     | `Member`             | Yes      | Primary member responsible for this change.                                                                           |
+| `reviewers`      | `array<Member>`      | No       | Member entities requested or assigned to review this change.                                                          |
+| `status`         | `string`             | Yes      | Lifecycle status. Values: `drafted`, `closed`, `open`, `rejected`, `approved`, or `merged`.                           |
+| `diffUrl`        | `string(uri)`        | No       | URL showing a diff for all changed objects, similar to a GitHub pull request diff.                                    |
+| `number`         | `integer`            | Yes      | Human-friendly sequence number for this change inside the relevant system or scope.                                   |
+| `labels`         | `array<Label>`       | No       | Label entities assigned to this change.                                                                               |
+| `effected`       | `Effected`           | Yes      | Effected entity listing members, organizations, locations, entities, objects, scopes, or participants affected by this change. |
+| `merged`         | `boolean`            | Yes      | Whether this change has been merged into the target system state.                                                     |
+| `hasConflict`    | `boolean`            | Yes      | Whether this change currently conflicts with another change or with the target system state.                          |
+| `links`          | `array<string(uri)>` | No       | Any links related to this change.                                                                                     |
+| `scopeId`        | `string`             | Yes      | Identifier of the primary IFS scope where this change is proposed or reviewed.                                        |
+| `scope`          | `Scope`              | Yes      | Primary Scope entity that bounds who is legitimately affected by and authorized to review this change.                 |
+| `createdAt`      | `string(date-time)`  | Yes      | Timestamp when this change was created.                                                                               |
+| `updatedAt`      | `string(date-time)`  | Yes      | Timestamp when this change was last updated.                                                                          |
+| `mergedAt`       | `string(date-time)`  | No       | Optional timestamp when this change was merged.                                                                       |
+| `closedAt`       | `string(date-time)`  | No       | Optional timestamp when this change was closed without being merged.                                                  |
+
+## Required fields
+
+- `id`
+- `ifsId`
+- `title`
+- `description`
+- `changes`
+- `authors`
+- `mainAuthorId`
+- `mainAuthor`
+- `status`
+- `number`
+- `effected`
+- `merged`
+- `hasConflict`
+- `scopeId`
+- `scope`
+- `createdAt`
+- `updatedAt`
+
+## Relationships
+
+- `authors`, `mainAuthor`, and `reviewers` reference Member entities.
+- `scope` references the Scope entity that bounds the affected radius and legitimate review authority.
+- `changes` contains string references to the objects or resources under change. These remain strings because a change may target heterogeneous system objects that are not all standardized entities.
+- `comments` references Comment entities.
+- `reviewComments` references ReviewComment entities.
+- `labels` references Label entities.
+- `effected` references the Effected entity that describes the affected radius for this change.
+
+## Example JSON object
+
+```json
+{
+  "id": "change_01J9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "ifsId": "com.ifs.entity.change",
+  "title": "Update Project Alpha review rule",
+  "description": "Proposes requiring two scoped reviewers before Project Alpha protocol changes can be merged.",
+  "changes": [
+    "protocol_project_alpha_review_rules",
+    "scope_project_alpha_documents"
+  ],
+  "comments": [
+    {
+      "id": "comment_01J9Z9D0F4K2V8Y3M6P1A5B7C8",
+      "ifsId": "com.ifs.entity.comment",
+      "authorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "body": "This should include documentation-only changes too.",
+      "createdAt": "2026-05-24T10:05:00Z",
+      "updatedAt": "2026-05-24T10:05:00Z"
+    }
+  ],
+  "commentsUrl": "https://ifs.example/changes/42/comments",
+  "reviewComments": [
+    {
+      "id": "review_comment_01J9ZA2M8Q0S6D4K9H3V1C7X5N",
+      "ifsId": "com.ifs.entity.review-comment",
+      "authorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "objectRef": "protocol_project_alpha_review_rules",
+      "changeRef": "rule.review.requiredReviewerCount",
+      "body": "The affected scope should be explicit here.",
+      "state": "open",
+      "createdAt": "2026-05-24T10:10:00Z",
+      "updatedAt": "2026-05-24T10:10:00Z"
+    }
+  ],
+  "authors": [
+    {
+      "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "ifsId": "com.ifs.entity.member",
+      "name": "Ava Rahimi",
+      "roles": [],
+      "permissions": [],
+      "isOwner": false,
+      "createdAt": "2026-05-12T09:30:00Z",
+      "updatedAt": "2026-05-24T09:30:00Z"
+    }
+  ],
+  "mainAuthorId": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "mainAuthor": {
+    "id": "member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+    "ifsId": "com.ifs.entity.member",
+    "name": "Ava Rahimi",
+    "roles": [],
+    "permissions": [],
+    "isOwner": false,
+    "createdAt": "2026-05-12T09:30:00Z",
+    "updatedAt": "2026-05-24T09:30:00Z"
+  },
+  "reviewers": [],
+  "status": "open",
+  "diffUrl": "https://ifs.example/changes/42/diff",
+  "number": 42,
+  "labels": [
+    {
+      "id": "label_governance",
+      "ifsId": "com.ifs.entity.label",
+      "name": "governance",
+      "color": "#3366FF",
+      "createdAt": "2026-05-24T10:00:00Z",
+      "updatedAt": "2026-05-24T10:00:00Z"
+    }
+  ],
+  "effected": {
+    "id": "effected_change_42",
+    "ifsId": "com.ifs.entity.effected",
+    "memberIds": ["member_01HX9Z7P7F3E6Q9X2Y4W8N1K2M"],
+    "orgs": ["org_project_alpha"],
+    "locations": ["workspace/project-alpha"],
+    "entities": ["protocol"],
+    "objects": ["protocol_project_alpha_review_rules"],
+    "scopeIds": ["scope_project_alpha_documents"],
+    "createdAt": "2026-05-24T10:00:00Z",
+    "updatedAt": "2026-05-24T10:00:00Z"
+  },
+  "merged": false,
+  "hasConflict": false,
+  "links": ["https://ifs.example/discussions/review-rule-update"],
+  "scopeId": "scope_project_alpha_documents",
+  "scope": {
+    "id": "scope_project_alpha_documents",
+    "ifsId": "com.ifs.entity.scope",
+    "name": "Project Alpha Documentation Scope",
+    "description": "Authority limited to Project Alpha documentation and protocol changes.",
+    "type": "mixed",
+    "locations": ["workspace/project-alpha/docs"],
+    "groups": ["project-alpha-contributors"],
+    "objects": ["protocol_project_alpha_review_rules"],
+    "entities": ["protocol"],
+    "state": "active",
+    "createdAt": "2026-05-23T10:00:00Z",
+    "updatedAt": "2026-05-24T10:00:00Z"
+  },
+  "createdAt": "2026-05-24T10:00:00Z",
+  "updatedAt": "2026-05-24T10:10:00Z"
+}
+```

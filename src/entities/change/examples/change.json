@@ -1,0 +1,263 @@
+{
+  "id": "aG88rL",
+  "ifsId": "A9CEizp",
+  "title": "E",
+  "description": "",
+  "changes": [
+    "rlcAKXsm"
+  ],
+  "authors": [],
+  "mainAuthorId": "CV9oUju",
+  "mainAuthor": {
+    "id": "pjTJ",
+    "ifsId": "q",
+    "name": "",
+    "roles": [
+      {
+        "id": "",
+        "ifsId": "com.ifs.entity.role",
+        "name": "",
+        "memberId": "",
+        "scopeId": "",
+        "scope": null,
+        "permissions": [],
+        "state": "drafted",
+        "createdAt": "",
+        "updatedAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "com.ifs.entity.role",
+        "name": "",
+        "memberId": "",
+        "scopeId": "",
+        "scope": null,
+        "permissions": [],
+        "state": "drafted",
+        "createdAt": "",
+        "updatedAt": ""
+      }
+    ],
+    "permissions": [
+      {
+        "id": "",
+        "ifsId": "com.ifs.entity.permission",
+        "name": "",
+        "actorId": "",
+        "scopeId": "",
+        "scope": {},
+        "state": "granted",
+        "createdAt": "",
+        "expiresAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "com.ifs.entity.permission",
+        "name": "",
+        "actorId": "",
+        "scopeId": "",
+        "scope": {},
+        "state": "granted",
+        "createdAt": "",
+        "expiresAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "com.ifs.entity.permission",
+        "name": "",
+        "actorId": "",
+        "scopeId": "",
+        "scope": {},
+        "state": "granted",
+        "createdAt": "",
+        "expiresAt": ""
+      }
+    ],
+    "isOwner": true,
+    "createdAt": "2030-09-13T07:40:57Z",
+    "updatedAt": "2028-09-28T20:56:06Z"
+  },
+  "reviewers": [
+    {
+      "id": "2F6",
+      "ifsId": "kP6i8ky",
+      "name": "y",
+      "roles": [
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.role",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        }
+      ],
+      "permissions": [
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        }
+      ],
+      "isOwner": false,
+      "createdAt": "2016-01-26T20:16:09Z",
+      "updatedAt": "2009-11-09T03:39:32Z"
+    },
+    {
+      "id": "hie",
+      "ifsId": "POh",
+      "name": "GnXp9",
+      "roles": [
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.role",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.role",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.role",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        }
+      ],
+      "permissions": [
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        }
+      ],
+      "isOwner": true,
+      "createdAt": "2005-01-31T07:43:51Z",
+      "updatedAt": "2002-04-27T19:47:13Z"
+    },
+    {
+      "id": "j",
+      "ifsId": "Hr2t",
+      "name": "1NPoxtmq57",
+      "roles": [],
+      "permissions": [
+        {
+          "id": "",
+          "ifsId": "com.ifs.entity.permission",
+          "name": "",
+          "actorId": "",
+          "scopeId": "",
+          "scope": {},
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        }
+      ],
+      "isOwner": true,
+      "createdAt": "2001-10-13T05:08:49Z",
+      "updatedAt": "2009-11-16T10:41:20Z"
+    }
+  ],
+  "status": "closed",
+  "number": 763,
+  "effected": {
+    "id": "",
+    "ifsId": "NO",
+    "createdAt": "2000-04-13T20:38:21Z",
+    "updatedAt": "2010-08-01T22:32:34Z"
+  },
+  "merged": false,
+  "hasConflict": true,
+  "links": [
+    "https://demo.net/items",
+    "https://test.org/api/api/v1",
+    "https://example.com/users/data"
+  ],
+  "scopeId": "f9",
+  "scope": {
+    "id": "16986b24-f980-4293-8a90-106aacaaf0de",
+    "ifsId": "",
+    "name": "HJxgfQxaF",
+    "objects": [
+      "eyTm2Wfl"
+    ],
+    "parentScopeId": "7u40MDLB",
+    "childScopeIds": [],
+    "createdAt": "2020-01-19T14:09:09Z",
+    "updatedAt": "2029-04-01T11:19:58Z",
+    "type": null,
+    "state": true
+  },
+  "createdAt": "2019-01-25T23:10:38Z",
+  "updatedAt": "2027-08-19T09:36:34Z"
+}

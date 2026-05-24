@@ -6,6 +6,52 @@ Generated from `src/entities/**/*.schema.json`.
 
 ```mermaid
 erDiagram
+  CHANGE {
+    id string PK "required"
+    ifsId string "required"
+    title string "required"
+    description string "required"
+    changes array "required"
+    comments array FK "Comment[]"
+    commentsUrl string "uri"
+    reviewComments array FK "ReviewComment[]"
+    authors array FK "required, Member[]"
+    mainAuthorId string "required"
+    mainAuthor object FK "required, Member"
+    reviewers array FK "Member[]"
+    status string "required"
+    diffUrl string "uri"
+    number int "required"
+    labels array FK "Label[]"
+    effected object FK "required, Effected"
+    merged boolean "required"
+    hasConflict boolean "required"
+    links array "optional"
+    scopeId string FK "required"
+    scope object FK "required, Scope"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+    mergedAt string "date-time"
+    closedAt string "date-time"
+  }
+  COMMENT {
+    id string PK "required"
+    ifsId string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
+  EFFECTED {
+    id string PK "required"
+    ifsId string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
+  LABEL {
+    id string PK "required"
+    ifsId string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
   MEMBER {
     id string PK "required"
     ifsId string "required"
@@ -32,6 +78,12 @@ erDiagram
     id string PK "required"
     ifsId string "required"
     createdAt string "required, date-time"
+  }
+  REVIEWCOMMENT {
+    id string PK "required"
+    ifsId string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
   }
   ROLE {
     id string PK "required, uuid"
@@ -62,6 +114,12 @@ erDiagram
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
+  CHANGE ||--o{ COMMENT : comments
+  CHANGE ||--|| EFFECTED : effected
+  CHANGE ||--o{ LABEL : labels
+  CHANGE ||--o{ MEMBER : authors_also_mainAuthor_and_reviewers
+  CHANGE ||--o{ REVIEWCOMMENT : reviewComments
+  CHANGE ||--|| SCOPE : scope_fk_scopeId
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
@@ -72,6 +130,15 @@ erDiagram
 
 ## Relation fields
 
+- `Change.comments` → `Comment` ($ref, many)
+- `Change.effected` → `Effected` ($ref, one)
+- `Change.labels` → `Label` ($ref, many)
+- `Change.authors` → `Member` ($ref, many)
+- `Change.mainAuthor` → `Member` ($ref, one)
+- `Change.reviewers` → `Member` ($ref, many)
+- `Change.reviewComments` → `ReviewComment` ($ref, many)
+- `Change.scope` → `Scope` ($ref, one)
+- `Change.scopeId` → `Scope` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)

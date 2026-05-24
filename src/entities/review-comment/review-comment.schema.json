@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/review-comment.schema.json",
+  "title": "ReviewComment",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this review comment."
+    },
+    "ifsId": {
+      "type": "string",
+      "default": "com.ifs.entity.review-comment",
+      "description": "Stable IFS entity identifier for ReviewComment."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this review comment was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this review comment was last updated."
+    }
+  },
+  "required": ["id", "ifsId", "createdAt", "updatedAt"]
+}
