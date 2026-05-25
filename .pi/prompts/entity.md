@@ -40,6 +40,7 @@ Important interaction rules:
 - If answers are sufficient and the user granted final approval, proceed directly to file creation.
 - If required answers are missing or ambiguous, ask only the missing follow-up questions and wait.
 - If the user did not grant final approval, present the final property plan and ask for approval before writing files.
+- If the user did not grant final approval, present the final property plan and ask for approval before writing files.
 - If project rules require a trace footer, include it after the numbered questions.
 
 ### Step 1: First response questionnaire
@@ -48,7 +49,7 @@ Briefly restate what you understand about the entity from the name and specifica
 
 1. Is this meaning correct? If not, what should change?
 2. What user-defined properties should this entity include? Reply with one property per line using `name: type - description`, or say `none`.
-3. Should this entity include all common properties, only some, or none? Common properties: `id`, `ifsId`, `entityType`, `resourceType`, `createdAt`, `updatedAt`. Reply `all`, `none`, or `some: <property names>`.
+3. Should this entity include all common properties, only some, or none? Common properties: `id`, `ifsId`, `entityType`, `createdAt`, `updatedAt`. Reply `all`, `none`, or `some: <property names>`.
 4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
 5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
 6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
@@ -79,15 +80,19 @@ After the user answers:
 8. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
 9. If entity-object relation vs identifier vs reference-string intent is ambiguous, ask a concise follow-up before writing files.
 10. If the user answered `yes` to inference:
-   - Think through the entity in the IFS context.
-   - Add likely required fields unless contradicted by the user.
-   - Add useful optional fields unless contradicted by the user.
-   - Add possible relations to other entities under `src/entities/` when useful.
-   - If a useful relation targets a missing entity, create a basic related-entity schema for it and reference it.
-   - Do not infer `Id` suffix fields as `ifs-ref`; keep them as normal identifiers unless explicitly specified.
-   - Explain inferred fields and relations in the final report.
+
+- Think through the entity in the IFS context.
+- Add likely required fields unless contradicted by the user.
+- Add useful optional fields unless contradicted by the user.
+- Add possible relations to other entities under `src/entities/` when useful.
+- If a useful relation targets a missing entity, create a basic related-entity schema for it and reference it.
+- Do not infer `Id` suffix fields as `ifs-ref`; keep them as normal identifiers unless explicitly specified.
+- Explain inferred fields and relations in the final report.
+
 11. If the user answered `no` to inference:
-   - Use only user-provided properties plus the selected common properties.
+
+- Use only user-provided properties plus the selected common properties.
+
 12. If the user approved immediate creation, create the schema file(s).
 13. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
@@ -117,8 +122,7 @@ Only after approval:
 - Apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
 - Common properties selected by the user should be included in both `properties` and `required`.
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
-- `entityType` is like `resourceType`: it identifies the entity category/type used by IFS implementations. Keep it as a string type/category field by default; do not force it to a PascalCase entity-name `const` unless the user explicitly asks for that.
-- `resourceType` must identify the resource category/type used by IFS implementations. Keep it as a string type/category field by default; add `const` or `enum` only when the user specifies fixed values.
+- `entityType` is like resource type: it identifies the entity category/type used by IFS implementations. Keep it as a string type/category field by default; do not force it to a PascalCase entity-name `const` unless the user explicitly asks for that.
 - If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and selected common properties/required fields.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
