@@ -12,7 +12,7 @@ erDiagram
     entityType string "required"
     title string "required"
     description string "required"
-    changes array "required"
+    changes array FK "required, ChangeItem[]"
     comments array FK "Comment[]"
     commentsUrl string "uri"
     reviewComments array FK "ReviewComment[]"
@@ -24,8 +24,8 @@ erDiagram
     diffUrl string "uri"
     number int "required"
     labels array "optional"
-    effectedId string FK "optional"
-    effected object FK "required, Effected"
+    effectedId string "optional"
+    effected object "required"
     merged boolean "required"
     hasConflict boolean "required"
     links array "optional"
@@ -36,14 +36,20 @@ erDiagram
     mergedAt string "date-time"
     closedAt string "date-time"
   }
-  COMMENT {
+  CHANGEITEM {
     id string PK "required"
     ifsId string "required"
     entityType string "required"
+    resourceType string "required"
+    operation string "required"
+    targetRef string_or_null "required, ifs-ref"
+    baseRef string_or_null "required, ifs-ref"
+    proposedRef string_or_null "required, ifs-ref"
+    description string "optional"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
-  EFFECTED {
+  COMMENT {
     id string PK "required"
     ifsId string "required"
     entityType string "required"
@@ -125,8 +131,8 @@ erDiagram
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
+  CHANGE ||--o{ CHANGEITEM : changes
   CHANGE ||--o{ COMMENT : comments
-  CHANGE ||--|| EFFECTED : effected_fk_effectedId
   CHANGE ||--o{ MEMBER : authors_also_mainAuthor_and_reviewers
   CHANGE ||--o{ REVIEWCOMMENT : reviewComments
   CHANGE ||--|| SCOPE : scope_fk_scopeId
@@ -140,9 +146,8 @@ erDiagram
 
 ## Relation fields
 
+- `Change.changes` → `ChangeItem` ($ref, many)
 - `Change.comments` → `Comment` ($ref, many)
-- `Change.effected` → `Effected` ($ref, one)
-- `Change.effectedId` → `Effected` (id, one)
 - `Change.authors` → `Member` ($ref, many)
 - `Change.mainAuthor` → `Member` ($ref, one)
 - `Change.reviewers` → `Member` ($ref, many)

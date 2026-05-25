@@ -1,5 +1,54 @@
 // GENERATED FOR SCENARIO TESTING PURPOSES. DO NOT MODIFY BY HAND
 
+export type ChangeItem = {
+  [k: string]: unknown;
+} & {
+  /**
+   * Globally unique identifier for this change item.
+   */
+  id: string;
+  /**
+   * IFS system identifier for this ChangeItem.
+   */
+  ifsId: string;
+  /**
+   * Entity type discriminator. Always "ChangeItem" for ChangeItem entities.
+   */
+  entityType: "ChangeItem";
+  /**
+   * Resource category for this change item, such as rule, scope, protocol, record, or resource.
+   */
+  resourceType: string;
+  /**
+   * Type of operation this item proposes for the target object.
+   */
+  operation: "update" | "create" | "delete" | "replace";
+  /**
+   * Stable IFS reference for the logical object being changed. Null for create operations where no active target exists yet.
+   */
+  targetRef: string | null;
+  /**
+   * IFS reference to the active version observed when the change item was authored. Used for conflict detection. Null for create operations.
+   */
+  baseRef: string | null;
+  /**
+   * IFS reference to the proposed object or version produced by this change item. Null for delete operations.
+   */
+  proposedRef: string | null;
+  /**
+   * Optional human-readable note explaining this specific item.
+   */
+  description?: string;
+  /**
+   * Timestamp when this change item was created.
+   */
+  createdAt: string;
+  /**
+   * Timestamp when this change item was last updated.
+   */
+  updatedAt: string;
+  [k: string]: unknown;
+};
 /**
  * Scope entity describing where this role applies.
  */
@@ -155,9 +204,9 @@ export interface Change {
    */
   description: string;
   /**
-   * String references to the objects, entities, records, rules, or resources that this change intends to modify.
+   * ChangeItem entities describing each proposed object-level operation in this change.
    */
-  changes: string[];
+  changes: ChangeItem[];
   /**
    * Recent Comment entities for this change, such as the first page of comments.
    */
@@ -200,10 +249,35 @@ export interface Change {
    */
   labels?: string[];
   /**
-   * Identifier of the effected object for this change.
+   * Identifier of the Effected record describing who or what is affected by this change.
    */
   effectedId?: string;
-  effected: Effected;
+  /**
+   * Effected entity listing members, organizations, locations, entities, objects, scopes, or participants affected by this change.
+   */
+  effected: {
+    /**
+     * Globally unique identifier for the effected record.
+     */
+    id: string;
+    /**
+     * IFS system identifier for this Effected record.
+     */
+    ifsId: string;
+    /**
+     * Entity type discriminator. Always "Effected" for Effected records.
+     */
+    entityType: "Effected";
+    /**
+     * Timestamp when this effected record was created.
+     */
+    createdAt: string;
+    /**
+     * Timestamp when this effected record was last updated.
+     */
+    updatedAt: string;
+    [k: string]: unknown;
+  };
   /**
    * Whether this change has been merged into the target system state.
    */
@@ -451,32 +525,6 @@ export interface Member1 {
   createdAt: string;
   /**
    * Timestamp when this member record was last updated.
-   */
-  updatedAt: string;
-  [k: string]: unknown;
-}
-/**
- * Effected entity describing members, organizations, locations, entities, objects, scopes, or other participants affected by this change.
- */
-export interface Effected {
-  /**
-   * Globally unique identifier for this effected object.
-   */
-  id: string;
-  /**
-   * IFS system identifier for this Effected.
-   */
-  ifsId: string;
-  /**
-   * Entity type discriminator. Always "Effected" for Effected entities.
-   */
-  entityType: "Effected";
-  /**
-   * Timestamp when this effected object was created.
-   */
-  createdAt: string;
-  /**
-   * Timestamp when this effected object was last updated.
    */
   updatedAt: string;
   [k: string]: unknown;

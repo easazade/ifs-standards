@@ -21,7 +21,7 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 | `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `title`          | `string`             | Yes      | Human-readable title summarizing the proposed change.                                                                 |
 | `description`    | `string`             | Yes      | Detailed explanation of what this change proposes and why it is needed.                                               |
-| `changes`        | `array<string(ifs-ref)>` | Yes   | Reference strings to the objects, entities, records, rules, or resources that this change intends to modify.          |
+| `changes`        | `array<ChangeItem>` | Yes   | ChangeItem entities describing each proposed object-level operation in this change.                                   |
 | `comments`       | `array<Comment>`     | No       | Recent Comment entities for this change, such as the first page of comments.                                          |
 | `commentsUrl`    | `string(uri)`        | No       | URL where the full comment thread for this change can be fetched or viewed.                                           |
 | `reviewComments` | `array<ReviewComment>` | No    | ReviewComment entities tied to changed objects, fields, records, or diff entries.                                     |
@@ -67,9 +67,9 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 
 ## Relationships
 
+- `changes` references ChangeItem entities. Each item maps a target object to its base active version and proposed version.
 - `authors`, `mainAuthor`, and `reviewers` reference Member entities.
 - `scope` references the Scope entity that bounds the affected radius and legitimate review authority.
-- `changes` contains `string(ifs-ref)` references to the objects or resources under change. These remain strings because a change may target heterogeneous system objects that are not all standardized entities.
 - `comments` references Comment entities.
 - `reviewComments` references ReviewComment entities.
 - `labels` references Label entities.
@@ -85,8 +85,19 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
   "title": "Update Project Alpha review rule",
   "description": "Proposes requiring two scoped reviewers before Project Alpha protocol changes can be merged.",
   "changes": [
-    "protocol_project_alpha_review_rules",
-    "scope_project_alpha_documents"
+    {
+      "id": "change_item_01J9Z8E4G5H6J7K8L9M0N1P2Q3",
+      "ifsId": "ifs_change_item_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+      "entityType": "ChangeItem",
+      "resourceType": "rule",
+      "operation": "update",
+      "targetRef": "ifs://protocol/project-alpha/review-rule",
+      "baseRef": "ifs://protocol/project-alpha/review-rule@v3",
+      "proposedRef": "ifs://change/change_42/proposed/review-rule",
+      "description": "Require two scoped reviewers before merge.",
+      "createdAt": "2026-05-24T10:00:00Z",
+      "updatedAt": "2026-05-24T10:00:00Z"
+    }
   ],
   "comments": [
     {

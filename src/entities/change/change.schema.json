@@ -29,11 +29,9 @@
     "changes": {
       "type": "array",
       "items": {
-        "type": "string",
-        "format": "ifs-ref",
-        "description": "IFS reference string pointing to an object, entity, record, rule, or resource that this change intends to modify."
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/change-item.schema.json"
       },
-      "description": "String references to the objects, entities, records, rules, or resources that this change intends to modify."
+      "description": "ChangeItem entities describing each proposed object-level operation in this change."
     },
     "comments": {
       "type": "array",
