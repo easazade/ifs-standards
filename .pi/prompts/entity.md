@@ -1,5 +1,5 @@
 ---
-description: Create an IFS entity schema and documentation
+description: Create an IFS entity schema source file
 argument-hint: '<entity-name> [entity specification]'
 ---
 
@@ -13,12 +13,19 @@ ${@:2}
 
 ## Goal
 
-Create these files:
+Create this source file:
 
 - `src/entities/<kebab-case-entity-name>/<kebab-case-entity-name>.schema.json`
-- `src/entities/<kebab-case-entity-name>/<kebab-case-entity-name>.mdx`
 
-Use the existing entity files in `src/entities/` as style references before creating new files.
+Do not create or manually edit an `.mdx` file for the entity. Do not read `.mdx` files as input or use them to decide schema changes.
+
+Use only existing `*.schema.json` files in `src/entities/` as style references before creating new schema files.
+
+## Source of truth
+
+- `*.schema.json` files are the only source of truth for entities.
+- `.mdx` docs, generated examples, classes, indexes, and every other derived artifact must be generated from `*.schema.json` files.
+- Never reverse-engineer or update a schema from an `.mdx` file.
 
 ## Interaction flow
 
@@ -45,7 +52,7 @@ Briefly restate what you understand about the entity from the name and specifica
 4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
 5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
 6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
-7. Do you approve me to create the files immediately after applying your answers and any requested inference? Reply `yes` or `no`.
+7. Do you approve me to create the schema file(s) immediately after applying your answers and any requested inference? Reply `yes` or `no`.
 
 Accepted property examples:
 
@@ -64,7 +71,7 @@ After the user answers:
 
 1. Parse each user-defined property name, type, format/enum/items if present, and description.
 2. Parse the common properties answer. Add all common properties for `all`, no common properties for `none`, or only the listed common properties for `some: ...`.
-3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity object, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
+3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity object, check `src/entities/` for a matching `*.schema.json` file before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`. Ignore `.mdx` files completely.
 4. Treat `Id` suffix fields (`scopeId`, `memberId`, `parentScopeId`, etc.) as identifier fields by default, not reference fields. Do not mark them with `format: "ifs-ref"` unless the user explicitly says that specific field is a reference string.
 5. Treat a field as a reference string only when the user explicitly marks it as a reference/ref, or when its purpose is clearly a heterogeneous pointer to external objects/resources that should stay a plain string. Reference string fields must remain `type: "string"` or `array<string>` and use `format: "ifs-ref"`.
 6. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
@@ -81,17 +88,17 @@ After the user answers:
    - Explain inferred fields and relations in the final report.
 11. If the user answered `no` to inference:
    - Use only user-provided properties plus the selected common properties.
-12. If the user approved immediate creation, create the files.
+12. If the user approved immediate creation, create the schema file(s).
 13. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
-### Step 3: Create files
+### Step 3: Create schema files
 
 Only after approval:
 
 1. Create the entity directory using kebab-case.
 2. Create the JSON Schema file.
-3. Create the MDX documentation file.
-4. Create any basic related-entity schema files needed for referenced entity types that do not already exist.
+3. Create any basic related-entity schema files needed for referenced entity types that do not already exist.
+4. Do not create or manually update `.mdx` documentation; derived docs are generated from schemas.
 
 ## JSON Schema rules
 
@@ -110,38 +117,30 @@ Only after approval:
 - Apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
 - Common properties selected by the user should be included in both `properties` and `required`.
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
-- `entityType` must be the string entity name. Use `const` with the PascalCase entity name, e.g. `"entityType": { "type": "string", "const": "Change" }`.
-- `resourceType` must identify the resource category/type used by IFS implementations.
+- `entityType` is like `resourceType`: it identifies the entity category/type used by IFS implementations. Keep it as a string type/category field by default; do not force it to a PascalCase entity-name `const` unless the user explicitly asks for that.
+- `resourceType` must identify the resource category/type used by IFS implementations. Keep it as a string type/category field by default; add `const` or `enum` only when the user specifies fixed values.
 - If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and selected common properties/required fields.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.
 - Prefer clear descriptions for every property.
 
-## MDX documentation rules
+## Derived artifact rules
 
-The MDX file should document:
-
-- Entity name
-- Purpose
-- IFS context and role
-- Properties table
-- Required fields
-- Relationships to other entities, if any
-- Example JSON object
+Do not write `.mdx` documentation directly. If docs, examples, classes, indexes, or other derived files are needed, generate them from `*.schema.json` files via the project generation command. Schemas flow outward; derived artifacts never flow back into schemas.
 
 ### Step 4: Regenerate derived entity artifacts
 
-After approved file creation is complete, run:
+After approved schema file creation is complete, run:
 
 ```bash
 npm run entities
 ```
 
-Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 7 with `yes` and entity files have been written.
+Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 7 with `yes` and schema files have been written.
 
 ## Output after creation
 
-After writing files and running `npm run entities`, report:
+After writing schema files and running `npm run entities`, report:
 
 - Created files, including any basic related-entity schemas
 - Final properties
