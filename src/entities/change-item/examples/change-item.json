@@ -1,0 +1,12 @@
+{
+  "id": "aG88rL",
+  "ifsId": "A9CEizp",
+  "entityType": "ChangeItem",
+  "resourceType": "E",
+  "operation": "update",
+  "targetRef": "ifs://object/current-target",
+  "baseRef": "ifs://object/current-target@v1",
+  "proposedRef": "ifs://change/change_1/proposed/current-target",
+  "createdAt": "2009-03-21T13:45:11Z",
+  "updatedAt": "2022-06-24T23:14:45Z"
+}

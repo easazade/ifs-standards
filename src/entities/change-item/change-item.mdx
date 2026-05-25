@@ -1,0 +1,70 @@
+# ChangeItem
+
+## Purpose
+
+A `ChangeItem` represents one proposed object-level operation inside a `Change`.
+
+It maps the stable target object to both the active version observed when the proposal was created and the proposed replacement version. This lets an IFS system review, diff, merge, and conflict-check each changed object independently.
+
+## IFS context and role
+
+In IFS, shared system state must be changed transparently and only by the affected scope. A `ChangeItem` makes each proposed modification explicit: what object is targeted, what active version was used as the base, and what proposed version should become active if the parent `Change` is merged.
+
+This supports Real-time Authority Revocation and the Scope Rule by keeping every object-level modification auditable. If the active version of `targetRef` no longer matches `baseRef`, the parent `Change` can be marked as conflicted before merge.
+
+## Properties
+
+| Property       | Type                                        | Required | Description                                                                                                           |
+| -------------- | ------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `id`           | `string`                                    | Yes      | Globally unique identifier for this change item.                                                                      |
+| `ifsId`        | `string`                                    | Yes      | IFS system identifier for this change item.                                                                           |
+| `entityType`   | `string`                                    | Yes      | Entity type discriminator. Always `ChangeItem`.                                                                       |
+| `resourceType` | `string`                                    | Yes      | Resource category for this change item, such as rule, scope, protocol, record, or resource.                           |
+| `operation`    | `enum(create, update, delete, replace)`     | Yes      | Type of operation this item proposes for the target object.                                                           |
+| `targetRef`    | `string(ifs-ref) \| null`                  | Yes      | Stable IFS reference for the logical object being changed. Null for create operations where no active target exists yet. |
+| `baseRef`      | `string(ifs-ref) \| null`                  | Yes      | IFS reference to the active version observed when the change item was authored. Used for conflict detection. Null for create operations. |
+| `proposedRef`  | `string(ifs-ref) \| null`                  | Yes      | IFS reference to the proposed object or version produced by this change item. Null for delete operations.              |
+| `description`  | `string`                                    | No       | Optional human-readable note explaining this specific item.                                                           |
+| `createdAt`    | `string(date-time)`                         | Yes      | Timestamp when this change item was created.                                                                          |
+| `updatedAt`    | `string(date-time)`                         | Yes      | Timestamp when this change item was last updated.                                                                     |
+
+## Required fields
+
+- `id`
+- `ifsId`
+- `entityType`
+- `resourceType`
+- `operation`
+- `targetRef`
+- `baseRef`
+- `proposedRef`
+- `createdAt`
+- `updatedAt`
+
+## Relationships
+
+- `targetRef`, `baseRef`, and `proposedRef` are `string(ifs-ref)` references because a change item may target heterogeneous objects, entities, records, rules, or resources.
+- `targetRef` identifies the logical object whose active version should be resolved at review or merge time.
+- `baseRef` identifies the active version that the proposal was based on.
+- `proposedRef` identifies the proposed object or version that should become active if merged.
+- For `create`, `targetRef` and `baseRef` are null while `proposedRef` is required.
+- For `delete`, `targetRef` and `baseRef` are required while `proposedRef` is null.
+- For `update` and `replace`, all three refs are required.
+
+## Example JSON object
+
+```json
+{
+  "id": "change_item_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "ifsId": "ifs_change_item_01HX9Z7P7F3E6Q9X2Y4W8N1K2M",
+  "entityType": "ChangeItem",
+  "resourceType": "rule",
+  "operation": "update",
+  "targetRef": "ifs://protocol/project-alpha/review-rule",
+  "baseRef": "ifs://protocol/project-alpha/review-rule@v3",
+  "proposedRef": "ifs://change/change_42/proposed/review-rule",
+  "description": "Increase required scoped reviewers from one to two.",
+  "createdAt": "2026-05-24T10:00:00Z",
+  "updatedAt": "2026-05-24T10:00:00Z"
+}
+```
