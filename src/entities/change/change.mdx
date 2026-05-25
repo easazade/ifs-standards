@@ -21,7 +21,7 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 | `entityType` | `string` | Yes | Entity type discriminator. Always the entity name. |
 | `title`          | `string`             | Yes      | Human-readable title summarizing the proposed change.                                                                 |
 | `description`    | `string`             | Yes      | Detailed explanation of what this change proposes and why it is needed.                                               |
-| `changes`        | `array<string>`      | Yes      | String references to the objects, entities, records, rules, or resources that this change intends to modify.          |
+| `changes`        | `array<string(ifs-ref)>` | Yes   | Reference strings to the objects, entities, records, rules, or resources that this change intends to modify.          |
 | `comments`       | `array<Comment>`     | No       | Recent Comment entities for this change, such as the first page of comments.                                          |
 | `commentsUrl`    | `string(uri)`        | No       | URL where the full comment thread for this change can be fetched or viewed.                                           |
 | `reviewComments` | `array<ReviewComment>` | No    | ReviewComment entities tied to changed objects, fields, records, or diff entries.                                     |
@@ -69,7 +69,7 @@ The entity supports the IFS Scope Rule by documenting both the objects under cha
 
 - `authors`, `mainAuthor`, and `reviewers` reference Member entities.
 - `scope` references the Scope entity that bounds the affected radius and legitimate review authority.
-- `changes` contains string references to the objects or resources under change. These remain strings because a change may target heterogeneous system objects that are not all standardized entities.
+- `changes` contains `string(ifs-ref)` references to the objects or resources under change. These remain strings because a change may target heterogeneous system objects that are not all standardized entities.
 - `comments` references Comment entities.
 - `reviewComments` references ReviewComment entities.
 - `labels` references Label entities.

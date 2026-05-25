@@ -29,7 +29,9 @@
     "changes": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "format": "ifs-ref",
+        "description": "IFS reference string pointing to an object, entity, record, rule, or resource that this change intends to modify."
       },
       "description": "String references to the objects, entities, records, rules, or resources that this change intends to modify."
     },

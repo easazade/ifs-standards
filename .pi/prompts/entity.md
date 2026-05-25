@@ -64,22 +64,25 @@ After the user answers:
 
 1. Parse each user-defined property name, type, format/enum/items if present, and description.
 2. Parse the common properties answer. Add all common properties for `all`, no common properties for `none`, or only the listed common properties for `some: ...`.
-3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
-4. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
-5. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only the selected common properties unless the user supplied more details.
-6. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
-7. If entity-reference intent is ambiguous, ask a concise follow-up before writing files.
-8. If the user answered `yes` to inference:
+3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity object, check `src/entities/` for a matching entity schema before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`.
+4. Treat `Id` suffix fields (`scopeId`, `memberId`, `parentScopeId`, etc.) as identifier fields by default, not reference fields. Do not mark them with `format: "ifs-ref"` unless the user explicitly says that specific field is a reference string.
+5. Treat a field as a reference string only when the user explicitly marks it as a reference/ref, or when its purpose is clearly a heterogeneous pointer to external objects/resources that should stay a plain string. Reference string fields must remain `type: "string"` or `array<string>` and use `format: "ifs-ref"`.
+6. Treat each entity schema as one database object type. If a property represents a relation to another database object/entity type, reference that entity type with `$ref`; do not embed the related object's shape inside the current entity schema.
+7. If the referenced entity exists, use a JSON Schema `$ref` to that entity schema `$id`. If the referenced entity does not exist, create a basic schema for it under `src/entities/<kebab-case-related-entity>/<kebab-case-related-entity>.schema.json` and then `$ref` it. The basic related-entity schema must include only the selected common properties unless the user supplied more details.
+8. If a property is arbitrary embedded value/config data and not a database object/entity relationship, keep it as `type: object` with appropriate `additionalProperties` and document why it is not a `$ref`.
+9. If entity-object relation vs identifier vs reference-string intent is ambiguous, ask a concise follow-up before writing files.
+10. If the user answered `yes` to inference:
    - Think through the entity in the IFS context.
    - Add likely required fields unless contradicted by the user.
    - Add useful optional fields unless contradicted by the user.
    - Add possible relations to other entities under `src/entities/` when useful.
    - If a useful relation targets a missing entity, create a basic related-entity schema for it and reference it.
+   - Do not infer `Id` suffix fields as `ifs-ref`; keep them as normal identifiers unless explicitly specified.
    - Explain inferred fields and relations in the final report.
-9. If the user answered `no` to inference:
+11. If the user answered `no` to inference:
    - Use only user-provided properties plus the selected common properties.
-10. If the user approved immediate creation, create the files.
-11. If the user did not approve immediate creation, show the final property plan and ask for approval.
+12. If the user approved immediate creation, create the files.
+13. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
 ### Step 3: Create files
 
@@ -99,9 +102,11 @@ Only after approval:
 - Set `type` to `object`.
 - Include `additionalProperties` according to the entity need; default to `true` unless the user asks for a strict schema.
 - Convert collected properties into valid JSON Schema `properties`.
-- For entity references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
-- For `array<EntityName>` or plural entity properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
+- For entity-object references, prefer absolute `$ref` values matching schema `$id`, not relative file paths. Example: `"$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json"`.
+- For `array<EntityName>` or plural entity-object properties, put the `$ref` inside `items`. Example: `"permissions": { "type": "array", "items": { "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json" } }`.
 - For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
+- For reference-string fields, keep the value simple as `type: "string"` or `array<string>` and add `format: "ifs-ref"`. This marks it as a reference without changing the data shape.
+- Do not treat an `Id` suffix as a reference-string signal. Fields like `scopeId`, `memberId`, `actorId`, and `parentScopeId` are most probably plain identifiers unless the user explicitly says otherwise.
 - Apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
 - Common properties selected by the user should be included in both `properties` and `required`.
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
