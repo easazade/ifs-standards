@@ -78,14 +78,7 @@
     },
     "status": {
       "type": "string",
-      "enum": [
-        "drafted",
-        "closed",
-        "open",
-        "rejected",
-        "approved",
-        "merged"
-      ],
+      "enum": ["drafted", "closed", "open", "rejected", "approved", "merged"],
       "description": "Lifecycle status of the change."
     },
     "diffUrl": {
@@ -103,19 +96,8 @@
       "items": {
         "type": "string"
       },
-      "examples": [
-        "main-system:fix",
-        "ali:needs-urgent-attention"
-      ],
+      "examples": ["main-system:fix", "ali:needs-urgent-attention"],
       "description": "Label assigned to this change."
-    },
-    "effectedId": {
-      "type": "string",
-      "description": "Identifier of the effected object for this change."
-    },
-    "effected": {
-      "$ref": "https://ifs-standards.org/schemas/v1/entities/effected.schema.json",
-      "description": "Effected entity describing members, organizations, locations, entities, objects, scopes, or other participants affected by this change."
     },
     "merged": {
       "type": "boolean",
@@ -134,14 +116,6 @@
         "format": "uri"
       },
       "description": "Any links related to this change."
-    },
-    "scopeId": {
-      "type": "string",
-      "description": "Identifier of the primary IFS scope where this change is proposed or reviewed."
-    },
-    "scope": {
-      "$ref": "https://ifs-standards.org/schemas/v1/entities/scope.schema.json",
-      "description": "Primary Scope entity that bounds who is legitimately affected by and authorized to review this change."
     },
     "createdAt": {
       "type": "string",

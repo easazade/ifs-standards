@@ -82,36 +82,19 @@
       "description": "Timestamp when this scope record was last updated."
     }
   },
-  "required": [
-    "id",
-    "ifsId",
-    "entityType",
-    "name",
-    "type",
-    "state",
-    "createdAt",
-    "updatedAt"
-  ],
+  "required": ["id", "ifsId", "entityType", "name", "type", "state", "createdAt", "updatedAt"],
   "anyOf": [
     {
-      "required": [
-        "locations"
-      ]
+      "required": ["locations"]
     },
     {
-      "required": [
-        "groups"
-      ]
+      "required": ["groups"]
     },
     {
-      "required": [
-        "objects"
-      ]
+      "required": ["objects"]
     },
     {
-      "required": [
-        "entities"
-      ]
+      "required": ["entities"]
     }
   ]
 }
