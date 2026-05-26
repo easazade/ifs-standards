@@ -13,6 +13,7 @@ erDiagram
     title string "required"
     description string "required"
     changes array FK "required, ChangeItem[]"
+    decision object FK "Decision"
     comments array FK "Comment[]"
     commentsUrl string "uri"
     reviewComments array FK "ReviewComment[]"
@@ -24,13 +25,9 @@ erDiagram
     diffUrl string "uri"
     number int "required"
     labels array "optional"
-    effectedId string "optional"
-    effected object "required"
     merged boolean "required"
     hasConflict boolean "required"
     links array "optional"
-    scopeId string FK "required"
-    scope object FK "required, Scope"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
     mergedAt string "date-time"
@@ -50,6 +47,37 @@ erDiagram
     updatedAt string "required, date-time"
   }
   COMMENT {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
+  DECISION {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    subject string "required, ifs-ref"
+    state string "required"
+    outcome object FK "DecisionOutcome"
+    eligibleMembers array FK "required, Member[]"
+    affectedMembers array FK "required, Member[]"
+    votes array FK "required, Vote[]"
+    rules array FK "Rule[]"
+    eligibleMemberCount int "required"
+    affectedMemberCount int "required"
+    voteCount int "required"
+    delegateVoteCount int "optional"
+    openedAt string "required, date-time"
+    closedAt string "date-time"
+    cancelledAt string "date-time"
+    verifiedAt string "date-time"
+    approvedAt string "date-time"
+    rejectedAt string "date-time"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
+  DECISIONOUTCOME {
     id string PK "required"
     ifsId string "required"
     entityType string "required"
@@ -115,6 +143,13 @@ erDiagram
     updatedAt string "required, date-time"
     expiresAt string "date-time"
   }
+  RULE {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
   SCOPE {
     id string PK "required, uuid"
     ifsId string "required"
@@ -131,11 +166,22 @@ erDiagram
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
+  VOTE {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
   CHANGE ||--o{ CHANGEITEM : changes
   CHANGE ||--o{ COMMENT : comments
+  CHANGE ||--|| DECISION : decision
   CHANGE ||--o{ MEMBER : authors_also_mainAuthor_and_reviewers
   CHANGE ||--o{ REVIEWCOMMENT : reviewComments
-  CHANGE ||--|| SCOPE : scope_fk_scopeId
+  DECISION ||--|| DECISIONOUTCOME : outcome
+  DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
+  DECISION ||--o{ RULE : rules
+  DECISION ||--o{ VOTE : votes
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
@@ -148,12 +194,16 @@ erDiagram
 
 - `Change.changes` → `ChangeItem` ($ref, many)
 - `Change.comments` → `Comment` ($ref, many)
+- `Change.decision` → `Decision` ($ref, one)
 - `Change.authors` → `Member` ($ref, many)
 - `Change.mainAuthor` → `Member` ($ref, one)
 - `Change.reviewers` → `Member` ($ref, many)
 - `Change.reviewComments` → `ReviewComment` ($ref, many)
-- `Change.scope` → `Scope` ($ref, one)
-- `Change.scopeId` → `Scope` (id, one)
+- `Decision.outcome` → `DecisionOutcome` ($ref, one)
+- `Decision.eligibleMembers` → `Member` ($ref, many)
+- `Decision.affectedMembers` → `Member` ($ref, many)
+- `Decision.rules` → `Rule` ($ref, many)
+- `Decision.votes` → `Vote` ($ref, many)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)

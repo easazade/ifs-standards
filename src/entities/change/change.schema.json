@@ -33,6 +33,10 @@
       },
       "description": "ChangeItem entities describing each proposed object-level operation in this change."
     },
+    "decision": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/decision.schema.json",
+      "description": "Current decision about this change"
+    },
     "comments": {
       "type": "array",
       "items": {

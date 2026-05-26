@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/vote.schema.json",
+  "title": "Vote",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this vote."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "IFS system identifier for this Vote."
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Entity category for this object, normally Vote."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this vote record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this vote record was last updated."
+    }
+  },
+  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt"]
+}

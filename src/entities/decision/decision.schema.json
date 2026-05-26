@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/decision.schema.json",
+  "title": "Decision",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this decision."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "IFS system identifier for this Decision."
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Entity category for this object, normally Decision."
+    },
+    "subject": {
+      "type": "string",
+      "format": "ifs-ref",
+      "description": "Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources."
+    },
+    "state": {
+      "type": "string",
+      "enum": ["open", "closed", "rejected", "cancelled"],
+      "description": "Current lifecycle state of the decision."
+    },
+    "outcome": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/decision-outcome.schema.json",
+      "description": "Current outcome of the decision, if the decision has produced an outcome at least once."
+    },
+    "eligibleMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json"
+      },
+      "description": "Member entities eligible to participate in this decision."
+    },
+    "affectedMembers": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json"
+      },
+      "description": "Member entities affected by this decision under the IFS scope rule."
+    },
+    "votes": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/vote.schema.json"
+      },
+      "description": "Vote entities cast directly by members or by delegates acting on their behalf."
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/rule.schema.json"
+      },
+      "description": "Rule entities that govern eligibility, delegation, quorum, thresholds, timing, or outcome calculation for this decision."
+    },
+    "eligibleMemberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Snapshot count of members eligible to participate."
+    },
+    "affectedMemberCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Snapshot count of members affected by this decision."
+    },
+    "voteCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Snapshot count of votes currently recorded for this decision."
+    },
+    "delegateVoteCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Snapshot count of votes cast by delegates on behalf of eligible members."
+    },
+    "openedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision opened for participation."
+    },
+    "closedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this decision closed."
+    },
+    "cancelledAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this decision was cancelled."
+    },
+    "verifiedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when participation, vote data, or outcome was verified."
+    },
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this decision produced an approved outcome."
+    },
+    "rejectedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp when this decision was rejected or produced a rejected outcome."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision record was last updated."
+    }
+  },
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "subject",
+    "state",
+    "eligibleMembers",
+    "affectedMembers",
+    "votes",
+    "eligibleMemberCount",
+    "affectedMemberCount",
+    "voteCount",
+    "openedAt",
+    "createdAt",
+    "updatedAt"
+  ]
+}

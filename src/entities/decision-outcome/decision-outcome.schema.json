@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/decision-outcome.schema.json",
+  "title": "DecisionOutcome",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this decision outcome."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "IFS system identifier for this DecisionOutcome."
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Entity category for this object, normally DecisionOutcome."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision outcome record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision outcome record was last updated."
+    }
+  },
+  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt"]
+}
