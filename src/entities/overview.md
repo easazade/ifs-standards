@@ -105,15 +105,6 @@ erDiagram
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
-  MMM {
-    id string PK "required"
-    ifsId string "required"
-    outcomeId string FK "optional"
-    outcome object FK "Decision"
-    entityType string "required"
-    createdAt string "required, date-time"
-    updatedAt string "required, date-time"
-  }
   PERMISSION {
     id string PK "required"
     ifsId string "required"
@@ -197,7 +188,6 @@ erDiagram
   DECISIONOUTCOME ||--|| DECISIONOUTCOME : previousOutcome_fk_previousOutcomeId
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
-  MMM ||--|| DECISION : outcome_fk_outcomeId
   PERMISSION ||--|| SCOPE : scopeId
   ROLE ||--o{ PERMISSION : permissions
   ROLE ||--|| SCOPE : scope_fk_scopeId
@@ -225,8 +215,6 @@ erDiagram
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)
-- `MMM.outcome` → `Decision` ($ref, one)
-- `MMM.outcomeId` → `Decision` (id, one)
 - `Permission.scopeId` → `Scope` (id, one)
 - `Role.permissions` → `Permission` ($ref, many)
 - `Role.scope` → `Scope` ($ref, one)
