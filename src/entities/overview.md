@@ -18,7 +18,7 @@ erDiagram
     commentsUrl string "uri"
     reviewComments array FK "ReviewComment[]"
     authors array FK "required, Member[]"
-    mainAuthorId string "required"
+    mainAuthorId string FK "required"
     mainAuthor object FK "required, Member"
     reviewers array FK "Member[]"
     status string "required"
@@ -59,7 +59,7 @@ erDiagram
     entityType string "required"
     subject string "required, ifs-ref"
     state string "required"
-    outcomeId string "optional"
+    outcomeId string FK "optional"
     outcome object FK "DecisionOutcome"
     eligibleMembers array FK "required, Member[]"
     affectedMembers array FK "required, Member[]"
@@ -81,8 +81,8 @@ erDiagram
   DECISIONOUTCOME {
     id string PK "required"
     ifsId string "required"
-    previousOutcomeId string "optional"
-    previousOutcome object "DecisionOutcome"
+    previousOutcomeId string FK "optional"
+    previousOutcome object FK "DecisionOutcome"
     entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
@@ -102,6 +102,15 @@ erDiagram
     roles array FK "required, Role[]"
     permissions array FK "required, Permission[]"
     isOwner boolean "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+  }
+  MMM {
+    id string PK "required"
+    ifsId string "required"
+    outcomeId string FK "optional"
+    outcome object FK "Decision"
+    entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
   }
@@ -179,14 +188,16 @@ erDiagram
   CHANGE ||--o{ CHANGEITEM : changes
   CHANGE ||--o{ COMMENT : comments
   CHANGE ||--|| DECISION : decision
-  CHANGE ||--o{ MEMBER : authors_also_mainAuthor_and_reviewers
+  CHANGE ||--o{ MEMBER : authors_fk_mainAuthorId_also_mainAuthor_and_reviewers
   CHANGE ||--o{ REVIEWCOMMENT : reviewComments
-  DECISION ||--|| DECISIONOUTCOME : outcome
+  DECISION ||--|| DECISIONOUTCOME : outcome_fk_outcomeId
   DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
   DECISION ||--o{ RULE : rules
   DECISION ||--o{ VOTE : votes
+  DECISIONOUTCOME ||--|| DECISIONOUTCOME : previousOutcome_fk_previousOutcomeId
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
+  MMM ||--|| DECISION : outcome_fk_outcomeId
   PERMISSION ||--|| SCOPE : scopeId
   ROLE ||--o{ PERMISSION : permissions
   ROLE ||--|| SCOPE : scope_fk_scopeId
@@ -201,15 +212,21 @@ erDiagram
 - `Change.authors` → `Member` ($ref, many)
 - `Change.mainAuthor` → `Member` ($ref, one)
 - `Change.reviewers` → `Member` ($ref, many)
+- `Change.mainAuthorId` → `Member` (id, one)
 - `Change.reviewComments` → `ReviewComment` ($ref, many)
 - `Decision.outcome` → `DecisionOutcome` ($ref, one)
+- `Decision.outcomeId` → `DecisionOutcome` (id, one)
 - `Decision.eligibleMembers` → `Member` ($ref, many)
 - `Decision.affectedMembers` → `Member` ($ref, many)
 - `Decision.rules` → `Rule` ($ref, many)
 - `Decision.votes` → `Vote` ($ref, many)
+- `DecisionOutcome.previousOutcome` → `DecisionOutcome` ($ref, one)
+- `DecisionOutcome.previousOutcomeId` → `DecisionOutcome` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)
+- `MMM.outcome` → `Decision` ($ref, one)
+- `MMM.outcomeId` → `Decision` (id, one)
 - `Permission.scopeId` → `Scope` (id, one)
 - `Role.permissions` → `Permission` ($ref, many)
 - `Role.scope` → `Scope` ($ref, one)

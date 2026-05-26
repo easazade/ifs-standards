@@ -71,7 +71,7 @@ function collectRelations(entities, entityByRef) {
     for (const [propertyName, propertySchema] of Object.entries(properties)) {
       for (const ref of findRefs(propertySchema)) {
         const target = resolveRef(ref.value, entityByRef);
-        if (!target || target.id === entity.id) continue;
+        if (!target) continue;
 
         addRelation(relations, relationKeys, {
           source: entity,
@@ -84,7 +84,9 @@ function collectRelations(entities, entityByRef) {
     }
 
     for (const [propertyName, propertySchema] of Object.entries(properties)) {
-      const target = inferEntityFromIdProperty(propertyName, entities);
+      const target =
+        resolveSiblingRefForIdProperty(propertyName, properties, entityByRef) ??
+        inferEntityFromIdProperty(propertyName, entities);
       if (!target) continue;
 
       addRelation(relations, relationKeys, {
@@ -211,6 +213,20 @@ function resolveRef(ref, entityByRef) {
   } catch {
     return entityByRef.get(normalizeName(basename(refWithoutHash, '.schema.json')));
   }
+}
+
+// Paired fields like `outcomeId` + `outcome` should share one FK relation.
+function resolveSiblingRefForIdProperty(propertyName, properties, entityByRef) {
+  if (!/(Id|Ids)$/.test(propertyName) || propertyName === 'id' || propertyName === 'ifsId') {
+    return undefined;
+  }
+
+  const siblingName = propertyName.replace(/Ids?$/, '');
+  const siblingSchema = properties[siblingName];
+  if (!siblingSchema) return undefined;
+
+  const siblingRef = findRefs(siblingSchema)[0];
+  return siblingRef ? resolveRef(siblingRef.value, entityByRef) : undefined;
 }
 
 function inferEntityFromIdProperty(propertyName, entities) {
