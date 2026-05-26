@@ -4,129 +4,28 @@
   "entityType": "E",
   "subject": "",
   "state": "closed",
+  "outcome": {
+    "id": "cA",
+    "ifsId": "XsmOHV",
+    "previousOutcomeId": "CV9oUju",
+    "previousOutcome": {
+      "id": "jT",
+      "ifsId": "hqdM1o",
+      "entityType": "sP75",
+      "createdAt": "2021-12-26T22:06:02Z",
+      "updatedAt": "2026-04-27T12:56:42Z"
+    },
+    "entityType": "P",
+    "createdAt": "2029-02-28T03:23:07Z",
+    "updatedAt": "2012-04-20T12:31:04Z"
+  },
   "eligibleMembers": [
     {
-      "id": "cA",
-      "ifsId": "XsmOHV",
+      "id": "qks3riOIu",
+      "ifsId": "i",
       "entityType": "Member",
-      "name": "SC",
+      "name": "",
       "roles": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        }
-      ],
-      "permissions": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "name": "",
-          "actorId": "",
-          "scopeId": "",
-          "scope": {},
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "name": "",
-          "actorId": "",
-          "scopeId": "",
-          "scope": {},
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "name": "",
-          "actorId": "",
-          "scopeId": "",
-          "scope": {},
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        }
-      ],
-      "isOwner": true,
-      "createdAt": "2023-02-10T09:14:09Z",
-      "updatedAt": "2022-07-04T06:02:37Z"
-    }
-  ],
-  "affectedMembers": [
-    {
-      "id": "9S",
-      "ifsId": "sP75",
-      "entityType": "Member",
-      "name": "4Z5hc1s",
-      "roles": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
         {
           "id": "",
           "ifsId": "",
@@ -168,14 +67,14 @@
         }
       ],
       "isOwner": false,
-      "createdAt": "2021-02-19T22:07:58Z",
-      "updatedAt": "2005-05-04T09:19:39Z"
+      "createdAt": "2003-07-17T05:47:15Z",
+      "updatedAt": "2030-12-27T00:10:01Z"
     },
     {
-      "id": "GeY0q",
-      "ifsId": "s",
+      "id": "uS1fp1XXnf",
+      "ifsId": "z",
       "entityType": "Member",
-      "name": "riOIuhies",
+      "name": "r2t41",
       "roles": [
         {
           "id": "",
@@ -231,28 +130,15 @@
         }
       ],
       "isOwner": true,
-      "createdAt": "2015-07-07T19:15:59Z",
-      "updatedAt": "2029-11-01T04:01:59Z"
+      "createdAt": "2011-04-07T06:55:57Z",
+      "updatedAt": "2004-04-03T00:47:23Z"
     },
     {
-      "id": "S1f",
-      "ifsId": "1X",
+      "id": "jY",
+      "ifsId": "3GA",
       "entityType": "Member",
-      "name": "nfjzHr2t",
+      "name": "vpHVXdm",
       "roles": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
         {
           "id": "",
           "ifsId": "",
@@ -304,79 +190,21 @@
           "state": "granted",
           "createdAt": "",
           "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "name": "",
-          "actorId": "",
-          "scopeId": "",
-          "scope": {},
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
         }
       ],
-      "isOwner": false,
-      "createdAt": "2020-03-12T07:12:15Z",
-      "updatedAt": "2028-12-05T07:04:02Z"
+      "isOwner": true,
+      "createdAt": "2010-06-27T15:21:21Z",
+      "updatedAt": "2018-01-29T12:34:38Z"
     }
   ],
-  "votes": [
-    {
-      "id": "pjYt",
-      "ifsId": "GAQvpHVXd",
-      "entityType": "NO",
-      "createdAt": "2000-04-13T20:38:21Z",
-      "updatedAt": "2010-08-01T22:32:34Z"
-    },
-    {
-      "id": "heYiSrN",
-      "ifsId": "H5e",
-      "entityType": "k",
-      "createdAt": "2021-01-17T09:46:15Z",
-      "updatedAt": "2002-12-31T00:51:06Z"
-    },
-    {
-      "id": "LGxS",
-      "ifsId": "r",
-      "entityType": "MHckMojNLb",
-      "createdAt": "2002-01-13T16:39:47Z",
-      "updatedAt": "2019-09-29T00:52:55Z"
-    }
-  ],
-  "rules": [
-    {
-      "id": "JxgfQ",
-      "ifsId": "aFIQ",
-      "entityType": "EVeyTm2Wf",
-      "createdAt": "2005-09-02T19:57:20Z",
-      "updatedAt": "2028-11-19T11:35:26Z"
-    },
-    {
-      "id": "i6",
-      "ifsId": "cLKjj7q",
-      "entityType": "",
-      "createdAt": "2015-04-30T15:28:00Z",
-      "updatedAt": "2019-01-25T23:10:38Z"
-    },
-    {
-      "id": "KKzMJW2yV",
-      "ifsId": "pj3x7FN",
-      "entityType": "gVMV",
-      "createdAt": "2003-01-25T18:13:19Z",
-      "updatedAt": "2023-01-08T01:18:56Z"
-    }
-  ],
-  "eligibleMemberCount": 316,
-  "affectedMemberCount": 408,
-  "voteCount": 671,
-  "delegateVoteCount": 644,
-  "openedAt": "2024-08-15T02:24:54Z",
-  "closedAt": "2028-12-19T04:38:37Z",
-  "approvedAt": "2028-01-14T05:00:30Z",
-  "rejectedAt": "2024-04-25T21:25:11Z",
-  "createdAt": "2017-07-12T23:39:30Z",
-  "updatedAt": "2015-01-13T04:33:02Z"
+  "affectedMembers": [],
+  "votes": [],
+  "eligibleMemberCount": 141,
+  "affectedMemberCount": 711,
+  "voteCount": 276,
+  "openedAt": "2009-07-29T01:06:10Z",
+  "cancelledAt": "2016-05-25T06:05:59Z",
+  "approvedAt": "2026-02-11T14:31:23Z",
+  "createdAt": "2004-04-29T14:32:02Z",
+  "updatedAt": "2005-08-08T03:38:36Z"
 }

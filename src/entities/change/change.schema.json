@@ -155,8 +155,6 @@
     "effected",
     "merged",
     "hasConflict",
-    "scopeId",
-    "scope",
     "createdAt",
     "updatedAt"
   ]

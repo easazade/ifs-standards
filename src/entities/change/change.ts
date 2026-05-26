@@ -237,6 +237,10 @@ export interface Decision {
    * Current lifecycle state of the decision.
    */
   state: "open" | "closed" | "rejected" | "cancelled";
+  /**
+   * Id of current outcome of the decision, if the decision has produced an outcome at least once.
+   */
+  outcomeId?: string;
   outcome?: DecisionOutcome;
   /**
    * Member entities eligible to participate in this decision.
@@ -316,6 +320,42 @@ export interface DecisionOutcome {
    * IFS system identifier for this DecisionOutcome.
    */
   ifsId: string;
+  /**
+   * Id of previous DecisionOutcome if there was one
+   */
+  previousOutcomeId?: string;
+  previousOutcome?: DecisionOutcome1;
+  /**
+   * Entity category for this object, normally DecisionOutcome.
+   */
+  entityType: string;
+  /**
+   * Timestamp when this decision outcome record was created.
+   */
+  createdAt: string;
+  /**
+   * Timestamp when this decision outcome record was last updated.
+   */
+  updatedAt: string;
+  [k: string]: unknown;
+}
+/**
+ * Previous DecisionOutcome if there was one
+ */
+export interface DecisionOutcome1 {
+  /**
+   * Globally unique identifier for this decision outcome.
+   */
+  id: string;
+  /**
+   * IFS system identifier for this DecisionOutcome.
+   */
+  ifsId: string;
+  /**
+   * Id of previous DecisionOutcome if there was one
+   */
+  previousOutcomeId?: string;
+  previousOutcome?: DecisionOutcome1;
   /**
    * Entity category for this object, normally DecisionOutcome.
    */

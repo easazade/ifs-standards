@@ -59,6 +59,7 @@ erDiagram
     entityType string "required"
     subject string "required, ifs-ref"
     state string "required"
+    outcomeId string "optional"
     outcome object FK "DecisionOutcome"
     eligibleMembers array FK "required, Member[]"
     affectedMembers array FK "required, Member[]"
@@ -80,6 +81,8 @@ erDiagram
   DECISIONOUTCOME {
     id string PK "required"
     ifsId string "required"
+    previousOutcomeId string "optional"
+    previousOutcome object "DecisionOutcome"
     entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"

@@ -27,6 +27,10 @@
       "enum": ["open", "closed", "rejected", "cancelled"],
       "description": "Current lifecycle state of the decision."
     },
+    "outcomeId": {
+      "type": "string",
+      "description": "Id of current outcome of the decision, if the decision has produced an outcome at least once."
+    },
     "outcome": {
       "$ref": "https://ifs-standards.org/schemas/v1/entities/decision-outcome.schema.json",
       "description": "Current outcome of the decision, if the decision has produced an outcome at least once."

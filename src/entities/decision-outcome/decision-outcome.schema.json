@@ -13,6 +13,14 @@
       "type": "string",
       "description": "IFS system identifier for this DecisionOutcome."
     },
+    "previousOutcomeId": {
+      "type": "string",
+      "description": "Id of previous DecisionOutcome if there was one"
+    },
+    "previousOutcome": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/decision-outcome.schema.json",
+      "description": "Previous DecisionOutcome if there was one"
+    },
     "entityType": {
       "type": "string",
       "description": "Entity category for this object, normally DecisionOutcome."
