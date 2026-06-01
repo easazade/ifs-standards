@@ -238,10 +238,10 @@ export interface Decision {
    */
   state: "open" | "closed" | "rejected" | "cancelled";
   /**
-   * Id of current outcome of the decision, if the decision has produced an outcome at least once.
+   * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
-  outcomeId?: string;
-  outcome?: DecisionOutcome;
+  previousRevisionId?: string;
+  previousRevision?: Decision1;
   /**
    * Member entities eligible to participate in this decision.
    */
@@ -306,68 +306,109 @@ export interface Decision {
    * Timestamp when this decision record was last updated.
    */
   updatedAt: string;
+  /**
+   * Timestamp when this decision record was decided.
+   */
+  decidedAt?: string;
   [k: string]: unknown;
 }
 /**
  * Current outcome of the decision, if the decision has produced an outcome at least once.
  */
-export interface DecisionOutcome {
+export interface Decision1 {
   /**
-   * Globally unique identifier for this decision outcome.
+   * Globally unique identifier for this decision.
    */
   id: string;
   /**
-   * IFS system identifier for this DecisionOutcome.
+   * IFS system identifier for this Decision.
    */
   ifsId: string;
   /**
-   * Id of previous DecisionOutcome if there was one
-   */
-  previousOutcomeId?: string;
-  previousOutcome?: DecisionOutcome1;
-  /**
-   * Entity category for this object, normally DecisionOutcome.
+   * Entity category for this object, normally Decision.
    */
   entityType: string;
   /**
-   * Timestamp when this decision outcome record was created.
+   * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
+   */
+  subject: string;
+  /**
+   * Current lifecycle state of the decision.
+   */
+  state: "open" | "closed" | "rejected" | "cancelled";
+  /**
+   * Id of previous revision of this decision, If this decision is a modified version of another decision.
+   */
+  previousRevisionId?: string;
+  previousRevision?: Decision1;
+  /**
+   * Member entities eligible to participate in this decision.
+   */
+  eligibleMembers: Member[];
+  /**
+   * Member entities affected by this decision under the IFS scope rule.
+   */
+  affectedMembers: Member[];
+  /**
+   * Vote entities cast directly by members or by delegates acting on their behalf.
+   */
+  votes: Vote[];
+  /**
+   * Rule entities that govern eligibility, delegation, quorum, thresholds, timing, or outcome calculation for this decision.
+   */
+  rules?: Rule[];
+  /**
+   * Snapshot count of members eligible to participate.
+   */
+  eligibleMemberCount: number;
+  /**
+   * Snapshot count of members affected by this decision.
+   */
+  affectedMemberCount: number;
+  /**
+   * Snapshot count of votes currently recorded for this decision.
+   */
+  voteCount: number;
+  /**
+   * Snapshot count of votes cast by delegates on behalf of eligible members.
+   */
+  delegateVoteCount?: number;
+  /**
+   * Timestamp when this decision opened for participation.
+   */
+  openedAt: string;
+  /**
+   * Optional timestamp when this decision closed.
+   */
+  closedAt?: string;
+  /**
+   * Optional timestamp when this decision was cancelled.
+   */
+  cancelledAt?: string;
+  /**
+   * Optional timestamp when participation, vote data, or outcome was verified.
+   */
+  verifiedAt?: string;
+  /**
+   * Optional timestamp when this decision produced an approved outcome.
+   */
+  approvedAt?: string;
+  /**
+   * Optional timestamp when this decision was rejected or produced a rejected outcome.
+   */
+  rejectedAt?: string;
+  /**
+   * Timestamp when this decision record was created.
    */
   createdAt: string;
   /**
-   * Timestamp when this decision outcome record was last updated.
+   * Timestamp when this decision record was last updated.
    */
   updatedAt: string;
-  [k: string]: unknown;
-}
-/**
- * Previous DecisionOutcome if there was one
- */
-export interface DecisionOutcome1 {
   /**
-   * Globally unique identifier for this decision outcome.
+   * Timestamp when this decision record was decided.
    */
-  id: string;
-  /**
-   * IFS system identifier for this DecisionOutcome.
-   */
-  ifsId: string;
-  /**
-   * Id of previous DecisionOutcome if there was one
-   */
-  previousOutcomeId?: string;
-  previousOutcome?: DecisionOutcome1;
-  /**
-   * Entity category for this object, normally DecisionOutcome.
-   */
-  entityType: string;
-  /**
-   * Timestamp when this decision outcome record was created.
-   */
-  createdAt: string;
-  /**
-   * Timestamp when this decision outcome record was last updated.
-   */
-  updatedAt: string;
+  decidedAt?: string;
   [k: string]: unknown;
 }
 export interface Member {

@@ -59,8 +59,8 @@ erDiagram
     entityType string "required"
     subject string "required, ifs-ref"
     state string "required"
-    outcomeId string FK "optional"
-    outcome object FK "DecisionOutcome"
+    previousRevisionId string FK "optional"
+    previousRevision object FK "Decision"
     eligibleMembers array FK "required, Member[]"
     affectedMembers array FK "required, Member[]"
     votes array FK "required, Vote[]"
@@ -77,15 +77,7 @@ erDiagram
     rejectedAt string "date-time"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
-  }
-  DECISIONOUTCOME {
-    id string PK "required"
-    ifsId string "required"
-    previousOutcomeId string FK "optional"
-    previousOutcome object FK "DecisionOutcome"
-    entityType string "required"
-    createdAt string "required, date-time"
-    updatedAt string "required, date-time"
+    decidedAt string "date-time"
   }
   LABEL {
     id string PK "required"
@@ -181,11 +173,10 @@ erDiagram
   CHANGE ||--|| DECISION : decision
   CHANGE ||--o{ MEMBER : authors_fk_mainAuthorId_also_mainAuthor_and_reviewers
   CHANGE ||--o{ REVIEWCOMMENT : reviewComments
-  DECISION ||--|| DECISIONOUTCOME : outcome_fk_outcomeId
+  DECISION ||--|| DECISION : previousRevision_fk_previousRevisionId
   DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
   DECISION ||--o{ RULE : rules
   DECISION ||--o{ VOTE : votes
-  DECISIONOUTCOME ||--|| DECISIONOUTCOME : previousOutcome_fk_previousOutcomeId
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
@@ -204,14 +195,12 @@ erDiagram
 - `Change.reviewers` → `Member` ($ref, many)
 - `Change.mainAuthorId` → `Member` (id, one)
 - `Change.reviewComments` → `ReviewComment` ($ref, many)
-- `Decision.outcome` → `DecisionOutcome` ($ref, one)
-- `Decision.outcomeId` → `DecisionOutcome` (id, one)
+- `Decision.previousRevision` → `Decision` ($ref, one)
+- `Decision.previousRevisionId` → `Decision` (id, one)
 - `Decision.eligibleMembers` → `Member` ($ref, many)
 - `Decision.affectedMembers` → `Member` ($ref, many)
 - `Decision.rules` → `Rule` ($ref, many)
 - `Decision.votes` → `Vote` ($ref, many)
-- `DecisionOutcome.previousOutcome` → `DecisionOutcome` ($ref, one)
-- `DecisionOutcome.previousOutcomeId` → `DecisionOutcome` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)

@@ -27,12 +27,12 @@
       "enum": ["open", "closed", "rejected", "cancelled"],
       "description": "Current lifecycle state of the decision."
     },
-    "outcomeId": {
+    "previousRevisionId": {
       "type": "string",
-      "description": "Id of current outcome of the decision, if the decision has produced an outcome at least once."
+      "description": "Id of previous revision of this decision, If this decision is a modified version of another decision."
     },
-    "outcome": {
-      "$ref": "https://ifs-standards.org/schemas/v1/entities/decision-outcome.schema.json",
+    "previousRevision": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/decision.schema.json",
       "description": "Current outcome of the decision, if the decision has produced an outcome at least once."
     },
     "eligibleMembers": {
@@ -122,6 +122,11 @@
       "type": "string",
       "format": "date-time",
       "description": "Timestamp when this decision record was last updated."
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this decision record was decided."
     }
   },
   "required": [
