@@ -40,12 +40,13 @@ Important interaction rules:
 - If answers are sufficient and the user granted final approval, proceed directly to schema creation or update.
 - If required answers are missing or ambiguous, ask only the missing follow-up questions and wait.
 - If the user did not grant final approval, present the final property plan and ask for approval before writing files.
-- If the user did not grant final approval, present the final property plan and ask for approval before writing files.
 - If project rules require a trace footer, include it after the numbered questions.
 
 ### Step 1: First response questionnaire
 
-Briefly restate what you understand about the entity from the name and specification, then ask this full numbered questionnaire and wait:
+First check whether `src/entities/<kebab-case-entity-name>/<kebab-case-entity-name>.schema.json` exists.
+
+If it does not exist, briefly restate what you understand about the entity from the name and specification, then ask this numbered creation questionnaire and wait:
 
 1. Is this meaning correct? If not, what should change?
 2. What user-defined properties should this entity include? Reply with one property per line using `name: type - description`, or say `none`.
@@ -53,7 +54,15 @@ Briefly restate what you understand about the entity from the name and specifica
 4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
 5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
 6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
-7. Do you approve me to create or update the schema file(s) immediately after applying your answers and any requested inference? Reply `yes` or `no`.
+7. Do you approve me to create the schema file(s) immediately after applying your answers and any requested inference? Reply `yes` or `no`.
+
+If it exists, read the existing schema first, briefly summarize current fields, then ask only this update questionnaire and wait:
+
+1. What should change? List fields to add/change/remove using `name: type - description`, or describe the desired behavior.
+2. Should existing compatible fields stay unchanged? Reply `yes` unless you want removals/renames.
+3. Which new or changed fields should be required? List names, or say `infer` / `none` / `unchanged`.
+4. Should I infer small related updates from the requested change? Reply `yes` or `no`.
+5. Do you approve me to update the schema immediately after applying your answers? Reply `yes` or `no`.
 
 Accepted property examples:
 
@@ -94,7 +103,7 @@ After the user answers:
 - Use only user-provided properties plus the selected common properties.
 
 12. If the user approved immediate creation/update, create or update the schema file(s).
-13. If the user did not approve immediate creation, show the final property plan and ask for approval.
+13. If the user did not approve immediate creation/update, show the final property plan and ask for approval.
 
 ### Step 3: Create or update schema files
 
@@ -119,7 +128,8 @@ Only after approval:
 - For single entity-object properties, use direct `$ref`. Example: `"owner": { "$ref": "https://ifs-standards.org/schemas/v1/entities/member.schema.json" }`.
 - For reference-string fields, keep the value simple as `type: "string"` or `array<string>` and add `format: "ifs-ref"`. This marks it as a reference without changing the data shape.
 - Do not treat an `Id` suffix as a reference-string signal. Fields like `scopeId`, `memberId`, `actorId`, and `parentScopeId` are most probably plain identifiers unless the user explicitly says otherwise.
-- Apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
+- For new schemas, apply common properties according to the user's answer: `all`, `none`, or `some: <property names>`.
+- For existing schemas, preserve existing common properties unless the user explicitly asks to change/remove them.
 - Common properties selected by the user should be included in both `properties` and `required`.
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
 - `entityType` is like resource type: it identifies the entity category/type used by IFS implementations. Keep it as a string type/category field by default; do not force it to a PascalCase entity-name `const` unless the user explicitly asks for that.
@@ -140,13 +150,13 @@ After approved schema file creation/update is complete, run:
 npm run entities
 ```
 
-Important: run this only at the end of the approved creation run. Do not run it during the first questionnaire response. In the normal flow, this means run it on the second assistant turn after the user answers question 7 with `yes` and schema files have been written.
+Important: run this only at the end of the approved creation/update run. Do not run it during the first questionnaire response. In the normal create flow, this means run it on the second assistant turn after the user answers approval with `yes` and schema files have been written.
 
-## Output after creation
+## Output after creation/update
 
 After writing schema files and running `npm run entities`, report:
 
-- Created files, including any basic related-entity schemas
+- Created or updated files, including any basic related-entity schemas
 - Final properties
 - Required fields
 - Any inferred fields or relations
