@@ -1,9 +1,9 @@
 ---
-description: Create an IFS entity schema source file
+description: Create or update an IFS entity schema source file
 argument-hint: '<entity-name> [entity specification]'
 ---
 
-Create a new IFS entity named `$1`.
+Create a new IFS entity named `$1`, or update it if it already exists.
 
 Initial entity specification:
 
@@ -13,13 +13,13 @@ ${@:2}
 
 ## Goal
 
-Create this source file:
+Create or update this source file:
 
 - `src/entities/<kebab-case-entity-name>/<kebab-case-entity-name>.schema.json`
 
 Do not create or manually edit an `.mdx` file for the entity. Do not read `.mdx` files as input or use them to decide schema changes.
 
-Use only existing `*.schema.json` files in `src/entities/` as style references before creating new schema files.
+Use only existing `*.schema.json` files in `src/entities/` as style references before creating or updating schema files. If the target schema already exists, read it first and preserve compatible existing fields unless the user asks to change/remove them.
 
 ## Source of truth
 
@@ -29,15 +29,15 @@ Use only existing `*.schema.json` files in `src/entities/` as style references b
 
 ## Interaction flow
 
-Do not create files immediately. First interview the user in one batch so `pi-questions-helper` can extract every question and help the user answer them at once.
+Do not create or update files immediately. First interview the user in one batch so `pi-questions-helper` can extract every question and help the user answer them at once.
 
 Important interaction rules:
 
 - In the first assistant response, ask all needed questions together as a numbered list.
 - After the numbered questions, stop and wait for the user's next message.
-- Do not create files in the first response.
+- Do not create or update files in the first response.
 - The next user message may be a `pi-questions-helper` draft such as "Here are my answers to your questions:". Parse those answers.
-- If answers are sufficient and the user granted final approval, proceed directly to file creation.
+- If answers are sufficient and the user granted final approval, proceed directly to schema creation or update.
 - If required answers are missing or ambiguous, ask only the missing follow-up questions and wait.
 - If the user did not grant final approval, present the final property plan and ask for approval before writing files.
 - If the user did not grant final approval, present the final property plan and ask for approval before writing files.
@@ -53,7 +53,7 @@ Briefly restate what you understand about the entity from the name and specifica
 4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
 5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
 6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
-7. Do you approve me to create the schema file(s) immediately after applying your answers and any requested inference? Reply `yes` or `no`.
+7. Do you approve me to create or update the schema file(s) immediately after applying your answers and any requested inference? Reply `yes` or `no`.
 
 Accepted property examples:
 
@@ -93,15 +93,15 @@ After the user answers:
 
 - Use only user-provided properties plus the selected common properties.
 
-12. If the user approved immediate creation, create the schema file(s).
+12. If the user approved immediate creation/update, create or update the schema file(s).
 13. If the user did not approve immediate creation, show the final property plan and ask for approval.
 
-### Step 3: Create schema files
+### Step 3: Create or update schema files
 
 Only after approval:
 
-1. Create the entity directory using kebab-case.
-2. Create the JSON Schema file.
+1. Create the entity directory using kebab-case if missing.
+2. Create the JSON Schema file, or update the existing schema file in place if it already exists.
 3. Create any basic related-entity schema files needed for referenced entity types that do not already exist.
 4. Do not create or manually update `.mdx` documentation; derived docs are generated from schemas.
 
@@ -134,7 +134,7 @@ Do not write `.mdx` documentation directly. If docs, examples, classes, indexes,
 
 ### Step 4: Regenerate derived entity artifacts
 
-After approved schema file creation is complete, run:
+After approved schema file creation/update is complete, run:
 
 ```bash
 npm run entities
