@@ -12,13 +12,12 @@
       "name": "Uj",
       "actorId": "zpj",
       "scopeId": "JhqdM1o",
-      "scope": {},
-      "state": "drafted",
-      "createdAt": "2022-05-10T16:57:55Z",
-      "expiresAt": "2028-11-29T02:02:52Z"
+      "state": "revoked",
+      "createdAt": "2012-04-21T22:55:41Z",
+      "expiresAt": "2025-12-04T00:52:17Z"
     }
   ],
-  "isOwner": true,
-  "createdAt": "2027-07-30T16:09:40Z",
-  "updatedAt": "2029-02-28T03:23:07Z"
+  "isOwner": false,
+  "createdAt": "2015-12-22T03:40:56Z",
+  "updatedAt": "2004-12-06T09:07:24Z"
 }

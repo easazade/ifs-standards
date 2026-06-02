@@ -68,7 +68,6 @@
     "name",
     "actorId",
     "scopeId",
-    "scope",
     "state",
     "createdAt",
     "expiresAt"

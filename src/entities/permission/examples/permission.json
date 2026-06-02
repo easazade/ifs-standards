@@ -6,7 +6,8 @@
   "actorId": "",
   "scopeId": "Vrlc",
   "scope": {},
-  "state": "under-review",
-  "createdAt": "2018-10-10T04:39:32Z",
-  "expiresAt": "2005-09-14T18:59:14Z"
+  "state": "revoked",
+  "createdAt": "2024-04-07T15:32:45Z",
+  "updatedAt": "2022-06-24T23:14:45Z",
+  "expiresAt": "2004-04-13T05:09:43Z"
 }

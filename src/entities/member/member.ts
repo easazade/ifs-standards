@@ -180,7 +180,7 @@ export interface Permission {
   /**
    * Scope object describing the system, project, process, area, or other bounded context where this permission applies.
    */
-  scope: {
+  scope?: {
     [k: string]: unknown;
   };
   /**

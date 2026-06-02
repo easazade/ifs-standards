@@ -26,6 +26,14 @@
       "type": "string",
       "description": "Detailed explanation of what this change proposes and why it is needed."
     },
+    "summary": {
+      "type": "string",
+      "description": "Short explanation of what this change proposes and why it is needed."
+    },
+    "reason": {
+      "type": "string",
+      "description": "explanation of why this change is being proposed."
+    },
     "changes": {
       "type": "array",
       "items": {
@@ -146,6 +154,7 @@
     "entityType",
     "title",
     "description",
+    "reason",
     "changes",
     "authors",
     "mainAuthorId",

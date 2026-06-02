@@ -107,7 +107,6 @@
           "name": "",
           "actorId": "",
           "scopeId": "",
-          "scope": {},
           "state": "granted",
           "createdAt": "",
           "expiresAt": ""
@@ -119,7 +118,6 @@
           "name": "",
           "actorId": "",
           "scopeId": "",
-          "scope": {},
           "state": "granted",
           "createdAt": "",
           "expiresAt": ""
@@ -131,7 +129,6 @@
           "name": "",
           "actorId": "",
           "scopeId": "",
-          "scope": {},
           "state": "granted",
           "createdAt": "",
           "expiresAt": ""
@@ -155,7 +152,6 @@
           "name": "",
           "actorId": "",
           "scopeId": "",
-          "scope": {},
           "state": "granted",
           "createdAt": "",
           "expiresAt": ""

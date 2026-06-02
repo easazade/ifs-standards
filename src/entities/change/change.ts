@@ -138,6 +138,14 @@ export interface Change {
    */
   description: string;
   /**
+   * Short explanation of what this change proposes and why it is needed.
+   */
+  summary?: string;
+  /**
+   * explanation of why this change is being proposed.
+   */
+  reason: string;
+  /**
    * ChangeItem entities describing each proposed object-level operation in this change.
    */
   changes: ChangeItem[];
@@ -524,7 +532,7 @@ export interface Permission {
   /**
    * Scope object describing the system, project, process, area, or other bounded context where this permission applies.
    */
-  scope: {
+  scope?: {
     [k: string]: unknown;
   };
   /**
