@@ -26,7 +26,23 @@
       "type": "string",
       "format": "date-time",
       "description": "Timestamp when this vote record was last updated."
+    },
+    "decisionId": {
+      "type": "string",
+      "description": "Identifier of the decision this vote participates in."
+    },
+    "memberId": {
+      "type": "string",
+      "description": "Identifier of the member who cast or owns this vote."
+    },
+    "value": {
+      "type": "string",
+      "description": "Vote value recorded for the decision, such as an implementation-defined choice or consent signal."
+    },
+    "previousRevisionId": {
+      "type": "string",
+      "description": "Identifier of the previous revision of this vote, if this vote amends an earlier vote."
     }
   },
-  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt"]
+  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt", "decisionId", "memberId", "value"]
 }

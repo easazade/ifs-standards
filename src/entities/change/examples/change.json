@@ -77,7 +77,10 @@
         "ifsId": "",
         "entityType": "",
         "createdAt": "",
-        "updatedAt": ""
+        "updatedAt": "",
+        "decisionId": "",
+        "memberId": "",
+        "value": ""
       }
     ],
     "eligibleMemberCount": 293,

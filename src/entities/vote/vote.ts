@@ -21,5 +21,21 @@ export interface Vote {
    * Timestamp when this vote record was last updated.
    */
   updatedAt: string;
+  /**
+   * Identifier of the decision this vote participates in.
+   */
+  decisionId: string;
+  /**
+   * Identifier of the member who cast or owns this vote.
+   */
+  memberId: string;
+  /**
+   * Vote value recorded for the decision, such as an implementation-defined choice or consent signal.
+   */
+  value: string;
+  /**
+   * Identifier of the previous revision of this vote, if this vote amends an earlier vote.
+   */
+  previousRevisionId?: string;
   [k: string]: unknown;
 }

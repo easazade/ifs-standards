@@ -167,6 +167,10 @@ erDiagram
     entityType string "required"
     createdAt string "required, date-time"
     updatedAt string "required, date-time"
+    decisionId string FK "required"
+    memberId string FK "required"
+    value string "required"
+    previousRevisionId string "optional"
   }
   CHANGE ||--o{ CHANGEITEM : changes
   CHANGE ||--o{ COMMENT : comments
@@ -176,13 +180,14 @@ erDiagram
   DECISION ||--|| DECISION : previousRevision_fk_previousRevisionId
   DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
   DECISION ||--o{ RULE : rules
-  DECISION ||--o{ VOTE : votes
+  DECISION ||--o{ VOTE : votes_fk_decisionId
   MEMBER ||--o{ PERMISSION : permissions
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
   ROLE ||--o{ PERMISSION : permissions
   ROLE ||--|| SCOPE : scope_fk_scopeId
   SCOPE ||--o{ SCOPE : childScopeIds_fk_parentScopeId
+  VOTE ||--|| MEMBER : memberId
 ```
 
 ## Relation fields
@@ -201,6 +206,7 @@ erDiagram
 - `Decision.affectedMembers` → `Member` ($ref, many)
 - `Decision.rules` → `Rule` ($ref, many)
 - `Decision.votes` → `Vote` ($ref, many)
+- `Vote.decisionId` → `Decision` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)
@@ -210,3 +216,4 @@ erDiagram
 - `Role.scopeId` → `Scope` (id, one)
 - `Scope.parentScopeId` → `Scope` (id, one)
 - `Scope.childScopeIds` → `Scope` (id, many)
+- `Vote.memberId` → `Member` (id, one)
