@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useId, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-const cx = (...classes) => classes.filter(Boolean).join(' ');
+const applyClasses = (...classes) => classes.filter(Boolean).join(' ');
 
 function validateItems(items, componentName, propFullName) {
   if (!Array.isArray(items)) {
@@ -40,7 +40,7 @@ function itemContainsPath(item, pathname) {
 function SidebarChevron({ expanded }) {
   return (
     <svg
-      className={cx('h-3.5 w-3.5 transition-transform duration-150', expanded && 'rotate-90')}
+      className={applyClasses('h-3.5 w-3.5 transition-transform duration-150', expanded && 'rotate-90')}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
@@ -59,7 +59,7 @@ SidebarChevron.propTypes = { expanded: PropTypes.bool.isRequired };
 
 function SidebarSectionItems({ items, nested = false }) {
   return (
-    <ul className={cx('m-0 flex list-none flex-col p-0', nested && 'pl-4')}>
+    <ul className={applyClasses('m-0 flex list-none flex-col p-0', nested && 'pl-4')}>
       {items.map((item) => (
         <li key={`${item.href}-${item.label}`} className="bg-transparent">
           <SidebarSectionItem item={item} nested={nested} />
@@ -81,7 +81,7 @@ function SidebarSectionItem({ item, nested }) {
   const [isExpanded, setIsExpanded] = useState(pathname === item.href || hasActiveDescendant);
 
   const linkClassName = ({ isActive }) =>
-    cx(
+    applyClasses(
       'block flex-1 rounded-md px-2 py-1 text-base leading-6 transition-colors hover:bg-surface-primary hover:text-text',
       nested ? 'text-text-secondary' : 'text-text',
       isActive && 'font-medium text-primary underline',
@@ -121,7 +121,7 @@ export function SidebarSection({ title, items, className = '' }) {
   return (
     <section
       aria-labelledby={headingId}
-      className={cx('flex w-full flex-col gap-2 bg-transparent', className)}
+      className={applyClasses('flex w-full flex-col gap-2 bg-transparent', className)}
     >
       <h2 id={headingId} className="px-2 text-sm font-medium text-text-secondary">
         {title}
