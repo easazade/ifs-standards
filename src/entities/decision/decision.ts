@@ -460,13 +460,21 @@ export interface Permission {
    */
   entityType: "Permission";
   /**
-   * Human-readable or machine-readable permission name, such as ACCESS_SYSTEM_DOCUMENTS or ADMIN.
+   * Name of the action this permission is for
    */
-  name: string;
+  actionName?: string;
   /**
-   * Identifier of the actor receiving this permission.
+   * Id of the action object this permission is for
    */
-  actorId: string;
+  actionId: string;
+  /**
+   * Identifier of the member receiving this permission.
+   */
+  memberId?: string;
+  /**
+   * Identifier of the role receiving this permission.
+   */
+  roleId?: string;
   /**
    * Identifier of the scope object where this permission applies.
    */

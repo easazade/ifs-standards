@@ -103,8 +103,10 @@ erDiagram
     id string PK "required"
     ifsId string "required"
     entityType string "required"
-    name string "required"
-    actorId string "required"
+    actionName string "optional"
+    actionId string "required"
+    memberId string FK "optional"
+    roleId string FK "optional"
     scopeId string FK "required"
     scope object "optional"
     state string "required"
@@ -183,10 +185,10 @@ erDiagram
   DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
   DECISION ||--o{ RULE : rules
   DECISION ||--o{ VOTE : votes_fk_decisionId
-  MEMBER ||--o{ PERMISSION : permissions
+  MEMBER ||--o{ PERMISSION : permissions_fk_memberId
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
-  ROLE ||--o{ PERMISSION : permissions
+  ROLE ||--o{ PERMISSION : permissions_fk_roleId
   ROLE ||--|| SCOPE : scope_fk_scopeId
   SCOPE ||--o{ SCOPE : childScopeIds_fk_parentScopeId
   VOTE ||--|| MEMBER : memberId
@@ -210,9 +212,11 @@ erDiagram
 - `Decision.votes` → `Vote` ($ref, many)
 - `Vote.decisionId` → `Decision` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
+- `Permission.memberId` → `Member` (id, one)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)
 - `Permission.scopeId` → `Scope` (id, one)
+- `Permission.roleId` → `Role` (id, one)
 - `Role.permissions` → `Permission` ($ref, many)
 - `Role.scope` → `Scope` ($ref, one)
 - `Role.scopeId` → `Scope` (id, one)

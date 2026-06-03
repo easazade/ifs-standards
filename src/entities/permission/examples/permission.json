@@ -2,12 +2,14 @@
   "id": "aG88rL",
   "ifsId": "A9CEizp",
   "entityType": "Permission",
-  "name": "E",
-  "actorId": "",
-  "scopeId": "Vrlc",
+  "actionName": "eyVrl",
+  "actionId": "",
+  "memberId": "XsmOHV",
+  "roleId": "CV9oUju",
+  "scopeId": "pjTJ",
   "scope": {},
-  "state": "revoked",
-  "createdAt": "2024-04-07T15:32:45Z",
-  "updatedAt": "2022-06-24T23:14:45Z",
-  "expiresAt": "2004-04-13T05:09:43Z"
+  "state": "under-review",
+  "createdAt": "2001-08-27T05:59:43Z",
+  "updatedAt": "2009-09-29T22:41:55Z",
+  "expiresAt": "2025-12-04T00:52:17Z"
 }
