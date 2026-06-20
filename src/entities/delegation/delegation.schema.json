@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/delegation.schema.json",
+  "title": "Delegation",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this delegation."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "IFS system identifier for this Delegation."
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Entity category for this object, normally Delegation."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this delegation record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this delegation record was last updated."
+    },
+    "permissionId": {
+      "type": "string",
+      "description": "Identifier of the permission delegated from the delegator to the delegate."
+    },
+    "permission": {
+      "$ref": "https://ifs-standards.org/schemas/v1/entities/permission.schema.json",
+      "description": "Permission entity represented by permissionId when expanded by an implementation."
+    },
+    "delegatorRef": {
+      "type": "string",
+      "format": "ifs-ref",
+      "description": "Reference to the role or member delegating the permission."
+    },
+    "delegateRef": {
+      "type": "string",
+      "format": "ifs-ref",
+      "description": "Reference to the role or member receiving the delegated permission."
+    },
+    "state": {
+      "type": "string",
+      "enum": ["active", "revoked", "expired"],
+      "description": "Lifecycle state of the delegation."
+    },
+    "revokedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this delegation was revoked, if applicable."
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional timestamp after which this delegation no longer applies."
+    }
+  },
+  "required": ["id", "ifsId", "entityType", "createdAt", "permissionId", "delegatorRef", "delegateRef", "state"]
+}

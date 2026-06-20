@@ -81,6 +81,20 @@ erDiagram
     updatedAt string "required, date-time"
     decidedAt string "date-time"
   }
+  DELEGATION {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    createdAt string "required, date-time"
+    updatedAt string "date-time"
+    permissionId string FK "required"
+    permission object FK "Permission"
+    delegatorRef string "required, ifs-ref"
+    delegateRef string "required, ifs-ref"
+    state string "required"
+    revokedAt string "date-time"
+    expiresAt string "date-time"
+  }
   LABEL {
     id string PK "required"
     ifsId string "required"
@@ -185,6 +199,7 @@ erDiagram
   DECISION ||--o{ MEMBER : eligibleMembers_also_affectedMembers
   DECISION ||--o{ RULE : rules
   DECISION ||--o{ VOTE : votes_fk_decisionId
+  DELEGATION ||--|| PERMISSION : permission_fk_permissionId
   MEMBER ||--o{ PERMISSION : permissions_fk_memberId
   MEMBER ||--o{ ROLE : roles_fk_memberId
   PERMISSION ||--|| SCOPE : scopeId
@@ -211,6 +226,8 @@ erDiagram
 - `Decision.rules` → `Rule` ($ref, many)
 - `Decision.votes` → `Vote` ($ref, many)
 - `Vote.decisionId` → `Decision` (id, one)
+- `Delegation.permission` → `Permission` ($ref, one)
+- `Delegation.permissionId` → `Permission` (id, one)
 - `Member.permissions` → `Permission` ($ref, many)
 - `Permission.memberId` → `Member` (id, one)
 - `Member.roles` → `Role` ($ref, many)
