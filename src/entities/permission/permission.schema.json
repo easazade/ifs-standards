@@ -18,13 +18,19 @@
       "const": "Permission",
       "description": "Entity type discriminator. Always \"Permission\" for Permission entities."
     },
-    "actionName": {
-      "type": "string",
-      "description": "Name of the action this permission is for"
+    "actionIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ID list of actions that this permission allows"
     },
-    "actionId": {
-      "type": "string",
-      "description": "Id of the action object this permission is for"
+    "actions": {
+      "type": "array",
+      "items": {
+        "$ref": "https://ifs-standards.org/schemas/v1/entities/action.schema.json"
+      },
+      "description": "List of actions that this permission allows"
     },
     "memberId": {
       "type": "string",
@@ -64,5 +70,5 @@
       "description": "Optional timestamp after which this permission no longer applies."
     }
   },
-  "required": ["id", "ifsId", "entityType", "actionId", "scopeId", "state", "createdAt", "expiresAt"]
+  "required": ["id", "ifsId", "entityType", "actionIds", "scopeId", "state", "createdAt", "expiresAt"]
 }
