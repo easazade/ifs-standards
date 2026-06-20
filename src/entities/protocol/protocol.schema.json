@@ -18,15 +18,14 @@
       "const": "Protocol",
       "description": "Entity type discriminator. Always \"Protocol\" for Protocol entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time"
     }
   },
-  "required": [
-    "id",
-    "createdAt",
-    "ifsId",
-    "entityType"
-  ]
+  "required": ["id", "createdAt", "ifsId", "entityType"]
 }

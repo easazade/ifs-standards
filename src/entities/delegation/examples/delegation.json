@@ -2,22 +2,62 @@
   "id": "aG88rL",
   "ifsId": "A9CEizp",
   "entityType": "E",
-  "createdAt": "2002-05-24T06:11:02Z",
-  "updatedAt": "2018-10-10T04:39:32Z",
+  "basedOn": "Vrlc",
+  "createdAt": "2013-08-25T07:12:39Z",
   "permissionId": "lSCV9oUj",
   "permission": {
     "id": "pjTJ",
     "ifsId": "q",
     "entityType": "Permission",
-    "actionIds": [],
-    "roleId": "SysP75Q4Z5",
-    "scopeId": "c",
-    "state": "under-review",
-    "createdAt": "2027-07-30T16:09:40Z",
-    "expiresAt": "2004-12-06T09:07:24Z"
+    "basedOn": "1o9Sys",
+    "actionIds": ["5Q4Z5hc1s2", "6RkP6"],
+    "actions": [
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "name": "",
+        "uniqueName": "",
+        "requiresPermission": false,
+        "description": "",
+        "state": "drafted"
+      },
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "name": "",
+        "uniqueName": "",
+        "requiresPermission": false,
+        "description": "",
+        "state": "drafted"
+      },
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "name": "",
+        "uniqueName": "",
+        "requiresPermission": false,
+        "description": "",
+        "state": "drafted"
+      }
+    ],
+    "memberId": "hyuO",
+    "scopeId": "eY0qk",
+    "scope": {},
+    "state": "drafted",
+    "createdAt": "2008-02-19T13:19:07Z",
+    "updatedAt": "2002-04-21T15:07:30Z",
+    "expiresAt": "2016-03-25T06:59:57Z"
   },
-  "delegatorRef": "OFG",
-  "delegateRef": "",
-  "state": "expired",
-  "expiresAt": "2005-04-27T06:08:39Z"
+  "delegatorRef": "alb9uS1fp",
+  "delegateRef": "XXnfjzHr2",
+  "state": "active"
 }

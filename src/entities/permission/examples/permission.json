@@ -2,12 +2,43 @@
   "id": "aG88rL",
   "ifsId": "A9CEizp",
   "entityType": "Permission",
+  "basedOn": "eyVrl",
   "actionIds": [],
-  "actions": [],
-  "memberId": "rlcAKXsm",
-  "scopeId": "VlSCV9",
+  "actions": [
+    {
+      "id": "smOHVlSC",
+      "ifsId": "9oUjuzpj",
+      "entityType": "JhqdM1o",
+      "createdAt": "2022-05-10T16:57:55Z",
+      "updatedAt": "2021-12-26T22:06:02Z",
+      "name": "s2F6RkP6i",
+      "uniqueName": "kyhyuOFGeY",
+      "requiresPermission": false,
+      "description": "ks3",
+      "instructions": "O",
+      "warnings": "i",
+      "state": "drafted"
+    },
+    {
+      "id": "POh",
+      "ifsId": "GnXp9",
+      "entityType": "1alb9uS1fp",
+      "createdAt": "2024-10-07T02:08:24Z",
+      "updatedAt": "2016-04-27T07:54:51Z",
+      "name": "Poxtmq",
+      "uniqueName": "7juecWypjY",
+      "requiresPermission": true,
+      "description": "GAQvpHVXd",
+      "instructions": "ObuA2O",
+      "notes": "La5",
+      "state": "suspended"
+    }
+  ],
+  "roleId": "",
+  "scopeId": "iSrNsH5e",
   "scope": {},
-  "state": "drafted",
-  "createdAt": "2004-04-13T05:09:43Z",
-  "expiresAt": "2003-04-02T14:51:14Z"
+  "state": "granted",
+  "createdAt": "2021-01-17T09:46:15Z",
+  "updatedAt": "2030-12-01T20:06:23Z",
+  "expiresAt": "2018-07-12T17:08:17Z"
 }

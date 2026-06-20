@@ -18,6 +18,10 @@
       "const": "Comment",
       "description": "Entity type discriminator. Always \"Comment\" for Comment entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -29,11 +33,5 @@
       "description": "Timestamp when this comment was last updated."
     }
   },
-  "required": [
-    "id",
-    "ifsId",
-    "entityType",
-    "createdAt",
-    "updatedAt"
-  ]
+  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt"]
 }

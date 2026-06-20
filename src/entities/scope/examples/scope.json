@@ -2,18 +2,10 @@
   "id": "ff49b6f7-7263-4271-9c43-069c43a8c3b7",
   "ifsId": "9oUjuzpj",
   "entityType": "Scope",
-  "name": "JhqdM1o",
-  "groups": [
-    "75Q4Z5h"
-  ],
-  "objects": [
-    "2F6",
-    "kP6i8ky",
-    "y"
-  ],
-  "entities": [
-    "FGeY0qk"
-  ],
+  "name": "hqdM1o",
+  "groups": ["75Q4Z5h"],
+  "objects": ["2F6", "kP6i8ky", "y"],
+  "entities": ["FGeY0qk"],
   "parentScopeId": "riOIuhies",
   "createdAt": "2003-07-17T05:47:15Z",
   "updatedAt": "2030-12-27T00:10:01Z",

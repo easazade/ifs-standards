@@ -18,6 +18,10 @@
       "const": "Change",
       "description": "Entity type discriminator. Always \"Change\" for Change entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "title": {
       "type": "string",
       "description": "Human-readable title summarizing the proposed change."

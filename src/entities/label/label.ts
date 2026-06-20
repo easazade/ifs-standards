@@ -12,7 +12,11 @@ export interface Label {
   /**
    * Entity type discriminator. Always "Label" for Label entities.
    */
-  entityType: "Label";
+  entityType: 'Label';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this label was created.
    */

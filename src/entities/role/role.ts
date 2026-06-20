@@ -17,7 +17,11 @@ export type Scope = {
   /**
    * Entity type discriminator. Always "Scope" for Scope entities.
    */
-  entityType: "Scope";
+  entityType: 'Scope';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Human-readable name of the scope.
    */
@@ -79,7 +83,11 @@ export interface Role {
   /**
    * Entity type discriminator. Always "Role" for Role entities.
    */
-  entityType: "Role";
+  entityType: 'Role';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Human-readable name of the role.
    */
@@ -104,7 +112,7 @@ export interface Role {
   /**
    * Lifecycle state of the role.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "expired";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'expired';
   /**
    * Timestamp when this role record was created.
    */
@@ -131,7 +139,11 @@ export interface Permission {
   /**
    * Entity type discriminator. Always "Permission" for Permission entities.
    */
-  entityType: "Permission";
+  entityType: 'Permission';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * ID list of actions that this permission allows
    */
@@ -161,7 +173,7 @@ export interface Permission {
   /**
    * Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked.
    */
-  state: "granted" | "under-review" | "revoked" | "drafted";
+  state: 'granted' | 'under-review' | 'revoked' | 'drafted';
   /**
    * Timestamp when this permission record was created.
    */
@@ -189,6 +201,10 @@ export interface Action {
    * Entity category for this object, normally Action.
    */
   entityType: string;
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this action record was created.
    */
@@ -228,5 +244,5 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
 }

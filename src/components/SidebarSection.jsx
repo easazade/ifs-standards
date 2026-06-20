@@ -85,7 +85,7 @@ function SidebarSectionItem({ item, nested }) {
       'block flex-1 rounded-md px-2 py-1 text-base leading-6 transition-colors hover:bg-surface-primary hover:text-text',
       nested ? 'text-text-secondary' : 'text-text',
       isActive && 'font-medium text-primary underline',
-      hasActiveDescendant && !isActive && 'font-medium text-text underline',
+      hasActiveDescendant && !isActive && 'font-medium text-text underline'
     );
 
   return (

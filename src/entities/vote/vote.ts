@@ -14,6 +14,10 @@ export interface Vote {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Timestamp when this vote record was created.
    */
   createdAt: string;

@@ -19,6 +19,10 @@
       "const": "Scope",
       "description": "Entity type discriminator. Always \"Scope\" for Scope entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "name": {
       "type": "string",
       "description": "Human-readable name of the scope."

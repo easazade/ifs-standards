@@ -12,7 +12,11 @@ export interface Permission {
   /**
    * Entity type discriminator. Always "Permission" for Permission entities.
    */
-  entityType: "Permission";
+  entityType: 'Permission';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * ID list of actions that this permission allows
    */
@@ -42,7 +46,7 @@ export interface Permission {
   /**
    * Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked.
    */
-  state: "granted" | "under-review" | "revoked" | "drafted";
+  state: 'granted' | 'under-review' | 'revoked' | 'drafted';
   /**
    * Timestamp when this permission record was created.
    */
@@ -70,6 +74,10 @@ export interface Action {
    * Entity category for this object, normally Action.
    */
   entityType: string;
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this action record was created.
    */
@@ -109,5 +117,5 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
 }

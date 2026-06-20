@@ -2,62 +2,30 @@
   "id": "a08ff49b-6f77-4263-8716-c43069c43a8c",
   "ifsId": "SC",
   "entityType": "Role",
-  "name": "9oUjuzpj",
-  "memberId": "hqdM1o",
-  "scopeId": "SysP75Q4Z5",
+  "name": "oUjuzpjTJh",
+  "description": "",
+  "memberId": "1o9Sys",
+  "scopeId": "75Q4Z5h",
   "scope": {
-    "id": "4e8eb2af-2f26-4165-a881-cd424e42a851",
-    "ifsId": "e",
+    "id": "e8eb2af2-f261-465a-a81c-d424e42a8512",
+    "ifsId": "",
     "entityType": "Scope",
-    "name": "POh",
-    "groups": [
-      "97",
-      "alb9uS1fp",
-      "XXnfjzHr2"
-    ],
-    "objects": [
-      "1NPoxtmq57"
-    ],
-    "entities": [
-      ""
-    ],
-    "parentScopeId": "ypjYt3GA",
+    "basedOn": "OhFGnXp",
+    "name": "71alb9uS1f",
+    "description": "XXnfjzHr2",
+    "locations": ["NPoxtmq57", "u", ""],
+    "groups": [],
+    "entities": [],
+    "parentScopeId": "t3GAQvpHV",
     "boundaryRules": {},
-    "createdAt": "2007-07-24T19:03:12Z",
-    "updatedAt": "2019-08-01T07:25:52Z",
-    "type": null,
-    "state": -291
+    "createdAt": "2006-08-21T00:19:25Z",
+    "updatedAt": "2027-08-12T08:36:00Z",
+    "type": [],
+    "state": false
   },
-  "permissions": [
-    {
-      "id": "",
-      "ifsId": "HJNheYiSrN",
-      "entityType": "Permission",
-      "actionIds": [
-        "5egkQc"
-      ],
-      "memberId": "qf98a1gy",
-      "scopeId": "xSir7",
-      "state": "revoked",
-      "createdAt": "2001-02-18T05:09:38Z",
-      "expiresAt": "2000-01-01T09:40:39Z"
-    },
-    {
-      "id": "NP7b15bZ",
-      "ifsId": "JxgfQ",
-      "entityType": "Permission",
-      "actionIds": [
-        ""
-      ],
-      "scopeId": "EVeyTm2Wf",
-      "scope": {},
-      "state": "revoked",
-      "createdAt": "2001-10-30T08:54:51Z",
-      "expiresAt": "2014-08-14T04:08:56Z"
-    }
-  ],
-  "state": "suspended",
-  "createdAt": "2001-08-19T03:09:57Z",
-  "updatedAt": "2008-01-16T07:58:37Z",
-  "expiresAt": "2000-08-02T18:58:10Z"
+  "permissions": [],
+  "state": "drafted",
+  "createdAt": "2025-02-20T06:38:17Z",
+  "updatedAt": "2016-12-03T02:10:40Z",
+  "expiresAt": "2016-05-25T06:05:59Z"
 }

@@ -14,6 +14,10 @@ export interface Rule {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Timestamp when this rule record was created.
    */
   createdAt: string;

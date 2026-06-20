@@ -18,6 +18,10 @@
       "const": "ChangeItem",
       "description": "Entity type discriminator. Always \"ChangeItem\" for ChangeItem entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "resourceType": {
       "type": "string",
       "description": "Resource category for this change item, such as rule, scope, protocol, record, or resource."

@@ -17,6 +17,10 @@
       "type": "string",
       "description": "Entity category for this object, normally Decision."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "subject": {
       "type": "string",
       "format": "ifs-ref",

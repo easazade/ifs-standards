@@ -17,6 +17,10 @@
       "type": "string",
       "description": "Entity category for this object, normally Action."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",

@@ -14,6 +14,10 @@ export interface Action {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Timestamp when this action record was created.
    */
   createdAt: string;
@@ -52,5 +56,5 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
 }

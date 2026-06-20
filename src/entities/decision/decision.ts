@@ -17,7 +17,11 @@ export type Scope = {
   /**
    * Entity type discriminator. Always "Scope" for Scope entities.
    */
-  entityType: "Scope";
+  entityType: 'Scope';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Human-readable name of the scope.
    */
@@ -81,13 +85,17 @@ export interface Decision {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
    */
   subject: string;
   /**
    * Current lifecycle state of the decision.
    */
-  state: "open" | "closed" | "rejected" | "cancelled";
+  state: 'open' | 'closed' | 'rejected' | 'cancelled';
   /**
    * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
@@ -180,13 +188,17 @@ export interface Decision1 {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
    */
   subject: string;
   /**
    * Current lifecycle state of the decision.
    */
-  state: "open" | "closed" | "rejected" | "cancelled";
+  state: 'open' | 'closed' | 'rejected' | 'cancelled';
   /**
    * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
@@ -279,13 +291,17 @@ export interface Decision2 {
    */
   entityType: string;
   /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
+  /**
    * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
    */
   subject: string;
   /**
    * Current lifecycle state of the decision.
    */
-  state: "open" | "closed" | "rejected" | "cancelled";
+  state: 'open' | 'closed' | 'rejected' | 'cancelled';
   /**
    * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
@@ -373,7 +389,7 @@ export interface Member {
   /**
    * Entity type discriminator. Always "Member" for Member entities.
    */
-  entityType: "Member";
+  entityType: 'Member';
   /**
    * Human-readable name of the member.
    */
@@ -406,7 +422,11 @@ export interface Role {
   /**
    * Entity type discriminator. Always "Role" for Role entities.
    */
-  entityType: "Role";
+  entityType: 'Role';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Human-readable name of the role.
    */
@@ -431,7 +451,7 @@ export interface Role {
   /**
    * Lifecycle state of the role.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "expired";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'expired';
   /**
    * Timestamp when this role record was created.
    */
@@ -458,7 +478,11 @@ export interface Permission {
   /**
    * Entity type discriminator. Always "Permission" for Permission entities.
    */
-  entityType: "Permission";
+  entityType: 'Permission';
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * ID list of actions that this permission allows
    */
@@ -488,7 +512,7 @@ export interface Permission {
   /**
    * Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked.
    */
-  state: "granted" | "under-review" | "revoked" | "drafted";
+  state: 'granted' | 'under-review' | 'revoked' | 'drafted';
   /**
    * Timestamp when this permission record was created.
    */
@@ -516,6 +540,10 @@ export interface Action {
    * Entity category for this object, normally Action.
    */
   entityType: string;
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this action record was created.
    */
@@ -555,7 +583,7 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
+  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
 }
 export interface Vote {
   /**
@@ -570,6 +598,10 @@ export interface Vote {
    * Entity category for this object, normally Vote.
    */
   entityType: string;
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this vote record was created.
    */
@@ -609,6 +641,10 @@ export interface Rule {
    * Entity category for this object, normally Rule.
    */
   entityType: string;
+  /**
+   * Id of the object this object is derived from.
+   */
+  basedOn?: string;
   /**
    * Timestamp when this rule record was created.
    */

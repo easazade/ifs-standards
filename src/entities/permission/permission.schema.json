@@ -18,6 +18,10 @@
       "const": "Permission",
       "description": "Entity type discriminator. Always \"Permission\" for Permission entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "actionIds": {
       "type": "array",
       "items": {

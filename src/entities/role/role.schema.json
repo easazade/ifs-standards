@@ -19,6 +19,10 @@
       "const": "Role",
       "description": "Entity type discriminator. Always \"Role\" for Role entities."
     },
+    "basedOn": {
+      "type": "string",
+      "description": "Id of the object this object is derived from."
+    },
     "name": {
       "type": "string",
       "description": "Human-readable name of the role."
@@ -48,14 +52,7 @@
     },
     "state": {
       "type": "string",
-      "enum": [
-        "drafted",
-        "under-review",
-        "active",
-        "suspended",
-        "revoked",
-        "expired"
-      ],
+      "enum": ["drafted", "under-review", "active", "suspended", "revoked", "expired"],
       "description": "Lifecycle state of the role."
     },
     "createdAt": {

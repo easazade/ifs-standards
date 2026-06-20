@@ -2,144 +2,16 @@
   "id": "aG88rL",
   "ifsId": "A9CEizp",
   "entityType": "E",
-  "subject": "",
-  "state": "closed",
-  "previousRevision": {
-    "id": "cA",
-    "ifsId": "XsmOHV",
-    "entityType": "SC",
-    "subject": "9oUjuzpj",
-    "state": "rejected",
-    "previousRevision": {
-      "id": "dM",
-      "ifsId": "o9SysP75Q",
-      "entityType": "Z5hc1s2F6R",
-      "subject": "P",
-      "state": "cancelled",
-      "previousRevisionId": "kyhyuOFGeY",
-      "eligibleMembers": [],
-      "affectedMembers": [],
-      "votes": [],
-      "rules": [],
-      "eligibleMemberCount": 164,
-      "affectedMemberCount": 303,
-      "voteCount": 894,
-      "delegateVoteCount": 143,
-      "openedAt": "2020-07-11T02:08:04Z",
-      "closedAt": "2020-08-04T12:31:12Z",
-      "verifiedAt": "2030-12-27T00:10:01Z",
-      "rejectedAt": "2022-11-03T06:52:47Z",
-      "createdAt": "2024-03-03T03:24:32Z",
-      "updatedAt": "2008-11-10T21:51:37Z"
-    },
-    "eligibleMembers": [],
-    "affectedMembers": [
-      {
-        "id": "",
-        "ifsId": "",
-        "entityType": "Member",
-        "name": "",
-        "roles": [],
-        "permissions": [],
-        "isOwner": false,
-        "createdAt": "",
-        "updatedAt": ""
-      }
-    ],
-    "votes": [
-      {
-        "id": "",
-        "ifsId": "",
-        "entityType": "",
-        "createdAt": "",
-        "updatedAt": "",
-        "decisionId": "",
-        "memberId": "",
-        "value": ""
-      }
-    ],
-    "rules": [
-      {
-        "id": "",
-        "ifsId": "",
-        "entityType": "",
-        "createdAt": "",
-        "updatedAt": ""
-      }
-    ],
-    "eligibleMemberCount": 931,
-    "affectedMemberCount": 967,
-    "voteCount": 160,
-    "delegateVoteCount": 76,
-    "openedAt": "2001-10-13T05:08:49Z",
-    "closedAt": "2027-07-14T16:20:14Z",
-    "rejectedAt": "2006-08-21T00:19:25Z",
-    "createdAt": "2027-08-12T08:36:00Z",
-    "updatedAt": "2028-07-18T15:07:04Z"
-  },
+  "basedOn": "Vrlc",
+  "subject": "KXsm",
+  "state": "rejected",
   "eligibleMembers": [],
   "affectedMembers": [
     {
-      "id": "NsH",
-      "ifsId": "egkQcGxWqf",
+      "id": "V9oU",
+      "ifsId": "u",
       "entityType": "Member",
-      "name": "8a1gyLGxSi",
-      "roles": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        }
-      ],
-      "permissions": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        }
-      ],
-      "isOwner": false,
-      "createdAt": "2016-01-06T14:14:09Z",
-      "updatedAt": "2019-08-01T01:01:24Z"
-    },
-    {
-      "id": "OXNP7b1",
-      "ifsId": "bZHJxgfQxa",
-      "entityType": "Member",
-      "name": "IQ1EV",
+      "name": "pjTJ",
       "roles": [],
       "permissions": [
         {
@@ -153,45 +25,74 @@
           "expiresAt": ""
         }
       ],
+      "isOwner": true,
+      "createdAt": "2019-11-08T23:43:24Z",
+      "updatedAt": "2009-09-29T22:41:55Z"
+    },
+    {
+      "id": "5hc1s2F6R",
+      "ifsId": "P",
+      "entityType": "Member",
+      "name": "i8kyhyuOFG",
+      "roles": [],
+      "permissions": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        }
+      ],
       "isOwner": false,
-      "createdAt": "2006-11-24T02:11:42Z",
-      "updatedAt": "2001-10-30T08:54:51Z"
+      "createdAt": "2008-02-09T21:17:08Z",
+      "updatedAt": "2020-07-11T02:08:04Z"
     }
   ],
   "votes": [
     {
-      "id": "LBmi6",
-      "ifsId": "cLKjj7q",
-      "entityType": "",
-      "createdAt": "2015-04-30T15:28:00Z",
-      "updatedAt": "2019-01-25T23:10:38Z",
-      "decisionId": "KKzMJW2yV",
-      "memberId": "pj3x7FN",
-      "value": "gVMV",
-      "previousRevisionId": ""
-    },
-    {
-      "id": "WntUcods",
-      "ifsId": "tzPiNXPDgz",
-      "entityType": "C49LmNMK4w",
-      "createdAt": "2028-01-14T05:00:30Z",
-      "updatedAt": "2014-10-10T19:54:25Z",
-      "decisionId": "IH",
-      "memberId": "7OFE",
-      "value": "",
-      "previousRevisionId": "Ic"
+      "id": "OhFGnXp",
+      "ifsId": "71alb9uS1f",
+      "entityType": "1X",
+      "createdAt": "2006-02-05T09:32:17Z",
+      "updatedAt": "2027-04-28T20:37:40Z",
+      "decisionId": "xt",
+      "memberId": "q5",
+      "value": "juecWypjYt"
     }
   ],
-  "eligibleMemberCount": 341,
-  "affectedMemberCount": 562,
-  "voteCount": 227,
-  "delegateVoteCount": 274,
-  "openedAt": "2009-04-19T14:04:23Z",
-  "closedAt": "2024-07-07T11:00:08Z",
-  "cancelledAt": "2018-12-12T14:31:24Z",
-  "verifiedAt": "2002-08-21T12:01:18Z",
-  "approvedAt": "2019-12-29T11:47:29Z",
-  "rejectedAt": "2008-12-02T08:50:51Z",
-  "createdAt": "2012-10-26T14:10:03Z",
-  "updatedAt": "2005-08-16T12:27:19Z"
+  "eligibleMemberCount": 428,
+  "affectedMemberCount": 687,
+  "voteCount": 345,
+  "delegateVoteCount": 536,
+  "openedAt": "2023-10-02T05:37:38Z",
+  "closedAt": "2010-06-27T15:21:21Z",
+  "verifiedAt": "2028-07-18T15:07:04Z",
+  "rejectedAt": "2022-04-20T07:32:55Z",
+  "createdAt": "2002-02-05T16:02:31Z",
+  "updatedAt": "2011-10-09T02:59:58Z",
+  "decidedAt": "2026-02-11T14:31:23Z"
 }

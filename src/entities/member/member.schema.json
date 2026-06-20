@@ -50,15 +50,5 @@
       "description": "Timestamp when this member record was last updated."
     }
   },
-  "required": [
-    "id",
-    "ifsId",
-    "entityType",
-    "name",
-    "roles",
-    "permissions",
-    "isOwner",
-    "createdAt",
-    "updatedAt"
-  ]
+  "required": ["id", "ifsId", "entityType", "name", "roles", "permissions", "isOwner", "createdAt", "updatedAt"]
 }
