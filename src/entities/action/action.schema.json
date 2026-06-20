@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ifs-standards.org/schemas/v1/entities/action.schema.json",
+  "title": "Action",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Globally unique identifier for this action."
+    },
+    "ifsId": {
+      "type": "string",
+      "description": "IFS system identifier for this Action."
+    },
+    "entityType": {
+      "type": "string",
+      "description": "Entity category for this object, normally Action."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this action record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when this action record was last updated."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the action."
+    },
+    "uniqueName": {
+      "type": "string",
+      "description": "Stable unique name used by IFS implementations to identify this action."
+    },
+    "requiresPermission": {
+      "type": "boolean",
+      "description": "Whether a member or role must hold an applicable permission before performing this action."
+    },
+    "description": {
+      "type": "string",
+      "description": "Describes the action."
+    },
+    "instructions": {
+      "type": "string",
+      "description": "Instructions for how to perform the action."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about this action."
+    },
+    "warnings": {
+      "type": "string",
+      "description": "Warnings, risks, or constraints to review before performing this action."
+    },
+    "state": {
+      "type": "string",
+      "enum": ["drafted", "under-review", "active", "suspended", "revoked", "deprecated"],
+      "description": "Lifecycle state of the action."
+    }
+  },
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "createdAt",
+    "updatedAt",
+    "name",
+    "uniqueName",
+    "requiresPermission",
+    "description",
+    "state"
+  ]
+}

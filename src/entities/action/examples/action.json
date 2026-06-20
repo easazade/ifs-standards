@@ -1,0 +1,66 @@
+{
+  "id": "aG88rL",
+  "ifsId": "A9CEizp",
+  "entityType": "E",
+  "createdAt": "2002-05-24T06:11:02Z",
+  "updatedAt": "2013-08-25T07:12:39Z",
+  "name": "VlSCV9",
+  "uniqueName": "Uj",
+  "requiresPermission": true,
+  "description": "pjTJ",
+  "instructions": "dM",
+  "warnings": "SysP75Q4Z5",
+  "executionContext": "internal",
+  "state": "drafted",
+  "permissionIds": [
+    "6RkP6",
+    "8",
+    "y"
+  ],
+  "permissions": [
+    {
+      "id": "OFG",
+      "ifsId": "",
+      "entityType": "Permission",
+      "actionIds": [
+        "qks3riOIu",
+        "i",
+        ""
+      ],
+      "actions": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "",
+          "createdAt": "",
+          "updatedAt": "",
+          "name": "",
+          "uniqueName": "",
+          "requiresPermission": false,
+          "description": "",
+          "executionContext": "internal",
+          "state": "drafted"
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "",
+          "createdAt": "",
+          "updatedAt": "",
+          "name": "",
+          "uniqueName": "",
+          "requiresPermission": false,
+          "description": "",
+          "executionContext": "internal",
+          "state": "drafted"
+        }
+      ],
+      "roleId": "GnXp9",
+      "scopeId": "1alb9uS1fp",
+      "state": "drafted",
+      "createdAt": "2024-03-03T03:24:32Z",
+      "updatedAt": "2027-04-28T20:37:40Z",
+      "expiresAt": "2007-05-10T04:15:55Z"
+    }
+  ]
+}
