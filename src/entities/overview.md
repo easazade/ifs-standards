@@ -6,6 +6,21 @@ Generated from `src/entities/**/*.schema.json`.
 
 ```mermaid
 erDiagram
+  ACTION {
+    id string PK "required"
+    ifsId string "required"
+    entityType string "required"
+    createdAt string "required, date-time"
+    updatedAt string "required, date-time"
+    name string "required"
+    uniqueName string "required"
+    requiresPermission boolean "required"
+    description string "required"
+    instructions string "optional"
+    notes string "optional"
+    warnings string "optional"
+    state string "required"
+  }
   CHANGE {
     id string PK "required"
     ifsId string "required"
@@ -117,8 +132,8 @@ erDiagram
     id string PK "required"
     ifsId string "required"
     entityType string "required"
-    actionIds array "required"
-    actions array "Action[]"
+    actionIds array FK "required"
+    actions array FK "Action[]"
     memberId string FK "optional"
     roleId string FK "optional"
     scopeId string FK "required"
@@ -202,6 +217,7 @@ erDiagram
   DELEGATION ||--|| PERMISSION : permission_fk_permissionId
   MEMBER ||--o{ PERMISSION : permissions_fk_memberId
   MEMBER ||--o{ ROLE : roles_fk_memberId
+  PERMISSION ||--o{ ACTION : actions_fk_actionIds
   PERMISSION ||--|| SCOPE : scopeId
   ROLE ||--o{ PERMISSION : permissions_fk_roleId
   ROLE ||--|| SCOPE : scope_fk_scopeId
@@ -232,6 +248,8 @@ erDiagram
 - `Permission.memberId` → `Member` (id, one)
 - `Member.roles` → `Role` ($ref, many)
 - `Role.memberId` → `Member` (id, one)
+- `Permission.actions` → `Action` ($ref, many)
+- `Permission.actionIds` → `Action` (id, many)
 - `Permission.scopeId` → `Scope` (id, one)
 - `Permission.roleId` → `Role` (id, one)
 - `Role.permissions` → `Permission` ($ref, many)

@@ -9,17 +9,15 @@
     "id": "pjTJ",
     "ifsId": "q",
     "entityType": "Permission",
-    "actionName": "1o9Sys",
-    "actionId": "75Q4Z5h",
-    "memberId": "s2F6RkP6i",
-    "scopeId": "y",
-    "scope": {},
+    "actionIds": [],
+    "roleId": "SysP75Q4Z5",
+    "scopeId": "c",
     "state": "under-review",
-    "createdAt": "2010-08-16T12:04:48Z",
-    "expiresAt": "2008-02-09T21:17:08Z"
+    "createdAt": "2027-07-30T16:09:40Z",
+    "expiresAt": "2004-12-06T09:07:24Z"
   },
-  "delegatorRef": "IuhiesP",
-  "delegateRef": "hFGnXp9",
+  "delegatorRef": "OFG",
+  "delegateRef": "",
   "state": "expired",
-  "expiresAt": "2005-01-31T07:43:51Z"
+  "expiresAt": "2005-04-27T06:08:39Z"
 }
