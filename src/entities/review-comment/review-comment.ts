@@ -12,11 +12,15 @@ export interface ReviewComment {
   /**
    * Entity type discriminator. Always "ReviewComment" for ReviewComment entities.
    */
-  entityType: 'ReviewComment';
+  entityType: "ReviewComment";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Timestamp when this review comment was created.
    */

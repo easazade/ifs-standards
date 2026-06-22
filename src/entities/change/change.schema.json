@@ -22,6 +22,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "title": {
       "type": "string",
       "description": "Human-readable title summarizing the proposed change."
@@ -92,7 +97,14 @@
     },
     "status": {
       "type": "string",
-      "enum": ["drafted", "closed", "open", "rejected", "approved", "merged"],
+      "enum": [
+        "drafted",
+        "closed",
+        "open",
+        "rejected",
+        "approved",
+        "merged"
+      ],
       "description": "Lifecycle status of the change."
     },
     "diffUrl": {
@@ -110,7 +122,10 @@
       "items": {
         "type": "string"
       },
-      "examples": ["main-system:fix", "ali:needs-urgent-attention"],
+      "examples": [
+        "main-system:fix",
+        "ali:needs-urgent-attention"
+      ],
       "description": "Label assigned to this change."
     },
     "merged": {
@@ -156,6 +171,7 @@
     "id",
     "ifsId",
     "entityType",
+    "entityDocumentationUrl",
     "title",
     "description",
     "reason",

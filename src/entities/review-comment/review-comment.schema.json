@@ -22,6 +22,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -33,5 +38,12 @@
       "description": "Timestamp when this review comment was last updated."
     }
   },
-  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl",
+    "createdAt",
+    "updatedAt"
+  ]
 }

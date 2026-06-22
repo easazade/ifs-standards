@@ -14,11 +14,15 @@ export type Scope = {
   /**
    * Entity type discriminator. Always "Scope" for Scope entities.
    */
-  entityType: 'Scope';
+  entityType: "Scope";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable name of the scope.
    */

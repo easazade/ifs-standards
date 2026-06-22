@@ -18,6 +18,11 @@
       "const": "Member",
       "description": "Entity type discriminator. Always \"Member\" for Member entities."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "name": {
       "type": "string",
       "description": "Human-readable name of the member."
@@ -50,5 +55,16 @@
       "description": "Timestamp when this member record was last updated."
     }
   },
-  "required": ["id", "ifsId", "entityType", "name", "roles", "permissions", "isOwner", "createdAt", "updatedAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl",
+    "name",
+    "roles",
+    "permissions",
+    "isOwner",
+    "createdAt",
+    "updatedAt"
+  ]
 }

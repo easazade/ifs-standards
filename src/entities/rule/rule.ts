@@ -18,6 +18,10 @@ export interface Rule {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Timestamp when this rule record was created.
    */
   createdAt: string;

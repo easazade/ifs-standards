@@ -22,29 +22,48 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "resourceType": {
       "type": "string",
       "description": "Resource category for this change item, such as rule, scope, protocol, record, or resource."
     },
     "operation": {
       "type": "string",
-      "enum": ["update", "create", "delete", "replace"],
+      "enum": [
+        "update",
+        "create",
+        "delete",
+        "replace"
+      ],
       "description": "Type of operation this item proposes for the target object."
     },
     "targetRef": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "ifs-ref",
       "default": "ifs://object/current-target",
       "description": "Stable IFS reference for the logical object being changed. Null for create operations where no active target exists yet."
     },
     "baseRef": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "ifs-ref",
       "default": "ifs://object/current-target@v1",
       "description": "IFS reference to the active version observed when the change item was authored. Used for conflict detection. Null for create operations."
     },
     "proposedRef": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "ifs-ref",
       "default": "ifs://change/change_1/proposed/current-target",
       "description": "IFS reference to the proposed object or version produced by this change item. Null for delete operations."
@@ -68,6 +87,7 @@
     "id",
     "ifsId",
     "entityType",
+    "entityDocumentationUrl",
     "resourceType",
     "operation",
     "targetRef",
@@ -80,45 +100,84 @@
     {
       "if": {
         "properties": {
-          "operation": { "const": "create" }
+          "operation": {
+            "const": "create"
+          }
         },
-        "required": ["operation"]
+        "required": [
+          "operation"
+        ]
       },
       "then": {
         "properties": {
-          "targetRef": { "type": "null" },
-          "baseRef": { "type": "null" },
-          "proposedRef": { "type": "string", "format": "ifs-ref" }
+          "targetRef": {
+            "type": "null"
+          },
+          "baseRef": {
+            "type": "null"
+          },
+          "proposedRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          }
         }
       }
     },
     {
       "if": {
         "properties": {
-          "operation": { "const": "delete" }
+          "operation": {
+            "const": "delete"
+          }
         },
-        "required": ["operation"]
+        "required": [
+          "operation"
+        ]
       },
       "then": {
         "properties": {
-          "targetRef": { "type": "string", "format": "ifs-ref" },
-          "baseRef": { "type": "string", "format": "ifs-ref" },
-          "proposedRef": { "type": "null" }
+          "targetRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          },
+          "baseRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          },
+          "proposedRef": {
+            "type": "null"
+          }
         }
       }
     },
     {
       "if": {
         "properties": {
-          "operation": { "enum": ["update", "replace"] }
+          "operation": {
+            "enum": [
+              "update",
+              "replace"
+            ]
+          }
         },
-        "required": ["operation"]
+        "required": [
+          "operation"
+        ]
       },
       "then": {
         "properties": {
-          "targetRef": { "type": "string", "format": "ifs-ref" },
-          "baseRef": { "type": "string", "format": "ifs-ref" },
-          "proposedRef": { "type": "string", "format": "ifs-ref" }
+          "targetRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          },
+          "baseRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          },
+          "proposedRef": {
+            "type": "string",
+            "format": "ifs-ref"
+          }
         }
       }
     }

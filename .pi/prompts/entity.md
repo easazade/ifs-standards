@@ -50,7 +50,7 @@ If it does not exist, briefly restate what you understand about the entity from 
 
 1. Is this meaning correct? If not, what should change?
 2. What user-defined properties should this entity include? Reply with one property per line using `name: type - description`, or say `none`.
-3. Should this entity include all common properties, only some, or none? Common properties: `id`, `ifsId`, `entityType`, `basedOn`, `createdAt`, `updatedAt`. Reply `all`, `none`, or `some: <property names>`.
+3. Should this entity include all common properties, only some, or none? Common properties: `id`, `ifsId`, `entityType`, `basedOn`, `entityDocumentationUrl`, `createdAt`, `updatedAt`. Reply `all`, `none`, or `some: <property names>`.
 4. Which of the user-defined properties are required? List names, or say `infer` / `none`.
 5. Should I intelligently infer recommended IFS fields, required properties, and possible relations from the entity purpose? Reply `yes` or `no`.
 6. Should the schema be strict with `additionalProperties: false`, or flexible with `additionalProperties: true`? Reply `strict` or `flexible`.
@@ -80,7 +80,7 @@ Accepted property examples:
 After the user answers:
 
 1. Parse each user-defined property name, type, format/enum/items if present, and description.
-2. Parse the common properties answer. Add all common properties for `all`, no common properties for `none`, or only the listed common properties for `some: ...`. The `basedOn` common property is an optional string identifying the id of the object this object is derived from.
+2. Parse the common properties answer. Add all common properties for `all`, no common properties for `none`, or only the listed common properties for `some: ...`. The `basedOn` common property is an optional string identifying the id of the object this object is derived from. The `entityDocumentationUrl` common property is a string URI for documentation about this entity.
 3. For any `object`, `array<object>`, PascalCase type, or description suggesting another entity object, check `src/entities/` for a matching `*.schema.json` file before writing files. Match both singular and plural names, e.g. `permissions` -> `permission`, `roles` -> `role`. Ignore `.mdx` files completely.
 4. Treat `Id` suffix fields (`scopeId`, `memberId`, `parentScopeId`, etc.) as identifier fields by default, not reference fields. Do not mark them with `format: "ifs-ref"` unless the user explicitly says that specific field is a reference string.
 5. Treat a field as a reference string only when the user explicitly marks it as a reference/ref, or when its purpose is clearly a heterogeneous pointer to external objects/resources that should stay a plain string. Reference string fields must remain `type: "string"` or `array<string>` and use `format: "ifs-ref"`.
@@ -134,6 +134,7 @@ Only after approval:
 - `ifsId` is an actual IFS system identifier. Do not set a default value for it.
 - `entityType` is like resource type: it identifies the entity category/type used by IFS implementations. Keep it as a string type/category field by default; do not force it to a PascalCase entity-name `const` unless the user explicitly asks for that.
 - `basedOn` is an optional common string property describing the id of the object this object is derived from.
+- `entityDocumentationUrl` is a common string property with `format: "uri"` describing the documentation URL for this entity.
 - If an entity reference points to a missing entity type, create a basic schema file for that related entity before running derived generation. The basic schema must use draft 2020-12, the canonical `$id`, title, `type: "object"`, `additionalProperties: true`, and selected common properties/required fields.
 - If keeping an embedded object instead of an entity reference, include `type: "object"` and document why it is not a `$ref`.
 - Include a `required` array based on user instructions and approved inferred required fields.

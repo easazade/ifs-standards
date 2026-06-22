@@ -14,11 +14,15 @@ export type ChangeItem = {
   /**
    * Entity type discriminator. Always "ChangeItem" for ChangeItem entities.
    */
-  entityType: 'ChangeItem';
+  entityType: "ChangeItem";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Resource category for this change item, such as rule, scope, protocol, record, or resource.
    */
@@ -26,7 +30,7 @@ export type ChangeItem = {
   /**
    * Type of operation this item proposes for the target object.
    */
-  operation: 'update' | 'create' | 'delete' | 'replace';
+  operation: "update" | "create" | "delete" | "replace";
   /**
    * Stable IFS reference for the logical object being changed. Null for create operations where no active target exists yet.
    */
@@ -70,11 +74,15 @@ export type Scope = {
   /**
    * Entity type discriminator. Always "Scope" for Scope entities.
    */
-  entityType: 'Scope';
+  entityType: "Scope";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable name of the scope.
    */
@@ -136,11 +144,15 @@ export interface Change {
   /**
    * Entity type discriminator. Always "Change" for Change entities.
    */
-  entityType: 'Change';
+  entityType: "Change";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable title summarizing the proposed change.
    */
@@ -190,7 +202,7 @@ export interface Change {
   /**
    * Lifecycle status of the change.
    */
-  status: 'drafted' | 'closed' | 'open' | 'rejected' | 'approved' | 'merged';
+  status: "drafted" | "closed" | "open" | "rejected" | "approved" | "merged";
   /**
    * URL showing a diff for all changed objects, similar to a GitHub pull request diff.
    */
@@ -254,13 +266,17 @@ export interface Decision {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
    */
   subject: string;
   /**
    * Current lifecycle state of the decision.
    */
-  state: 'open' | 'closed' | 'rejected' | 'cancelled';
+  state: "open" | "closed" | "rejected" | "cancelled";
   /**
    * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
@@ -357,13 +373,17 @@ export interface Decision1 {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Stable IFS reference to the object, proposal, rule, resource, or question being decided. Kept as a reference string because a decision subject can point to heterogeneous resources.
    */
   subject: string;
   /**
    * Current lifecycle state of the decision.
    */
-  state: 'open' | 'closed' | 'rejected' | 'cancelled';
+  state: "open" | "closed" | "rejected" | "cancelled";
   /**
    * Id of previous revision of this decision, If this decision is a modified version of another decision.
    */
@@ -451,7 +471,11 @@ export interface Member {
   /**
    * Entity type discriminator. Always "Member" for Member entities.
    */
-  entityType: 'Member';
+  entityType: "Member";
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable name of the member.
    */
@@ -484,11 +508,15 @@ export interface Role {
   /**
    * Entity type discriminator. Always "Role" for Role entities.
    */
-  entityType: 'Role';
+  entityType: "Role";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable name of the role.
    */
@@ -513,7 +541,7 @@ export interface Role {
   /**
    * Lifecycle state of the role.
    */
-  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'expired';
+  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "expired";
   /**
    * Timestamp when this role record was created.
    */
@@ -540,11 +568,15 @@ export interface Permission {
   /**
    * Entity type discriminator. Always "Permission" for Permission entities.
    */
-  entityType: 'Permission';
+  entityType: "Permission";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * ID list of actions that this permission allows
    */
@@ -574,7 +606,7 @@ export interface Permission {
   /**
    * Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked.
    */
-  state: 'granted' | 'under-review' | 'revoked' | 'drafted';
+  state: "granted" | "under-review" | "revoked" | "drafted";
   /**
    * Timestamp when this permission record was created.
    */
@@ -606,6 +638,10 @@ export interface Action {
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Timestamp when this action record was created.
    */
@@ -645,7 +681,7 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
+  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
 }
 export interface Vote {
   /**
@@ -664,6 +700,10 @@ export interface Vote {
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Timestamp when this vote record was created.
    */
@@ -708,6 +748,10 @@ export interface Rule {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Timestamp when this rule record was created.
    */
   createdAt: string;
@@ -729,11 +773,15 @@ export interface Comment {
   /**
    * Entity type discriminator. Always "Comment" for Comment entities.
    */
-  entityType: 'Comment';
+  entityType: "Comment";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Timestamp when this comment was created.
    */
@@ -756,11 +804,15 @@ export interface ReviewComment {
   /**
    * Entity type discriminator. Always "ReviewComment" for ReviewComment entities.
    */
-  entityType: 'ReviewComment';
+  entityType: "ReviewComment";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Timestamp when this review comment was created.
    */
@@ -786,7 +838,11 @@ export interface Member1 {
   /**
    * Entity type discriminator. Always "Member" for Member entities.
    */
-  entityType: 'Member';
+  entityType: "Member";
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Human-readable name of the member.
    */

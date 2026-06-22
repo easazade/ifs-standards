@@ -21,6 +21,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -61,7 +66,14 @@
     },
     "state": {
       "type": "string",
-      "enum": ["drafted", "under-review", "active", "suspended", "revoked", "deprecated"],
+      "enum": [
+        "drafted",
+        "under-review",
+        "active",
+        "suspended",
+        "revoked",
+        "deprecated"
+      ],
       "description": "Lifecycle state of the action."
     }
   },
@@ -69,6 +81,7 @@
     "id",
     "ifsId",
     "entityType",
+    "entityDocumentationUrl",
     "createdAt",
     "updatedAt",
     "name",

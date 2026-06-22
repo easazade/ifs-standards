@@ -3,31 +3,50 @@
   "ifsId": "A9CEizp",
   "entityType": "Change",
   "basedOn": "eyVrl",
-  "title": "",
-  "description": "KXsm",
-  "reason": "VlSCV9",
+  "entityDocumentationUrl": "https://test.org/data/v1",
+  "title": "OH",
+  "description": "lSCV9oUj",
+  "summary": "pjTJ",
+  "reason": "q",
   "changes": [],
-  "comments": [
-    {
-      "id": "pjTJ",
-      "ifsId": "q",
-      "entityType": "Comment",
-      "basedOn": "1o9Sys",
-      "createdAt": "2020-12-29T16:55:50Z",
-      "updatedAt": "2028-02-02T20:17:52Z"
-    }
-  ],
+  "commentsUrl": "https://demo.net/v1/data",
   "authors": [
     {
-      "id": "P",
-      "ifsId": "i8kyhyuOFG",
+      "id": "4Z5hc1s",
+      "ifsId": "F6RkP6i8k",
       "entityType": "Member",
-      "name": "",
+      "entityDocumentationUrl": "https://example.com/v1/items",
+      "name": "GeY0q",
+      "roles": [],
+      "permissions": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "entityDocumentationUrl": "",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        }
+      ],
+      "isOwner": false,
+      "createdAt": "2008-02-19T13:19:07Z",
+      "updatedAt": "2004-01-10T16:39:07Z"
+    },
+    {
+      "id": "GnXp9",
+      "ifsId": "1alb9uS1fp",
+      "entityType": "Member",
+      "entityDocumentationUrl": "https://demo.net/v1/api/api",
+      "name": "Hr2t",
       "roles": [
         {
           "id": "",
           "ifsId": "",
           "entityType": "Role",
+          "entityDocumentationUrl": "",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -41,6 +60,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Role",
+          "entityDocumentationUrl": "",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -54,6 +74,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Role",
+          "entityDocumentationUrl": "",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -69,6 +90,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Permission",
+          "entityDocumentationUrl": "",
           "actionIds": [],
           "scopeId": "",
           "state": "granted",
@@ -79,6 +101,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Permission",
+          "entityDocumentationUrl": "",
           "actionIds": [],
           "scopeId": "",
           "state": "granted",
@@ -89,6 +112,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Permission",
+          "entityDocumentationUrl": "",
           "actionIds": [],
           "scopeId": "",
           "state": "granted",
@@ -96,20 +120,22 @@
           "expiresAt": ""
         }
       ],
-      "isOwner": true,
-      "createdAt": "2005-04-27T06:08:39Z",
-      "updatedAt": "2017-04-04T03:04:18Z"
+      "isOwner": false,
+      "createdAt": "2020-03-12T07:12:15Z",
+      "updatedAt": "2028-12-05T07:04:02Z"
     },
     {
-      "id": "OhFGnXp",
-      "ifsId": "71alb9uS1f",
+      "id": "ypjYt3GA",
+      "ifsId": "vpHVXdm",
       "entityType": "Member",
-      "name": "1X",
+      "entityDocumentationUrl": "https://test.org/v1",
+      "name": "2Owv",
       "roles": [
         {
           "id": "",
           "ifsId": "",
           "entityType": "Role",
+          "entityDocumentationUrl": "",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -123,19 +149,7 @@
           "id": "",
           "ifsId": "",
           "entityType": "Role",
-          "name": "",
-          "memberId": "",
-          "scopeId": "",
-          "scope": null,
-          "permissions": [],
-          "state": "drafted",
-          "createdAt": "",
-          "updatedAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Role",
+          "entityDocumentationUrl": "",
           "name": "",
           "memberId": "",
           "scopeId": "",
@@ -147,23 +161,79 @@
         }
       ],
       "permissions": [],
-      "isOwner": true,
-      "createdAt": "2004-05-17T06:53:18Z",
-      "updatedAt": "2028-11-19T16:14:23Z"
+      "isOwner": false,
+      "createdAt": "2016-07-20T02:04:48Z",
+      "updatedAt": "2004-09-09T15:17:32Z"
     }
   ],
-  "mainAuthorId": "mq5",
+  "mainAuthorId": "egkQcGxWqf",
   "mainAuthor": {
-    "id": "juecWypjYt",
-    "ifsId": "GAQvpHVXd",
+    "id": "8a1gyLGxSi",
+    "ifsId": "7MH",
     "entityType": "Member",
-    "name": "NO",
-    "roles": [],
+    "entityDocumentationUrl": "https://example.com/v1/api",
+    "name": "LbebyPO",
+    "roles": [
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "Role",
+        "entityDocumentationUrl": "",
+        "name": "",
+        "memberId": "",
+        "scopeId": "",
+        "scope": null,
+        "permissions": [],
+        "state": "drafted",
+        "createdAt": "",
+        "updatedAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "Role",
+        "entityDocumentationUrl": "",
+        "name": "",
+        "memberId": "",
+        "scopeId": "",
+        "scope": null,
+        "permissions": [],
+        "state": "drafted",
+        "createdAt": "",
+        "updatedAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "Role",
+        "entityDocumentationUrl": "",
+        "name": "",
+        "memberId": "",
+        "scopeId": "",
+        "scope": null,
+        "permissions": [],
+        "state": "drafted",
+        "createdAt": "",
+        "updatedAt": ""
+      }
+    ],
     "permissions": [
       {
         "id": "",
         "ifsId": "",
         "entityType": "Permission",
+        "entityDocumentationUrl": "",
+        "actionIds": [],
+        "scopeId": "",
+        "state": "granted",
+        "createdAt": "",
+        "expiresAt": ""
+      },
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "Permission",
+        "entityDocumentationUrl": "",
         "actionIds": [],
         "scopeId": "",
         "state": "granted",
@@ -171,16 +241,21 @@
         "expiresAt": ""
       }
     ],
-    "isOwner": true,
-    "createdAt": "2027-08-12T08:36:00Z",
-    "updatedAt": "2028-07-18T15:07:04Z"
+    "isOwner": false,
+    "createdAt": "2029-01-27T22:01:49Z",
+    "updatedAt": "2016-07-12T02:05:41Z"
   },
-  "status": "drafted",
-  "number": 277,
+  "reviewers": [],
+  "status": "rejected",
+  "number": 687,
   "merged": true,
   "hasConflict": false,
-  "createdAt": "2002-02-05T16:02:31Z",
-  "updatedAt": "2011-10-09T02:59:58Z",
-  "mergedAt": "2026-02-11T14:31:23Z",
-  "effected": "7MH"
+  "links": [
+    "https://example.com/data/api/v1"
+  ],
+  "createdAt": "2021-01-25T22:20:54Z",
+  "updatedAt": "2026-08-15T14:26:12Z",
+  "mergedAt": "2029-08-02T14:35:09Z",
+  "closedAt": "2029-04-01T11:19:58Z",
+  "effected": null
 }

@@ -18,6 +18,10 @@ export interface Vote {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Timestamp when this vote record was created.
    */
   createdAt: string;

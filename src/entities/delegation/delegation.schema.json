@@ -21,6 +21,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -51,7 +56,11 @@
     },
     "state": {
       "type": "string",
-      "enum": ["active", "revoked", "expired"],
+      "enum": [
+        "active",
+        "revoked",
+        "expired"
+      ],
       "description": "Lifecycle state of the delegation."
     },
     "revokedAt": {
@@ -65,5 +74,15 @@
       "description": "Optional timestamp after which this delegation no longer applies."
     }
   },
-  "required": ["id", "ifsId", "entityType", "createdAt", "permissionId", "delegatorRef", "delegateRef", "state"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl",
+    "createdAt",
+    "permissionId",
+    "delegatorRef",
+    "delegateRef",
+    "state"
+  ]
 }

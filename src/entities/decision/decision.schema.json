@@ -21,6 +21,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "subject": {
       "type": "string",
       "format": "ifs-ref",
@@ -28,7 +33,12 @@
     },
     "state": {
       "type": "string",
-      "enum": ["open", "closed", "rejected", "cancelled"],
+      "enum": [
+        "open",
+        "closed",
+        "rejected",
+        "cancelled"
+      ],
       "description": "Current lifecycle state of the decision."
     },
     "previousRevisionId": {
@@ -137,6 +147,7 @@
     "id",
     "ifsId",
     "entityType",
+    "entityDocumentationUrl",
     "subject",
     "state",
     "eligibleMembers",

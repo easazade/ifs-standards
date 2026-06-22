@@ -22,6 +22,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "actionIds": {
       "type": "array",
       "items": {
@@ -55,7 +60,12 @@
     },
     "state": {
       "type": "string",
-      "enum": ["granted", "under-review", "revoked", "drafted"],
+      "enum": [
+        "granted",
+        "under-review",
+        "revoked",
+        "drafted"
+      ],
       "description": "Lifecycle state of the permission. Example values may include drafted, under-review, active, suspended, or revoked."
     },
     "createdAt": {
@@ -74,5 +84,15 @@
       "description": "Optional timestamp after which this permission no longer applies."
     }
   },
-  "required": ["id", "ifsId", "entityType", "actionIds", "scopeId", "state", "createdAt", "expiresAt"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl",
+    "actionIds",
+    "scopeId",
+    "state",
+    "createdAt",
+    "expiresAt"
+  ]
 }

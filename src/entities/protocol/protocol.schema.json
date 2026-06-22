@@ -22,10 +22,21 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time"
     }
   },
-  "required": ["id", "createdAt", "ifsId", "entityType"]
+  "required": [
+    "id",
+    "createdAt",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl"
+  ]
 }

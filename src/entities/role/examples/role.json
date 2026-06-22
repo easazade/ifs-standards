@@ -2,30 +2,49 @@
   "id": "a08ff49b-6f77-4263-8716-c43069c43a8c",
   "ifsId": "SC",
   "entityType": "Role",
-  "name": "oUjuzpjTJh",
-  "description": "",
-  "memberId": "1o9Sys",
-  "scopeId": "75Q4Z5h",
+  "entityDocumentationUrl": "https://example.com/api/v1/users",
+  "name": "jT",
+  "memberId": "q",
+  "scopeId": "",
   "scope": {
-    "id": "e8eb2af2-f261-465a-a81c-d424e42a8512",
-    "ifsId": "",
+    "id": "fb64afeb-ede1-40d4-b8eb-2af2f26165a8",
+    "ifsId": "eY0qk",
     "entityType": "Scope",
-    "basedOn": "OhFGnXp",
-    "name": "71alb9uS1f",
-    "description": "XXnfjzHr2",
-    "locations": ["NPoxtmq57", "u", ""],
+    "basedOn": "riOIuhies",
+    "entityDocumentationUrl": "https://test.org/items",
+    "name": "nXp97",
+    "locations": [],
     "groups": [],
-    "entities": [],
-    "parentScopeId": "t3GAQvpHV",
+    "entities": [
+      "fp1XXnfjz",
+      "r2t41"
+    ],
     "boundaryRules": {},
-    "createdAt": "2006-08-21T00:19:25Z",
-    "updatedAt": "2027-08-12T08:36:00Z",
-    "type": [],
-    "state": false
+    "createdAt": "2011-04-07T06:55:57Z",
+    "updatedAt": "2004-04-03T00:47:23Z",
+    "type": -703.1694343313575,
+    "state": {}
   },
-  "permissions": [],
+  "permissions": [
+    {
+      "id": "GAQvpHVXd",
+      "ifsId": "NO",
+      "entityType": "Permission",
+      "basedOn": "A2O",
+      "entityDocumentationUrl": "https://test.org/api/resource",
+      "actionIds": [
+        "NheYiS",
+        "NsH"
+      ],
+      "memberId": "k",
+      "scopeId": "",
+      "state": "under-review",
+      "createdAt": "2024-04-03T23:58:00Z",
+      "expiresAt": "2003-05-19T12:23:42Z"
+    }
+  ],
   "state": "drafted",
-  "createdAt": "2025-02-20T06:38:17Z",
-  "updatedAt": "2016-12-03T02:10:40Z",
-  "expiresAt": "2016-05-25T06:05:59Z"
+  "createdAt": "2008-12-20T12:02:09Z",
+  "updatedAt": "2019-03-05T15:36:01Z",
+  "expiresAt": "2000-05-21T15:47:38Z"
 }

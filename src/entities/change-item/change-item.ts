@@ -14,11 +14,15 @@ export type ChangeItem = {
   /**
    * Entity type discriminator. Always "ChangeItem" for ChangeItem entities.
    */
-  entityType: 'ChangeItem';
+  entityType: "ChangeItem";
   /**
    * Id of the object this object is derived from.
    */
   basedOn?: string;
+  /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
   /**
    * Resource category for this change item, such as rule, scope, protocol, record, or resource.
    */
@@ -26,7 +30,7 @@ export type ChangeItem = {
   /**
    * Type of operation this item proposes for the target object.
    */
-  operation: 'update' | 'create' | 'delete' | 'replace';
+  operation: "update" | "create" | "delete" | "replace";
   /**
    * Stable IFS reference for the logical object being changed. Null for create operations where no active target exists yet.
    */

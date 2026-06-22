@@ -21,6 +21,11 @@
       "type": "string",
       "description": "Id of the object this object is derived from."
     },
+    "entityDocumentationUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for documentation about this entity."
+    },
     "createdAt": {
       "type": "string",
       "format": "date-time",
@@ -48,5 +53,15 @@
       "description": "Identifier of the previous revision of this vote, if this vote amends an earlier vote."
     }
   },
-  "required": ["id", "ifsId", "entityType", "createdAt", "updatedAt", "decisionId", "memberId", "value"]
+  "required": [
+    "id",
+    "ifsId",
+    "entityType",
+    "entityDocumentationUrl",
+    "createdAt",
+    "updatedAt",
+    "decisionId",
+    "memberId",
+    "value"
+  ]
 }

@@ -18,6 +18,10 @@ export interface Action {
    */
   basedOn?: string;
   /**
+   * URL for documentation about this entity.
+   */
+  entityDocumentationUrl: string;
+  /**
    * Timestamp when this action record was created.
    */
   createdAt: string;
@@ -56,5 +60,5 @@ export interface Action {
   /**
    * Lifecycle state of the action.
    */
-  state: 'drafted' | 'under-review' | 'active' | 'suspended' | 'revoked' | 'deprecated';
+  state: "drafted" | "under-review" | "active" | "suspended" | "revoked" | "deprecated";
 }

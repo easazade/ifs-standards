@@ -3,21 +3,233 @@
   "ifsId": "A9CEizp",
   "entityType": "E",
   "basedOn": "Vrlc",
-  "subject": "KXsm",
-  "state": "rejected",
-  "eligibleMembers": [],
+  "entityDocumentationUrl": "https://test.org/v1/v1/items",
+  "subject": "VlSCV9",
+  "state": "open",
+  "previousRevision": {
+    "id": "zpj",
+    "ifsId": "JhqdM1o",
+    "entityType": "SysP75Q4Z5",
+    "basedOn": "",
+    "entityDocumentationUrl": "https://example.com/items/resource/data",
+    "subject": "P",
+    "state": "cancelled",
+    "previousRevisionId": "kyhyuOFGeY",
+    "eligibleMembers": [
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "Member",
+        "entityDocumentationUrl": "",
+        "name": "",
+        "roles": [],
+        "permissions": [],
+        "isOwner": false,
+        "createdAt": "",
+        "updatedAt": ""
+      }
+    ],
+    "affectedMembers": [],
+    "votes": [
+      {
+        "id": "",
+        "ifsId": "",
+        "entityType": "",
+        "entityDocumentationUrl": "",
+        "createdAt": "",
+        "updatedAt": "",
+        "decisionId": "",
+        "memberId": "",
+        "value": ""
+      }
+    ],
+    "eligibleMemberCount": 290,
+    "affectedMemberCount": 143,
+    "voteCount": 655,
+    "openedAt": "2010-02-04T01:18:40Z",
+    "cancelledAt": "2015-07-07T19:15:59Z",
+    "rejectedAt": "2005-01-31T07:43:51Z",
+    "createdAt": "2002-04-27T19:47:13Z",
+    "updatedAt": "2002-02-12T13:17:53Z",
+    "decidedAt": "2028-11-19T16:14:23Z"
+  },
+  "eligibleMembers": [
+    {
+      "id": "q5",
+      "ifsId": "juecWypjYt",
+      "entityType": "Member",
+      "entityDocumentationUrl": "https://test.org/data/users",
+      "name": "HV",
+      "roles": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        }
+      ],
+      "permissions": [],
+      "isOwner": true,
+      "createdAt": "2019-08-01T07:25:52Z",
+      "updatedAt": "2020-05-11T14:00:55Z"
+    }
+  ],
   "affectedMembers": [
     {
-      "id": "V9oU",
-      "ifsId": "u",
+      "id": "NheYiS",
+      "ifsId": "NsH",
       "entityType": "Member",
-      "name": "pjTJ",
-      "roles": [],
+      "entityDocumentationUrl": "https://example.com/v1",
+      "name": "cGxWqf9",
+      "roles": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        }
+      ],
+      "permissions": [],
+      "isOwner": false,
+      "createdAt": "2003-05-19T12:23:42Z",
+      "updatedAt": "2004-04-29T14:32:02Z"
+    },
+    {
+      "id": "M",
+      "ifsId": "jN",
+      "entityType": "Member",
+      "entityDocumentationUrl": "https://example.com/api",
+      "name": "POXN",
+      "roles": [
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Role",
+          "entityDocumentationUrl": "",
+          "name": "",
+          "memberId": "",
+          "scopeId": "",
+          "scope": null,
+          "permissions": [],
+          "state": "drafted",
+          "createdAt": "",
+          "updatedAt": ""
+        }
+      ],
       "permissions": [
         {
           "id": "",
           "ifsId": "",
           "entityType": "Permission",
+          "entityDocumentationUrl": "",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "entityDocumentationUrl": "",
+          "actionIds": [],
+          "scopeId": "",
+          "state": "granted",
+          "createdAt": "",
+          "expiresAt": ""
+        },
+        {
+          "id": "",
+          "ifsId": "",
+          "entityType": "Permission",
+          "entityDocumentationUrl": "",
           "actionIds": [],
           "scopeId": "",
           "state": "granted",
@@ -26,73 +238,45 @@
         }
       ],
       "isOwner": true,
-      "createdAt": "2019-11-08T23:43:24Z",
-      "updatedAt": "2009-09-29T22:41:55Z"
-    },
-    {
-      "id": "5hc1s2F6R",
-      "ifsId": "P",
-      "entityType": "Member",
-      "name": "i8kyhyuOFG",
-      "roles": [],
-      "permissions": [
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        },
-        {
-          "id": "",
-          "ifsId": "",
-          "entityType": "Permission",
-          "actionIds": [],
-          "scopeId": "",
-          "state": "granted",
-          "createdAt": "",
-          "expiresAt": ""
-        }
-      ],
-      "isOwner": false,
-      "createdAt": "2008-02-09T21:17:08Z",
-      "updatedAt": "2020-07-11T02:08:04Z"
+      "createdAt": "2026-12-01T19:32:33Z",
+      "updatedAt": "2011-02-03T16:22:00Z"
     }
   ],
   "votes": [
     {
-      "id": "OhFGnXp",
-      "ifsId": "71alb9uS1f",
-      "entityType": "1X",
-      "createdAt": "2006-02-05T09:32:17Z",
-      "updatedAt": "2027-04-28T20:37:40Z",
-      "decisionId": "xt",
-      "memberId": "q5",
-      "value": "juecWypjYt"
+      "id": "Q1EVey",
+      "ifsId": "m2WflRcX",
+      "entityType": "u40MDLBmi6",
+      "entityDocumentationUrl": "https://test.org/api/api",
+      "createdAt": "2029-04-01T11:19:58Z",
+      "updatedAt": "2019-06-01T15:01:47Z",
+      "decisionId": "lO2KKzMJW2",
+      "memberId": "VSpj",
+      "value": "x7FNAgVMV",
+      "previousRevisionId": ""
+    },
+    {
+      "id": "WntUcods",
+      "ifsId": "tzPiNXPDgz",
+      "entityType": "C49LmNMK4w",
+      "entityDocumentationUrl": "https://test.org/api",
+      "createdAt": "2015-06-24T07:48:54Z",
+      "updatedAt": "2013-03-18T12:22:57Z",
+      "decisionId": "FEcymIc",
+      "memberId": "vIoirs",
+      "value": "NKe",
+      "previousRevisionId": "W"
     }
   ],
-  "eligibleMemberCount": 428,
-  "affectedMemberCount": 687,
-  "voteCount": 345,
-  "delegateVoteCount": 536,
-  "openedAt": "2023-10-02T05:37:38Z",
-  "closedAt": "2010-06-27T15:21:21Z",
-  "verifiedAt": "2028-07-18T15:07:04Z",
-  "rejectedAt": "2022-04-20T07:32:55Z",
-  "createdAt": "2002-02-05T16:02:31Z",
-  "updatedAt": "2011-10-09T02:59:58Z",
-  "decidedAt": "2026-02-11T14:31:23Z"
+  "eligibleMemberCount": 205,
+  "affectedMemberCount": 485,
+  "voteCount": 4,
+  "delegateVoteCount": 354,
+  "openedAt": "2018-12-12T14:31:24Z",
+  "closedAt": "2002-08-21T12:01:18Z",
+  "cancelledAt": "2019-12-29T11:47:29Z",
+  "verifiedAt": "2008-12-02T08:50:51Z",
+  "approvedAt": "2023-10-20T04:03:10Z",
+  "createdAt": "2015-07-15T07:37:46Z",
+  "updatedAt": "2025-02-25T13:21:52Z"
 }

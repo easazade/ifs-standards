@@ -3,12 +3,13 @@
   "ifsId": "A9CEizp",
   "entityType": "ChangeItem",
   "basedOn": "eyVrl",
-  "resourceType": "",
-  "operation": "create",
+  "entityDocumentationUrl": "https://test.org/data/v1",
+  "resourceType": "OH",
+  "operation": "replace",
   "targetRef": null,
-  "baseRef": "HVlSCV9",
-  "proposedRef": null,
-  "description": "zpj",
-  "createdAt": "2022-07-04T06:02:37Z",
-  "updatedAt": "2026-03-31T17:24:18Z"
+  "baseRef": null,
+  "proposedRef": "juzpjTJh",
+  "description": "",
+  "createdAt": "2019-11-08T23:43:24Z",
+  "updatedAt": "2009-09-29T22:41:55Z"
 }
